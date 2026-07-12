@@ -16,11 +16,12 @@ votes = ['Alice', 'Bob', 'Alice', 'Charlie', 'Alice', 'Bob']
 # Expected Output: {'Alice': 3, 'Bob': 2, 'Charlie': 1}
 
 # --- WRITE YOUR CODE HERE ---
+voters_list = defaultdict(int)
+for voters in votes:
+    voters_list[voters] += 1
 
-
-
-
-
+print("Problem 1: ", dict(voters_list))
+    
 # PROBLEM 2: The Grade Grouper
 grades = [('Alice', 'A'), ('Bob', 'B'), ('Charlie', 'A'), ('David', 'C'), ('Eve', 'B')]
 
@@ -33,10 +34,12 @@ grades = [('Alice', 'A'), ('Bob', 'B'), ('Charlie', 'A'), ('David', 'C'), ('Eve'
 # Expected Output: {'A': ['Alice', 'Charlie'], 'B': ['Bob', 'Eve'], 'C': ['David']}
 
 # --- WRITE YOUR CODE HERE ---
+student_grades = defaultdict(list)
 
+for student, grade in grades:
+    student_grades[grade].append(student)
 
-
-
+print("Problem 2: ", dict(student_grades))
 
 # PROBLEM 3: Unique Page Visitors
 page_visits = [
@@ -53,9 +56,11 @@ page_visits = [
 # Expected Output: {'home': {'user1', 'user3'}, 'about': {'user2'}}
 
 # --- WRITE YOUR CODE HERE ---
+visitors = defaultdict(set)
+for page, guests in page_visits:
+    visitors[page].add(guests)
 
-
-
+print("Problem 3: ", dict(visitors))
 
 
 # =====================================================================
@@ -75,10 +80,13 @@ dictionary_data = [('hello', 'hola'), ('world', 'mundo')]
 # Expected Output for 'apple': NOT FOUND
 
 # --- WRITE YOUR CODE HERE ---
+data = defaultdict(lambda: "NOT FOUND")
 
+for word, translation in dictionary_data:
+    data[word] = translation
+    data[translation] = word
 
-
-
+print("Problem 4: ", data['hello'], data['world'], data['apple'])
 
 # PROBLEM 5: E-commerce Cart
 cart_adds = [
@@ -96,8 +104,14 @@ cart_adds = [
 # Expected Output: {'laptop': {'qty': 2, 'cost': 2000.0}, 'mouse': {'qty': 2, 'cost': 50.0}}
 
 # --- WRITE YOUR CODE HERE ---
+cart_items = defaultdict(lambda: {'qty': 0, 'cost': 0.0})
 
+for item, quantity, price in cart_adds:
+    cost = quantity * price
+    cart_items[item]['qty'] += quantity
+    cart_items[item]['cost'] += cost
 
+print("Problem 5: ", dict(cart_items))
 
 
 
