@@ -163,7 +163,7 @@ print("Problem 7: ", dict(bylength))
 # =====================================================================
 
 # PROBLEM 8: The Pixel Canvas
-paints = [(0, 0, "red"), (1, 2, "blue"), (0, 0, "black")]
+paints = [(0, 0, "red"), (1, 2, "blue"), (0, 0, "black"), (2, 4, "purple")]
 
 # ### GUIDANCE ###
 # 1. You are building a 2D grid: `canvas[x][y] = color`. 
@@ -174,10 +174,12 @@ paints = [(0, 0, "red"), (1, 2, "blue"), (0, 0, "black")]
 # 5. Print `canvas[0][0]` (should be "black") and `canvas[5][5]` (should be "white").
 
 # --- WRITE YOUR CODE HERE ---
+canvas = defaultdict(lambda: defaultdict(lambda: "white"))
 
+for x, y, z in paints:
+    canvas[x][y] = z
 
-
-
+print("Problem 8: ", canvas[0][0], canvas[1][2], canvas[2][4], canvas[5][5])
 
 # PROBLEM 9: Server Log Aggregation
 logs = [
@@ -194,9 +196,12 @@ logs = [
 # Expected Output: {'Server_A': {404: 2, 500: 1}, 'Server_B': {404: 1}}
 
 # --- WRITE YOUR CODE HERE ---
+error_codes = defaultdict(lambda: defaultdict(int))
 
+for server, log in logs:
+    error_codes[server][log] += 1
 
-
+print("Problem 9: ", dict(error_codes))
 
 
 # =====================================================================
@@ -214,3 +219,12 @@ logs = [
 # 5. To verify it worked, print `file_system['var']['log']['syslog']`.
 
 # --- WRITE YOUR CODE HERE ---
+def tree():
+    return defaultdict(tree)
+
+file_system = tree()
+
+file_system['var']['log']['syslog'] = '2MB'
+file_system['home']['user']['documents']['resune.pdf'] = '500KB' 
+
+print(file_system['var']['log']['syslog'])
