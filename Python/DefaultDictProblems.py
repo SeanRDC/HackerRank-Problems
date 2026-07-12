@@ -131,9 +131,12 @@ follows = [("Alice", "Bob"), ("Alice", "Charlie"), ("Bob", "David"), ("Charlie",
 # Expected Output: {'Alice': ['Bob', 'Charlie'], 'Bob': ['David'], 'Charlie': ['David']}
 
 # --- WRITE YOUR CODE HERE ---
+heads = defaultdict(list)
 
+for follower, followed in follows:
+    heads[follower].append(followed)
 
-
+print("Problem 6: ", dict(heads))
 
 
 # PROBLEM 7: Grouping by Word Length
@@ -147,10 +150,13 @@ vocab = ["cat", "dog", "elephant", "mouse", "rat", "bat"]
 # Expected Output: {3: ['cat', 'dog', 'rat', 'bat'], 8: ['elephant'], 5: ['mouse']}
 
 # --- WRITE YOUR CODE HERE ---
+bylength = defaultdict(list)
 
+for animals in vocab:
+    length_of_word = len(animals)
+    bylength[length_of_word].append(animals)
 
-
-
+print("Problem 7: ", dict(bylength))
 
 # =====================================================================
 # LEVEL 4: NESTED DEFAULTDICTS (Mind-Benders)
