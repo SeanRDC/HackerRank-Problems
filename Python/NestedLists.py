@@ -1,20 +1,20 @@
 # ==========================================
 # SET 1: BUILDING THE ROSTER (NESTED LISTS)
 # ==========================================
-
+def pass_problem():
 # Problem 1: Create an empty list called `roster`.
-roster = []
+    roster = []
 
 # Problem 2: Append a nested list representing one student to `roster`.
 # Mock Input: name = "Harry", score = 37.21
 # Expected Output of roster: [['Harry', 37.21]]
-roster.append(['Harry', 37.21])
+    roster.append(['Harry', 37.21])
 
 # Problem 3: Append a second student to `roster`.
 # Mock Input: name = "Berry", score = 37.21
 # Expected Output of roster: [['Harry', 37.21], ['Berry', 37.21]]
-roster.append(['Berry', 37.21])
-print(roster)
+    roster.append(['Berry', 37.21])
+    print(roster)
 
 # Problem 4: Write a `for` loop that runs `n` times. Inside the loop, take two inputs 
 # (a string for name, a float for grade), and append them as a pair to `roster`.
@@ -25,29 +25,36 @@ print(roster)
 # Akriti
 # 41.0
 # Expected Output of roster: [['Tina', 37.2], ['Akriti', 41.0]]
-n = int(input())
+    n = int(input())
 
-for i in range(n):
-    name = input()
-    grade = float(input())
-    roster.append([name, grade])
-print(roster)
-    
+    for i in range(n):
+        name = input()
+        grade = float(input())
+        roster.append([name, grade])
+    print(roster)
+pass
 # ==========================================
 # SET 2: EXTRACTING THE GRADES
 # ==========================================
 
 # Use this mock roster for Sets 2, 3, and 4:
-# roster = [['Harry', 37.21], ['Berry', 37.21], ['Tina', 37.2], ['Akriti', 41.0], ['Harsh', 39.0]]
+roster = [['Harry', 37.21], ['Berry', 37.21], ['Tina', 37.2], ['Akriti', 41.0], ['Harsh', 39.0]]
 
 # Problem 5: Using bracket indexing, print only the grade of the first student in `roster`.
 # Expected Output: 37.21
+print(roster[0][1])
 
 # Problem 6: Create an empty list called `all_grades`. Loop through `roster` and append ONLY the grades to it.
 # Expected Output: [37.21, 37.21, 37.2, 41.0, 39.0]
+all_grades = []
+for i in roster:
+    all_grades.append(i[1])
+    
+print(all_grades)
 
 # Problem 7: Do the exact same thing as Problem 6, but compress it into a single list comprehension!
-
+all_grades = [i[1] for i in roster]
+print(all_grades)
 
 # ==========================================
 # SET 3: FINDING THE TARGET SCORE
