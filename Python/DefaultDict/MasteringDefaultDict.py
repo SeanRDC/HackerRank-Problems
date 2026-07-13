@@ -193,7 +193,7 @@ def pass_elements():
         print('Found!')
     else:
         print('-1')
-pass
+
 
 # PROBLEM 14: Printing the Value
 # Concept: If the key is found, we want the list, not just the word "Found".
@@ -202,10 +202,10 @@ pass
 # Expected Output: [1, 5]
 
 # --- WRITE YOUR CODE HERE ---
-my_dict = {'apple': [1, 5]}
+    my_dict = {'apple': [1, 5]}
 
-if 'apple' in my_dict:
-    print(my_dict['apple'])
+    if 'apple' in my_dict:
+        print(my_dict['apple'])
 
 # PROBLEM 15: SYNTHESIS (Processing Group B safely)
 # Task: Combine 11-14. 
@@ -218,17 +218,17 @@ if 'apple' in my_dict:
 # Expected Output for mouse: -1
 
 # --- WRITE YOUR CODE HERE ---
-m = 2
-group_a = {
-    'cat': [1, 3]
-}
+    m = 2
+    group_a = {
+        'cat': [1, 3]
+    }
 
-for i in range(m):
-    word = input()
-    if word in group_a:
-        print(group_a[word])
-    else:
-        print('-1')
+    for i in range(m):
+        word = input()
+        if word in group_a:
+            print(group_a[word])
+        else:
+            print('-1')
 
 # =====================================================================
 # SET 4: UNPACKING AND FINAL ASSEMBLY
@@ -240,7 +240,8 @@ for i in range(m):
 # Expected Output: [1, 2, 3]
 
 # --- WRITE YOUR CODE HERE ---
-
+    my_list = [1, 2, 3]
+    print(my_list)
 
 
 # PROBLEM 17: The Asterisk (*) Unpacker
@@ -250,7 +251,7 @@ for i in range(m):
 # Expected Output: 1 2 3
 
 # --- WRITE YOUR CODE HERE ---
-
+    print(*my_list)
 
 
 # PROBLEM 18: Fixing Problem 15's Output
@@ -260,8 +261,14 @@ for i in range(m):
 # Expected Output: 1 3
 
 # --- WRITE YOUR CODE HERE ---
+    group_a = {
+        'cat': [1, 3]
+    }
+    word = 'cat'
 
-
+    if word in group_a:
+        print(*group_a['cat'])
+pass
 
 # PROBLEM 19: The Skeleton (Mental Prep)
 # Task: Do NOT write any code here. Just read and understand the flow:
@@ -272,7 +279,7 @@ for i in range(m):
 # (Just type "Understood" in a comment when you are ready).
 
 # --- WRITE YOUR CODE HERE ---
-
+# understood
 
 
 # PROBLEM 20: THE FINAL EXAM
@@ -287,3 +294,16 @@ for i in range(m):
 # -1
 
 # --- WRITE YOUR CODE HERE ---
+n, m = map(int, input('[n]Number of words to be entered, [m]Number of times to be checked: ').split())
+
+def_dict = defaultdict(list)
+
+for i in range(n):
+    word = input(f'{n} Words to put in the dictionary {i+1}: ')
+    def_dict[word].append(i + 1)
+for j in range(m):
+    word = input(f'{m} Check the words {def_dict[word]} if in the dictionary {j+1}: ')
+    if word in def_dict:
+        print(*def_dict[word])
+    else:
+        print('-1')
