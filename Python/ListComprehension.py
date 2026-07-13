@@ -41,14 +41,14 @@ def pass_problem():
 
     coords = [i for i in range(x + 1)]
     print(coords)
-pass
+
 # PROBLEM 5: SYNTHESIS (The 1D Comp)
 # INSTRUCTIONS: Get an integer input for x. Print a list of numbers from 0 to x using a 1-line list comprehension.
 # MOCK INPUT: 3
 # EXPECTED OUTPUT: [0, 1, 2, 3]
-x = int(input())
-coords = [i for i in range(x + 1)]
-print(coords)
+    x = int(input())
+    coords = [i for i in range(x + 1)]
+    print(coords)
 
 
 # ==========================================
@@ -63,31 +63,62 @@ print(coords)
 # 0 1
 # 1 0
 # 1 1
-
+    x = 1
+    y = 1
+    for i in range(x + 1):
+        for j in range(y + 1):
+            print(f'{i} {j}')
 
 # PROBLEM 7: The 2D List Comprehension
 # INSTRUCTIONS: Set x = 1 and y = 1. Create a 2D comprehension: [i for i in range(...) for j in range(...)]. Print the list.
 # MOCK INPUT: (None)
 # EXPECTED OUTPUT: [0, 0, 1, 1]
-
+    x = 1
+    y = 1
+    coords = [i for i in range(x + 1) for j in range(y + 1)]
+    print(coords)
 
 # PROBLEM 8: Generating Coordinates [i, j]
 # INSTRUCTIONS: Set x = 1, y = 1. Modify Problem 7. Instead of just putting 'i' in the list, put the list pair [i, j] into the list. Print it.
 # MOCK INPUT: (None)
 # EXPECTED OUTPUT: [[0, 0], [0, 1], [1, 0], [1, 1]]
+    x = 1
+    y = 1
+    coords = [[i, j] for i in range(x + 1) for j in range(y + 1)]
+    print(coords)
 
+    # other version
+    coords2 = []
+
+    for i in range(x + 1):
+        for j in range (y + 1):
+            coords2.append([i, j])
+    print(coords2)
 
 # PROBLEM 9: Adding the Third Dimension (3D)
 # INSTRUCTIONS: Set x = 1, y = 1, z = 1. Write a traditional nested loop with THREE levels (i, j, k). Append the coordinate [i, j, k] to an empty list. Print the list.
 # MOCK INPUT: (None)
 # EXPECTED OUTPUT: [[0, 0, 0], [0, 0, 1], [0, 1, 0], [0, 1, 1], [1, 0, 0], [1, 0, 1], [1, 1, 0], [1, 1, 1]]
+    x = 1
+    y = 1
+    z = 1
+    coords3 = []
 
-
+    for i in range(x + 1):
+        for j in range(y + 1):
+            for k in range(z + 1):
+                coords3.append([i, j, k])
+    print(coords3)
+pass
 # PROBLEM 10: SYNTHESIS (The 3D Grid)
 # INSTRUCTIONS: Set x = 1, y = 1, z = 1. Condense Problem 9 into a single 1-line list comprehension. Print it.
 # MOCK INPUT: (None)
 # EXPECTED OUTPUT: [[0, 0, 0], [0, 0, 1], [0, 1, 0], [0, 1, 1], [1, 0, 0], [1, 0, 1], [1, 1, 0], [1, 1, 1]]
-
+x = 1
+y = 1
+z = 1
+coords = [[i, j, k] for i in range(x + 1) for j in range(y + 1) for k in range(z + 1)]
+print(coords)
 
 
 # ==========================================
