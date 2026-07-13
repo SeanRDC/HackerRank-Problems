@@ -198,25 +198,30 @@ pass
 # 1
 # 2
 # EXPECTED OUTPUT: x=1, y=1, z=1, n=2
-
+x = int(input())
+y = int(input())
+z = int(input())
+n = int(input())
+print(f"x={x}, y={y}, z={z}, n={n}")
 
 # PROBLEM 17: Lexicographic Order Check
 # INSTRUCTIONS: Good news: Python's nested loops automatically generate lists in "lexicographic increasing order". You don't need to sort anything. To pass this step, just print 'Order is automatic!'.
 # MOCK INPUT: (None)
 # EXPECTED OUTPUT: Order is automatic!
-
+print("Order is automatic!")
 
 # PROBLEM 18: Printing a Raw List of Lists
 # INSTRUCTIONS: Set my_list = [[0, 0, 0], [1, 1, 1]]. Just print(my_list). Do NOT use the asterisk (*). HackerRank wants the brackets this time.
 # MOCK INPUT: (None)
 # EXPECTED OUTPUT: [[0, 0, 0], [1, 1, 1]]
-
+my_list = [[0, 0, 0], [1, 1, 1]]
+print(my_list)
 
 # PROBLEM 19: The Skeleton
 # INSTRUCTIONS: Print the string 'Ready!'. (The logic is: 1. Get 4 inputs. 2. Write a 3D comprehension generating [i, j, k]. 3. Filter where i+j+k != n. 4. Print it.)
 # MOCK INPUT: (None)
 # EXPECTED OUTPUT: Ready!
-
+print("Ready!")
 
 # PROBLEM 20: THE FINAL EXAM
 # INSTRUCTIONS: Combine everything! Take 4 inputs (x, y, z, n) and print the filtered 3D grid in exactly ONE print statement containing the list comprehension.
@@ -226,3 +231,20 @@ pass
 # 1
 # 2
 # EXPECTED OUTPUT: [[0, 0, 0], [0, 0, 1], [0, 1, 0], [1, 0, 0], [1, 1, 1]]
+x = int(input())
+y = int(input())
+z = int(input())
+n = int(input())
+
+coords = [[i, j, k] for i in range(x+1) for j in range(y+1) for k in range(z+1) if (i + j + k) !=n]
+print(coords)
+
+# expanded form
+coords2 = []
+for i in range(x + 1):
+    for j in range(y + 1):
+        for k in range(z + 1):
+            total = i + j + k
+            if total != n:
+                coords2.append([i, j, k])
+print(coords2)
