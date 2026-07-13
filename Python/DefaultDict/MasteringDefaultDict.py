@@ -9,7 +9,8 @@
 # Expected Output: '5 2'
 
 # --- WRITE YOUR CODE HERE ---
-
+user_input = input()
+print(user_input)
 
 
 # PROBLEM 2: The Split
@@ -18,7 +19,8 @@
 # Expected Output: ['5', '2']
 
 # --- WRITE YOUR CODE HERE ---
-
+user_input = input().split()
+print(user_input)
 
 
 # PROBLEM 3: The Map
@@ -28,6 +30,10 @@
 # Expected Output: [5, 2]
 
 # --- WRITE YOUR CODE HERE ---
+user_input = input().split()
+mapped = map(int, user_input)
+converted = list(mapped)
+print(converted)
 
 
 
@@ -38,6 +44,8 @@
 # Expected Output: n is 5, m is 2
 
 # --- WRITE YOUR CODE HERE ---
+n, m = input().split()
+print(f'n is {n}, m is {m}')
 
 
 
@@ -49,8 +57,8 @@
 # Expected Output: 5 2
 
 # --- WRITE YOUR CODE HERE ---
-
-
+n, m = map(int, input().split())
+print(n, m)
 
 
 
