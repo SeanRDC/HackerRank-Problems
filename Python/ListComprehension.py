@@ -1,14 +1,16 @@
 # ==========================================
 # SET 1: THE INCLUSIVE LOOP (1D)
 # ==========================================
-
+def pass_problem():
 # PROBLEM 1: The Vertical Inputs
 # INSTRUCTIONS: Call input() twice. Convert both to integers. Assign to x and y. Print them using an f-string.
 # MOCK INPUT:
 # 1
 # 2
 # EXPECTED OUTPUT: x is 1, y is 2
-
+    x = int(input())
+    y = int(input())
+    print(f'x is {x}, y is {y}')
 
 # PROBLEM 2: The Inclusive Range
 # INSTRUCTIONS: Set x = 1. Write a for loop using range() that prints 0 and then 1. Remember range(x) stops at x-1.
@@ -16,25 +18,37 @@
 # EXPECTED OUTPUT:
 # 0
 # 1
-
+    x = 1
+    for i in range(x + 1):
+        print(i)
 
 # PROBLEM 3: The Traditional Append
 # INSTRUCTIONS: Set x = 2. Create an empty list called 'coords'. Loop from 0 to x (inclusive). Append each number to the list. Print the list.
 # MOCK INPUT: (None)
 # EXPECTED OUTPUT: [0, 1, 2]
+    x = 2
+    coords = []
 
+    for i in range(x + 1):
+        coords.append(i)
+    print(coords)
 
 # PROBLEM 4: The 1D List Comprehension
 # INSTRUCTIONS: Set x = 2. Do exactly what you did in Problem 3, but in ONE line of code using a list comprehension: [expression for item in iterable]. Print it.
 # MOCK INPUT: (None)
 # EXPECTED OUTPUT: [0, 1, 2]
+    x = 2
 
-
+    coords = [i for i in range(x + 1)]
+    print(coords)
+pass
 # PROBLEM 5: SYNTHESIS (The 1D Comp)
 # INSTRUCTIONS: Get an integer input for x. Print a list of numbers from 0 to x using a 1-line list comprehension.
 # MOCK INPUT: 3
 # EXPECTED OUTPUT: [0, 1, 2, 3]
-
+x = int(input())
+coords = [i for i in range(x + 1)]
+print(coords)
 
 
 # ==========================================
