@@ -1,16 +1,16 @@
 # =====================================================================
 # SET 1: MASTERING THE FIRST LINE (n, m = map(int, input().split()))
 # =====================================================================
-
+from collections import defaultdict
 # PROBLEM 1: The Raw Input
 # Concept: `input()` grabs an entire line of text as a single string.
 # Task: Ask the user for input and print exactly what they typed.
 # Mock Input to type: 5 2
 # Expected Output: '5 2'
-
+def pass_elements():
 # --- WRITE YOUR CODE HERE ---
-user_input = input()
-print(user_input)
+    user_input = input()
+    print(user_input)
 
 
 # PROBLEM 2: The Split
@@ -19,8 +19,8 @@ print(user_input)
 # Expected Output: ['5', '2']
 
 # --- WRITE YOUR CODE HERE ---
-user_input = input().split()
-print(user_input)
+    user_input = input().split()
+    print(user_input)
 
 
 # PROBLEM 3: The Map
@@ -30,10 +30,10 @@ print(user_input)
 # Expected Output: [5, 2]
 
 # --- WRITE YOUR CODE HERE ---
-user_input = input().split()
-mapped = map(int, user_input)
-converted = list(mapped)
-print(converted)
+    user_input = input().split()
+    mapped = map(int, user_input)
+    converted = list(mapped)
+    print(converted)
 
 
 
@@ -44,8 +44,8 @@ print(converted)
 # Expected Output: n is 5, m is 2
 
 # --- WRITE YOUR CODE HERE ---
-n, m = input().split()
-print(f'n is {n}, m is {m}')
+    n, m = input().split()
+    print(f'n is {n}, m is {m}')
 
 
 
@@ -57,8 +57,8 @@ print(f'n is {n}, m is {m}')
 # Expected Output: 5 2
 
 # --- WRITE YOUR CODE HERE ---
-n, m = map(int, input().split())
-print(n, m)
+    n, m = map(int, input().split())
+    print(n, m)
 
 
 
@@ -75,7 +75,9 @@ print(n, m)
 # 2
 
 # --- WRITE YOUR CODE HERE ---
-
+    n = 3
+    for i in range(n):
+        print(i)
 
 
 # PROBLEM 7: The +1 Shift
@@ -87,7 +89,9 @@ print(n, m)
 # 3
 
 # --- WRITE YOUR CODE HERE ---
-
+    n = 3
+    for i in range(n):
+        print(i + 1)
 
 
 # PROBLEM 8: Looped Inputs
@@ -97,7 +101,13 @@ print(n, m)
 # Mock Inputs to type: apple, banana
 
 # --- WRITE YOUR CODE HERE ---
-
+    n = 2
+    empty = []
+    for i in range(n):
+        word = input()
+        empty.append(word)
+        
+    print(*empty, sep=", ") # prints them just like the mock input
 
 
 # PROBLEM 9: Appending to Defaultdict
@@ -107,7 +117,11 @@ print(n, m)
 # Expected Output: {'cat': [1]}
 
 # --- WRITE YOUR CODE HERE ---
+    group_a = defaultdict(list)
+    word = 'cat'
+    group_a[word].append(1)
 
+    print(dict(group_a))
 
 
 # PROBLEM 10: SYNTHESIS (Building Group A)
@@ -122,8 +136,15 @@ print(n, m)
 # Expected Output: {'cat': [1, 3], 'dog': [2]}
 
 # --- WRITE YOUR CODE HERE ---
+    group_a = defaultdict(list)
+    n = 3
 
-
+    for i in range(n):
+        word = input()
+        group_a[word].append(i + 1)
+        
+    print(dict(group_a))
+pass
 
 
 
