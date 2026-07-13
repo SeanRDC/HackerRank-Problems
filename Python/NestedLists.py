@@ -3,14 +3,18 @@
 # ==========================================
 
 # Problem 1: Create an empty list called `roster`.
+roster = []
 
 # Problem 2: Append a nested list representing one student to `roster`.
 # Mock Input: name = "Harry", score = 37.21
 # Expected Output of roster: [['Harry', 37.21]]
+roster.append(['Harry', 37.21])
 
 # Problem 3: Append a second student to `roster`.
 # Mock Input: name = "Berry", score = 37.21
 # Expected Output of roster: [['Harry', 37.21], ['Berry', 37.21]]
+roster.append(['Berry', 37.21])
+print(roster)
 
 # Problem 4: Write a `for` loop that runs `n` times. Inside the loop, take two inputs 
 # (a string for name, a float for grade), and append them as a pair to `roster`.
@@ -21,8 +25,14 @@
 # Akriti
 # 41.0
 # Expected Output of roster: [['Tina', 37.2], ['Akriti', 41.0]]
+n = int(input())
 
-
+for i in range(n):
+    name = input()
+    grade = float(input())
+    roster.append([name, grade])
+print(roster)
+    
 # ==========================================
 # SET 2: EXTRACTING THE GRADES
 # ==========================================
