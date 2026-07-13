@@ -74,37 +74,36 @@ def pass_problem():
 # Expected Output: 37.21
     target_score = convert_list[1]
     print(target_score)
-pass
 
 # Problem 11: Combine Problems 7, 8, 9, and 10 to find the `target_score` in as few lines as possible.
-roster = [['Harry', 37.21], ['Berry', 37.21], ['Tina', 37.2], ['Akriti', 41.0], ['Harsh', 39.0]]
+    roster = [['Harry', 37.21], ['Berry', 37.21], ['Tina', 37.2], ['Akriti', 41.0], ['Harsh', 39.0]]
 
-all_grades = [i[1] for i in roster]
-convert = list(set(all_grades))
-convert.sort()
-target_score = convert[1]
-print(target_score)
+    all_grades = [i[1] for i in roster]
+    convert = list(set(all_grades))
+    convert.sort()
+    target_score = convert[1]
+    print(target_score)
 
 # ==========================================
 # SET 4: THE HUNT (MATCHING SCORE TO NAMES)
 # ==========================================
 
 # Problem 12: Create an empty list called `second_lowest_students`.
-second_lowest_students = []
+    second_lowest_students = []
 
 # Problem 13: Write a `for` loop that iterates through every `student` in `roster`.
 # Problem 14: Inside that loop, write an `if` statement to check if the student's grade equals your `target_score`.
 # Problem 15: If the grade matches, append the student's NAME (not their grade) to `second_lowest_students`.
 # Expected Output of second_lowest_students: ['Harry', 'Berry']
-for i in roster:
-    if i[1] == target_score:
-        second_lowest_students.append(i[0])
+    for i in roster:
+        if i[1] == target_score:
+            second_lowest_students.append(i[0])
 
-print(second_lowest_students)
+    print(second_lowest_students)
 
 # Problem 16: Rewrite Problems 12-15 as a single list comprehension with an `if` statement at the end!
-second_lowest_students = [i[0] for i in roster if i[1] == target_score]
-print(second_lowest_students)
+    second_lowest_students = [i[0] for i in roster if i[1] == target_score]
+    print(second_lowest_students)
 
 # ==========================================
 # SET 5: THE GRAND FINALE (SORT & PRINT)
@@ -112,13 +111,37 @@ print(second_lowest_students)
 
 # Problem 17: Take your `second_lowest_students` list and sort it alphabetically.
 # Expected Output: ['Berry', 'Harry']
-
+    sorted_list = sorted(second_lowest_students)
+    print(sorted_list)
 # Problem 18: Write a simple `for` loop to print each name in your sorted list on a new line.
 # Expected Output:
 # Berry
 # Harry
+    for i in sorted_list:
+        print(i)
 
 # Problem 19: Instead of a loop, use the string `.join()` method to print the sorted list with newline characters ('\n').
-
+    join_func = '\n'.join(sorted_list)
+    print(join_func)
+pass
 # Problem 20: THE FINAL EXAM!
-# Put it all together. Read `n`, loop to build the roster, find the target score, find the matching names, sort them, and print them!
+# Put it all together. Read `n`, loop to build the roster, find the target score, find the matching names, sort them, and print them!, target score is the higest score
+if __name__ == '__main__':
+    roster = []
+    
+    for _ in range(int(input())):
+        name = input()
+        score = float(input())
+        roster.append([name, score])
+        
+    all_grades = [i[1] for i in roster]
+    convert = list(set(all_grades))
+    convert.sort()
+    target_score = convert[1]
+
+    second_lowest_students = [i[0] for i in roster if i[1] == target_score]
+
+    sorted_list = sorted(second_lowest_students)
+    join_func = '\n'.join(sorted_list)
+
+    print(join_func)
