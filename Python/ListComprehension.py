@@ -109,16 +109,16 @@ def pass_problem():
             for k in range(z + 1):
                 coords3.append([i, j, k])
     print(coords3)
-pass
+
 # PROBLEM 10: SYNTHESIS (The 3D Grid)
 # INSTRUCTIONS: Set x = 1, y = 1, z = 1. Condense Problem 9 into a single 1-line list comprehension. Print it.
 # MOCK INPUT: (None)
 # EXPECTED OUTPUT: [[0, 0, 0], [0, 0, 1], [0, 1, 0], [0, 1, 1], [1, 0, 0], [1, 0, 1], [1, 1, 0], [1, 1, 1]]
-x = 1
-y = 1
-z = 1
-coords = [[i, j, k] for i in range(x + 1) for j in range(y + 1) for k in range(z + 1)]
-print(coords)
+    x = 1
+    y = 1
+    z = 1
+    coords = [[i, j, k] for i in range(x + 1) for j in range(y + 1) for k in range(z + 1)]
+    print(coords)
 
 
 # ==========================================
@@ -129,32 +129,62 @@ print(coords)
 # INSTRUCTIONS: Set n = 2 and my_sum = 3. Write an if statement checking if my_sum is NOT EQUAL to n. If true, print 'Valid!'.
 # MOCK INPUT: (None)
 # EXPECTED OUTPUT: Valid!
+    n = 2
+    my_sum = 3
 
+    if my_sum != n:
+        print('Valid!')
 
 # PROBLEM 12: Appending with a Condition
 # INSTRUCTIONS: Set n = 2. Create an empty list. Loop i from 0 to 3. If i is NOT EQUAL to n, append it to the list. Print the list.
 # MOCK INPUT: (None)
 # EXPECTED OUTPUT: [0, 1, 3]
+    n = 2
+    e_list = []
 
+    for i in range(4):
+        if i != n:
+            e_list.append(i)
+    print(e_list)
 
 # PROBLEM 13: Filtering a 1D Comprehension
-# INSTRUCTIONS: Set n = 2. Convert Problem 12 into a 1-line list comprehension by adding an 'if' at the end: [i for i in range(...) if i != n]. Print it.
+# INSTRUCTIONS: Set n = 2. Convert Problem 12 into a 1-line list comprehension by adding an 'if' at the end: [i for i in range(...) if i != n]. Print it. [expression for item in iterable if condition]
 # MOCK INPUT: (None)
 # EXPECTED OUTPUT: [0, 1, 3]
-
+    n = 2
+    e_list = [i for i in range(4) if i !=n]
+    print(e_list)
 
 # PROBLEM 14: Filtering by Sum (i + j != n)
 # INSTRUCTIONS: Set x = 1, y = 1, n = 1. Write a 2D list comprehension for [i, j]. Add a filter at the end so it only includes coordinates where (i + j) is not equal to n. Print it.
 # MOCK INPUT: (None)
 # EXPECTED OUTPUT: [[0, 0], [1, 1]]
+    x = 1
+    y = 1
+    n = 1
+    coords = [[i, j] for i in range(x + 1) for j in range(y + 1) if (i + j) != n]
+    print(coords)
+    # expanded form
+    coords2 = []
+    for i in range(x + 1):
+        for j in range(y + 1):
+            total = i + j
+            if total != n:
+                coords2.append([i, j])
+    print(coords2)
 
 
 # PROBLEM 15: SYNTHESIS (Filtered Coordinates)
 # INSTRUCTIONS: Set x = 1, y = 1, z = 1, n = 2. Write a 3D list comprehension for [i, j, k]. Filter so it only includes coordinates where (i + j + k) != n. Print it.
 # MOCK INPUT: (None)
 # EXPECTED OUTPUT: [[0, 0, 0], [0, 0, 1], [0, 1, 0], [1, 0, 0], [1, 1, 1]]
-
-
+    x = 1
+    y = 1
+    z = 1
+    n = 2
+    coords = [[i, j, k] for i in range(x + 1) for j in range(y + 1) for k in range(z + 1) if (i + j + k) != n]
+    print(coords)
+pass
 
 # ==========================================
 # SET 4: THE HACKERRANK ENVIRONMENT
