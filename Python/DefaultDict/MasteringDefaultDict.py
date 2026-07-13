@@ -144,7 +144,7 @@ def pass_elements():
         group_a[word].append(i + 1)
         
     print(dict(group_a))
-pass
+
 
 
 
@@ -159,7 +159,11 @@ pass
 # Mock Inputs to type: dog, bird
 
 # --- WRITE YOUR CODE HERE ---
+    m = 2
 
+    for i in range(m):
+        word = input()
+        print(f'searching for {word}')
 
 
 # PROBLEM 12: The 'in' Keyword
@@ -169,7 +173,12 @@ pass
 # Expected Output: Found!
 
 # --- WRITE YOUR CODE HERE ---
+    my_dict = {
+        'apple': [1]
+    }
 
+    if 'apple' in my_dict:
+        print('Found!')
 
 
 # PROBLEM 13: The 'else' Fallback
@@ -180,8 +189,11 @@ pass
 # Expected Output: -1
 
 # --- WRITE YOUR CODE HERE ---
-
-
+    if 'banana' in my_dict:
+        print('Found!')
+    else:
+        print('-1')
+pass
 
 # PROBLEM 14: Printing the Value
 # Concept: If the key is found, we want the list, not just the word "Found".
@@ -190,8 +202,10 @@ pass
 # Expected Output: [1, 5]
 
 # --- WRITE YOUR CODE HERE ---
+my_dict = {'apple': [1, 5]}
 
-
+if 'apple' in my_dict:
+    print(my_dict['apple'])
 
 # PROBLEM 15: SYNTHESIS (Processing Group B safely)
 # Task: Combine 11-14. 
@@ -204,10 +218,17 @@ pass
 # Expected Output for mouse: -1
 
 # --- WRITE YOUR CODE HERE ---
+m = 2
+group_a = {
+    'cat': [1, 3]
+}
 
-
-
-
+for i in range(m):
+    word = input()
+    if word in group_a:
+        print(group_a[word])
+    else:
+        print('-1')
 
 # =====================================================================
 # SET 4: UNPACKING AND FINAL ASSEMBLY
