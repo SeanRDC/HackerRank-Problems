@@ -5,25 +5,39 @@
 # Problem 1: Print the list of scores belonging to the hardcoded key 'Krishna'.
 # Mock Input: student_marks = {'Krishna': [67.0, 68.0, 69.0], 'Arjun': [70.0, 98.0, 63.0]}
 # Expected Output: [67.0, 68.0, 69.0]
+student_marks = {
+    'krishna': [67.0, 68.0, 69.0],
+    'Arjun': [70.0, 98.0, 63.0]
+}
+print(student_marks['krishna'])
 
 # Problem 2: Create a variable called `query_name` and set it to 'Malika'. 
 # Print the scores for that student by passing `query_name` into the dictionary brackets.
 # Mock Input: student_marks = {'Malika': [52.0, 56.0, 60.0]}
 # Expected Output: [52.0, 56.0, 60.0]
+student_marks = {'Malika': [52.0, 56.0, 60.0]}
+query_name = 'Malika'
+print(query_name)
 
 # Problem 3: Extract Malika's list of scores using `query_name` and save it to a new variable called `active_scores`. Print `active_scores`.
 # Mock Input: query_name = 'Malika', student_marks = {'Malika': [52.0, 56.0, 60.0]}
 # Expected Output: [52.0, 56.0, 60.0]
+active_scores = student_marks[query_name]
+print(active_scores)
 
 # Problem 4: Using bracket indexing, print the VERY FIRST score inside your `active_scores` list.
 # Mock Input: active_scores = [52.0, 56.0, 60.0]
 # Expected Output: 52.0
+print(active_scores[0])
 
 # Problem 5 (MINI-BOSS: COMBINE 1-4): 
 # Given the dictionary and query_name below, extract the student's list of scores, save it to a variable, and print the LAST score in their list using negative indexing.
 # Mock Input: student_marks = {'Harsh': [25.0, 26.5, 28.0]}, query_name = 'Harsh'
 # Expected Output: 28.0
-
+student_marks = {'Harsh': [25.0, 26.5, 28.0]}
+query_name = 'Harsh'
+active_scores = student_marks[query_name]
+print(active_scores[-1])
 
 # ==========================================
 # SET 2: MATH & AVERAGES
