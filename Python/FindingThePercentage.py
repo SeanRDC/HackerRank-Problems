@@ -79,26 +79,31 @@ print(average3)
 # ==========================================
 
 # Problem 11: Try using `round(number, 2)` on `avg_score`. Print it. Notice it FAILS to add the trailing zero!
-# Mock Input: avg_score = 56.0
+avg_score = 56.0
 # Expected Output: 56.0 
+print(round(avg_score, 2))
 
 # Problem 12: Format `avg_score` to exactly 2 decimal places using an f-string: f"{variable:.2f}". Print it.
 # Mock Input: avg_score = 56.0
 # Expected Output: 56.00
+print(f'{avg_score:.2f}')
 
 # Problem 13: Change `avg_score` to 26.5. Print it using the EXACT SAME f-string formatting.
-# Mock Input: avg_score = 26.5
+avg_score = 26.5
 # Expected Output: 26.50
+print(f'{avg_score:.2f}')
 
 # Problem 14: Change `avg_score` to 33.333333. Print it using the EXACT SAME f-string formatting.
-# Mock Input: avg_score = 33.333333
+avg_score = 33.333333
 # Expected Output: 33.33
+print(f'{avg_score:.2f}')
 
 # Problem 15 (MINI-BOSS: COMBINE 11-14 + SET 2): 
 # Calculate the average of `format_list`, and print the result completely formatted to 2 decimal places using an f-string.
-# Mock Input: format_list = [26.0, 28.0, 30.0]
+format_list = [26.0, 28.0, 30.0]
 # Expected Output: 28.00
-
+average = sum(format_list) / len(format_list)
+print(f'{average:.2f}')
 
 # ==========================================
 # SET 4: UNPACKING HACKERRANK'S MAGIC STUB
