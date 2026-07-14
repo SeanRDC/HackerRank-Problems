@@ -71,44 +71,79 @@ print(pop_input)
 # If the length is only 1, set `target = None`. Print `cmd` and `target`.
 # Mock Input 1: boss_input = "discard 5" -> Expected Output: discard, 5
 # Mock Input 2: boss_input = "pop" -> Expected Output: pop, None
-boss_input = input().lower().split()
-cmd = boss_input[0]
+def pass_problem():
+    boss_input = input().lower().split()
+    cmd = boss_input[0]
 
-if len(boss_input) == 1:
-    target = None
-else:
-    target = int(boss_input[1])
-    
-print(f'{cmd}, {target}')
-
+    if len(boss_input) == 1:
+        target = None
+    else:
+        target = int(boss_input[1])
+        
+    print(f'{cmd}, {target}')
+pass
 # ==========================================
 # SET 3: EXECUTING COMMANDS DYNAMICALLY
 # ==========================================
 
 # Use this mock setup for Problems 11-14:
-# active_set = {1, 2, 3, 4, 5, 6, 7, 8, 9}
+active_set = {1, 2, 3, 4, 5, 6, 7, 8, 9}
 
 # Problem 11: Write an `if` statement: if `cmd == "remove"`, execute `active_set.remove(target)`. 
 # Mock Input: cmd = "remove", target = 9, active_set = {1, 2, 3, 4, 5, 6, 7, 8, 9}
 # Expected Output of active_set: {1, 2, 3, 4, 5, 6, 7, 8}
-
 # Problem 12: Add an `elif` statement: if `cmd == "discard"`, execute `active_set.discard(target)`.
 # Mock Input: cmd = "discard", target = 8, active_set = {1, 2, 3, 4, 5, 6, 7, 8}
 # Expected Output of active_set: {1, 2, 3, 4, 5, 6, 7}
-
 # Problem 13: Add an `elif` statement: if `cmd == "pop"`, execute `active_set.pop()`. (No target needed!)
 # Mock Input: cmd = "pop", active_set = {1, 2, 3, 4, 5, 6, 7}
 # Expected Output of active_set: {2, 3, 4, 5, 6, 7}
-
 # Problem 14: Put your if/elif/elif logic inside a function or a block of code, and print the active_set.
+
+def remover(cmd, target=None):
+    if cmd == 'remove':
+        active_set.remove(target)
+    elif cmd == 'discard':
+        active_set.discard(target)
+    elif cmd == 'pop':
+        active_set.pop()
+    print(active_set)
+remover('remove', 9)
+remover('discard', 8)
+remover('pop')
+
 
 # Problem 15 (MINI-BOSS: COMBINE PARSING + EXECUTION):
 # Loop through a list of raw string commands. For each string: split it, figure out the `cmd` and `target`, 
 # and use your if/elif/elif block to update `boss_set`. Print the SUM of `boss_set` at the end.
 # Mock Input: 
-# boss_set = {1, 2, 3, 4, 5}
-# commands = ["remove 5", "pop", "discard 4"]
+boss_set = {1, 2, 3, 4, 5}
+commands = ["remove 5", "pop", "discard 4"]
 # Expected Output: 5 (Removes 5, pops 1, discards 4. Remaining: {2, 3}. Sum = 5)
+print(f'Your Current Set = {boss_set}')
+
+user_input = input().lower().split()
+
+cmd = user_input[0]
+
+if len(user_input) == 1:
+    target = None
+else: 
+    target = int(user_input[1])
+
+def remover_func(cmd, target=None):
+    if cmd == 'remove':
+        boss_set.remove(target)
+    elif cmd == 'discard':
+        boss_set.discard(target)
+    elif cmd == 'pop':
+        boss_set.pop()
+    else:
+        print('Invalid Command')
+        
+    print(boss_set)
+
+remover_func(cmd, target)
 
 
 # ==========================================
