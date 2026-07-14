@@ -44,26 +44,35 @@ print(active_scores[-1])
 # ==========================================
 
 # Problem 6: Calculate the sum of `my_list` using Python's built-in `sum()` function and print it.
-# Mock Input: my_list = [52.0, 56.0, 60.0]
+my_list = [52.0, 56.0, 60.0]
 # Expected Output: 168.0
+print(sum(my_list))
 
 # Problem 7: Find out how many numbers are in `my_list` using the built-in `len()` function.
 # Mock Input: my_list = [52.0, 56.0, 60.0]
 # Expected Output: 3
+print(len(my_list))
 
 # Problem 8: Calculate the average by dividing a hardcoded sum (168.0) by a hardcoded length (3). Print it.
 # Mock Input: s = 168.0, l = 3
 # Expected Output: 56.0
+s = 168.0
+l = 3
+average = s / l
+print(average)
 
 # Problem 9: Print the average of this new list by dividing `sum(new_list)` by `len(new_list)`.
-# Mock Input: new_list = [25.0, 26.5, 28.0]
+new_list = [25.0, 26.5, 28.0]
 # Expected Output: 26.5
+average2 = sum(new_list) / len(new_list)
+print(average2)
 
 # Problem 10 (MINI-BOSS: COMBINE 6-9): 
 # Write a 2-line script that calculates and prints the exact average of `boss_list`. 
-# Mock Input: boss_list = [70.0, 98.0, 63.0]
+boss_list = [70.0, 98.0, 63.0]
 # Expected Output: 77.0
-
+average3 = sum(boss_list) / len(boss_list)
+print(average3)
 
 # ==========================================
 # SET 3: THE FORMATTING TRAP (2 DECIMAL PLACES)
