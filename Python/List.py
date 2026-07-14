@@ -3,28 +3,38 @@
 # ==========================================
 
 # Problem 1: Create a set from a mock list of numbers and print it.
-# Mock Input: my_list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+my_list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 # Expected Output: {1, 2, 3, 4, 5, 6, 7, 8, 9}
+my_set = set(my_list)
 
 # Problem 2: Use the `.remove()` method to delete the number `9` from your set. Print the set.
 # Mock Input: my_set = {1, 2, 3, 4, 5, 6, 7, 8, 9}
 # Expected Output: {1, 2, 3, 4, 5, 6, 7, 8}
+my_set.remove(9)
+print(my_set)
 
 # Problem 3: Use the `.discard()` method to delete the number `99` (which doesn't exist) from your set. Print the set. 
 # Notice how the code doesn't crash! (If you tried this with .remove(99), it would throw a KeyError).
 # Mock Input: my_set = {1, 2, 3, 4, 5, 6, 7, 8}
 # Expected Output: {1, 2, 3, 4, 5, 6, 7, 8}
+my_set.discard(99)
+print(my_set)
 
 # Problem 4: Use the `.pop()` method to remove an arbitrary element from your set. Print the set.
-# Mock Input: my_set = {1, 2, 3}
+my_set = {1, 2, 3}
 # Expected Output: {2, 3} (Note: sets are unordered, but pop usually removes the "first" item in memory)
+my_set.pop()
+print(my_set)
 
 # Problem 5 (MINI-BOSS: COMBINE 1-4):
 # Given `boss_set`, perform these exact actions in order: .remove(4), .discard(10), .pop(). 
 # Then, print the SUM of the remaining elements.
-# Mock Input: boss_set = {1, 2, 3, 4}
+boss_set = {1, 2, 3, 4}
 # Expected Output: 5 (Because 4 is removed, 10 does nothing, pop removes 1. Remaining: {2, 3}. Sum = 5)
-
+boss_set.remove(4)
+boss_set.discard(10)
+boss_set.pop()
+print(sum(boss_set))
 
 # ==========================================
 # SET 2: PARSING STRING COMMANDS
