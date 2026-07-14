@@ -81,13 +81,13 @@ def pass_problem():
         target = int(boss_input[1])
         
     print(f'{cmd}, {target}')
-pass
+
 # ==========================================
 # SET 3: EXECUTING COMMANDS DYNAMICALLY
 # ==========================================
 
 # Use this mock setup for Problems 11-14:
-active_set = {1, 2, 3, 4, 5, 6, 7, 8, 9}
+    active_set = {1, 2, 3, 4, 5, 6, 7, 8, 9}
 
 # Problem 11: Write an `if` statement: if `cmd == "remove"`, execute `active_set.remove(target)`. 
 # Mock Input: cmd = "remove", target = 9, active_set = {1, 2, 3, 4, 5, 6, 7, 8, 9}
@@ -100,50 +100,46 @@ active_set = {1, 2, 3, 4, 5, 6, 7, 8, 9}
 # Expected Output of active_set: {2, 3, 4, 5, 6, 7}
 # Problem 14: Put your if/elif/elif logic inside a function or a block of code, and print the active_set.
 
-def remover(cmd, target=None):
-    if cmd == 'remove':
-        active_set.remove(target)
-    elif cmd == 'discard':
-        active_set.discard(target)
-    elif cmd == 'pop':
-        active_set.pop()
-    print(active_set)
-remover('remove', 9)
-remover('discard', 8)
-remover('pop')
+    def remover(cmd, target=None):
+        if cmd == 'remove':
+            active_set.remove(target)
+        elif cmd == 'discard':
+            active_set.discard(target)
+        elif cmd == 'pop':
+            active_set.pop()
+        print(active_set)
+    remover('remove', 9)
+    remover('discard', 8)
+    remover('pop')
 
 
 # Problem 15 (MINI-BOSS: COMBINE PARSING + EXECUTION):
 # Loop through a list of raw string commands. For each string: split it, figure out the `cmd` and `target`, 
 # and use your if/elif/elif block to update `boss_set`. Print the SUM of `boss_set` at the end.
 # Mock Input: 
-boss_set = {1, 2, 3, 4, 5}
-commands = ["remove 5", "pop", "discard 4"]
 # Expected Output: 5 (Removes 5, pops 1, discards 4. Remaining: {2, 3}. Sum = 5)
-print(f'Your Current Set = {boss_set}')
+    boss_set = {1, 2, 3, 4, 5}
+    commands = ["remove 5", "pop", "discard 4"]
 
-user_input = input().lower().split()
-
-cmd = user_input[0]
-
-if len(user_input) == 1:
-    target = None
-else: 
-    target = int(user_input[1])
-
-def remover_func(cmd, target=None):
-    if cmd == 'remove':
-        boss_set.remove(target)
-    elif cmd == 'discard':
-        boss_set.discard(target)
-    elif cmd == 'pop':
-        boss_set.pop()
-    else:
-        print('Invalid Command')
+    for user_input in commands:
         
-    print(boss_set)
+        split_input = user_input.split()
+        cmd = split_input[0]
+        
+        if len(split_input) == 1:
+            target = None
+        else: 
+            target = int(split_input[1])
 
-remover_func(cmd, target)
+        if cmd == 'remove':
+            boss_set.remove(target)
+        elif cmd == 'discard':
+            boss_set.discard(target)
+        elif cmd == 'pop':
+            boss_set.pop()
+
+
+    print(sum(boss_set))
 
 
 # ==========================================
@@ -153,19 +149,26 @@ remover_func(cmd, target)
 # Problem 16: Read `n` (the number of elements). You know the drill from the runner-up score problem: 
 # capture it, but you don't actually need to use it!
 # Mock Input: n = int("9")
+    n = int(input())
+    print(n)
 
 # Problem 17: Read the space-separated elements, split them, convert to ints, and turn them into a `set` called `s`.
-# Mock Input: elements_string = "1 2 3 4 5 6 7 8 9"
+    elements_string = "1 2 3 4 5 6 7 8 9"
 # Expected Output of `s`: {1, 2, 3, 4, 5, 6, 7, 8, 9}
+    s = map(int, set(elements_string.split()))
 
 # Problem 18: Read the number of commands, `N`.
 # Mock Input: N = int("10")
+    N = int(input())
 
 # Problem 19: Write a `for` loop using `range(N)` that takes a single `input()` on each iteration. 
 # (Just print the input for now to prove it works).
 # Mock Input: N = 2, inputs = "pop", "remove 9"
 # Expected Output: pop \n remove 9
-
+    for i in range(N):
+        command = input()
+        print(command)
+pass
 # Problem 20 (THE GRAND FINALE):
 # Put it all together using the full HackerRank Sample Input! 
 # Build the set, loop N times, parse the input string, extract the command/target, execute the set method, and print `sum(s)`!
@@ -184,3 +187,36 @@ remover_func(cmd, target)
 # pop 
 # discard 5
 # Expected Output: 4
+
+n = int(input())
+
+s = set(map(int, input().split()))
+
+N = int(input())
+
+for _ in range(N):
+    user_input = input().split()
+    cmd = user_input[0]
+    
+    if len(user_input) > 1:
+        target = int(user_input[1])
+    else:
+        target = None
+        
+    if cmd == 'remove':
+        try:
+            s.remove(target)
+        except KeyError:
+            pass
+            
+    elif cmd == 'discard':
+        s.discard(target)
+            
+    elif cmd == 'pop':
+        try:
+            s.pop()
+        except KeyError:
+            pass
+
+print(sum(s))
+    
