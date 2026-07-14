@@ -42,20 +42,28 @@ print(sum(boss_set))
 # HackerRank gives us commands as raw text strings (e.g., "remove 9"). We need to chop them up.
 
 # Problem 6: Given a mock input string, use `.split()` to break it into a list of strings. Print the list.
-# Mock Input: raw_input = "remove 9"
+raw_input = "remove 9"
 # Expected Output: ['remove', '9']
+splitted = raw_input.split()
+print(splitted)
 
 # Problem 7: Extract just the command word (the first item in the split list) and save it to a variable `cmd`. Print `cmd`.
 # Mock Input: split_list = ['remove', '9']
 # Expected Output: remove
+cmd = splitted[0]
+print(cmd)
 
 # Problem 8: Extract the number (the second item in the split list), convert it to an `int`, and save it to `target`. Print `target`.
 # Mock Input: split_list = ['remove', '9']
 # Expected Output: 9
+target = splitted[1]
+print(target)
 
 # Problem 9: What if the command is just "pop"? Split it, and print the length of the resulting list.
-# Mock Input: raw_input = "pop"
+raw_input = "pop"
 # Expected Output: 1 (This tells us there is no target number to extract!)
+pop_input = len(raw_input.split())
+print(pop_input)
 
 # Problem 10 (MINI-BOSS: COMBINE 6-9):
 # Given `boss_input`, split the string. Save index 0 to `cmd`. 
@@ -63,7 +71,15 @@ print(sum(boss_set))
 # If the length is only 1, set `target = None`. Print `cmd` and `target`.
 # Mock Input 1: boss_input = "discard 5" -> Expected Output: discard, 5
 # Mock Input 2: boss_input = "pop" -> Expected Output: pop, None
+boss_input = input().lower().split()
+cmd = boss_input[0]
 
+if len(boss_input) == 1:
+    target = None
+else:
+    target = int(boss_input[1])
+    
+print(f'{cmd}, {target}')
 
 # ==========================================
 # SET 3: EXECUTING COMMANDS DYNAMICALLY
