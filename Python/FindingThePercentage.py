@@ -110,21 +110,32 @@ print(f'{average:.2f}')
 # ==========================================
 
 # Problem 16: HackerRank inputs arrive as one string. Split this mock string into a list of strings.
-# Mock Input: mock_input = "Harsh 25 26.5 28"
+mock_input = "Harsh 25 26.5 28"
 # Expected Output: ['Harsh', '25', '26.5', '28']
+splitted = mock_input.split()
+print(splitted)
 
 # Problem 17: Assign your split list to two variables: `name` and `*line`. Print `name` and `line`.
-# Mock Input: my_list = ['Harsh', '25', '26.5', '28']
+my_list = ['Harsh', '25', '26.5', '28']
 # Expected Output for `name`: 'Harsh'
 # Expected Output for `line`: ['25', '26.5', '28'] (The asterisk scoops up all remaining items!)
+name, *line = my_list
+print(name)
+print(line)
 
 # Problem 18: Use a list comprehension to convert the strings inside `line` into a list of floats.
-# Mock Input: line = ['25', '26.5', '28']
+line = ['25', '26.5', '28']
 # Expected Output: [25.0, 26.5, 28.0]
+new_line = [float(i) for i in line]
+print(new_line)
 
 # Problem 19: Create an empty dictionary called `my_dict`. Assign your float list to the key `name`. Print the dict.
-# Mock Input: name = 'Harsh', float_list = [25.0, 26.5, 28.0]
+name = 'Harsh'
+float_list = [25.0, 26.5, 28.0]
 # Expected Output: {'Harsh': [25.0, 26.5, 28.0]}
+my_dict = {}
+my_dict[name] = float_list
+print(my_dict)
 
 # Problem 20 (THE GRAND FINALE: COMBINE EVERYTHING!):
 # HackerRank already ran their loop. You are given a fully populated dictionary and a query_name.
@@ -133,3 +144,16 @@ print(f'{average:.2f}')
 # student_marks = {'Krishna': [67.0, 68.0, 69.0], 'Arjun': [70.0, 98.0, 63.0], 'Malika': [52.0, 56.0, 60.0]}
 # query_name = 'Arjun'
 # Expected Output: 77.00
+
+if __name__ == '__main__':
+    n = int(input())
+    student_marks = {}
+    for _ in range(n):
+        name, *line = input().split()
+        scores = list(map(float, line))
+        student_marks[name] = scores
+    query_name = input()
+
+    student_grades = student_marks[query_name]
+    average = sum(student_grades) / len(student_grades)
+    print(f'{average:.2f}')
