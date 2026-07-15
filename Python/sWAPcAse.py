@@ -100,42 +100,82 @@ print(ans)
 # Problem 11: The `.join()` method smashes a list of characters into a single string.
 # Run `"".join(['P', 'y', 't', 'h', 'o', 'n'])` and print the result.
 # Expected Output: Python
+print("".join(['P', 'y', 't', 'h', 'o', 'n']))
 
 # Problem 12: Let's use List Comprehension to build the list! 
 # Run `[char.upper() for char in "abc"]` and print it.
 # Expected Output: ['A', 'B', 'C']
+swap = [i.upper() for i in "abc"]
+print(swap)
 
 # Problem 13: Combine them! Smash the list comprehension from Problem 12 into a string using `"".join(...)`. Print it.
 # Expected Output: ABC
+joined = "".join(swap)
+print(joined)
 
 # Problem 14: You can use "Ternary Operators" (one-line if/else statements) inside list comprehensions.
 # Print the result of: `"A" if True else "B"`
+# [Do This] if [Condition is True] else [Do That]
 # Expected Output: A
+
+char = 'A'
+
+result = char.lower() if char.isupper() else char.upper()
+
+# expanded version 
+
+if char.isupper():
+    print(char.lower())
+else:
+    char.upper()
+
+print(f'result: {result}')
+
 
 # Problem 15 (MINI-BOSS: COMBINE 11-14):
 # Smash this list comprehension into a string: 
 # `[char.lower() if char.isupper() else char.upper() for char in "aBc!"]`
 # Print the final smashed string. 
-# Expected Output: AbC!
 
-
+result = [i.lower() if i.isupper() else i.upper() for i in "aBc!1"]
+print("".join(result))
 # ==========================================
 # SET 4: THE GRAND FINALE
 # ==========================================
 
 # Problem 16: Turn your Mini-Boss 10 logic into a function called `swap_case_loop(s)`.
 # Have it return the final string.
+def swap_case_loop(s):
+    result = ""
+    for i in s:
+        if i.isupper():
+            result += i.lower()
+        elif i.islower():
+            result += i.upper()
+        else:
+            result += i
+    print(result)
 
 # Problem 17: Call `swap_case_loop("Pythonist 2")` and print the result.
 # Expected Output: pYTHONIST 2
+swap_case_loop('Pythonist 2')
 
 # Problem 18: Write a second function called `swap_case_join(s)`. 
-# Make it return the exact one-liner you built in Problem 15, replacing `"aBc!"` with the variable `s`. 
+# Make it return the exact one-liner you built in Problem 15, replacing `"aBc!"` with the variable `s`.
+def swap_case_join(s2):
+    result = [i.lower() if i.isupper() else i.upper() for i in s2]
+    print("".join(result))
+    
+swap_case_join('Pythonist 2')
 
 # Problem 19: The Python Secret! 
 # Because this is such a common task, Python actually has a built-in string method that does all of this instantly.
 # Print `"HackerRank".swapcase()`. 
 # Expected Output: hACKERrANK
+def swap_case_hack(s3):
+    print(s3.swapcase())
+
+swap_case_hack('Pythonist 2')
 
 # Problem 20 (THE GRAND FINALE):
 # Now you know THREE ways to solve this challenge (a for-loop, a join comprehension, and the built-in method).
