@@ -51,21 +51,30 @@ print(boss_list)
 
 # Problem 6: The .insert(index, element) method puts an item at a specific spot. 
 # Insert the number 99 at index 1 in the list below. Print the list.
-# Mock Input: my_list = [10, 20, 30]
+my_list = [10, 20, 30]
 # Expected Output: [10, 99, 20, 30]
+my_list.insert(1, 99)
+print(my_list)
 
 # Problem 7: Insert the number 88 at index 0 (the very beginning). Notice how it shifts everything else to the right!
 # Mock Input: my_list = [10, 99, 20, 30]
 # Expected Output: [88, 10, 99, 20, 30]
+my_list.insert(0, 88)
+print(my_list)
 
 # Problem 8: If you insert an item at an index larger than the list's length, it acts exactly like an append. 
 # Insert 77 at index 100. Print the list.
-# Mock Input: my_list = [1]
+my_list = [1]
 # Expected Output: [1, 77]
+my_list.insert(100, 77)
+print(my_list)
 
 # Problem 9: Pop the last item from `my_list`, then insert it back at index 0. Print the list.
-# Mock Input: my_list = [5, 6, 7]
+my_list = [5, 6, 7]
 # Expected Output: [7, 5, 6]
+popped_element = my_list.pop()
+my_list.insert(0, popped_element)
+print(my_list)
 
 # Problem 10 (MINI-BOSS: COMBINE 6-9):
 # Start with `boss_list = []`. 
@@ -74,7 +83,11 @@ print(boss_list)
 # insert 0 6 (insert 6 at index 0)
 # Print the list. (This matches the first 4 steps of the HackerRank sample!)
 # Expected Output: [6, 5, 10]
-
+boss_list = []
+boss_list.insert(0, 5)
+boss_list.insert(1, 10)
+boss_list.insert(0, 6)
+print(boss_list)
 
 # ==========================================
 # SET 3: PARSING VARIABLE-LENGTH COMMANDS
