@@ -89,7 +89,7 @@ print(hash(my_tup1))
 # Problem 14: Try to print the hash of a list: `hash([1, 2])`. 
 # Run it, watch it crash with a TypeError, and comment it out. 
 # (Why? Because lists can change! Python refuses to fingerprint something that might change later).
-# print(hash[1, 2])
+# print(hash([1, 2]))
 
 # Problem 15 (MINI-BOSS: COMBINE 11-14):
 # Create a tuple containing the strings "Hacker" and "Rank". 
@@ -103,13 +103,10 @@ print(hash(word_tup))
 
 # Problem 16: Read the integer `n` (the number of elements in the tuple). 
 # Once again, we just capture it so it doesn't mess up our input stream.
-# Mock Input: n = int("2")
 
 # Problem 17: Take the second line of input as a string.
-# Mock Input: raw = "1 2"
 
 # Problem 18: Split the string and map it to integers.
-# Mock Input: mapped = map(int, raw.split())
 
 # Problem 19: Convert that mapped data directly into a tuple called `t`.
 # Expected Output of t: (1, 2)
@@ -121,3 +118,9 @@ print(hash(word_tup))
 # 2
 # 1 2
 # Expected Output: 3713081631934410656
+n = int(input())
+m = input()
+t = tuple(map(int, m.split()))
+print(hash(t))
+
+# python 2 does not have the hash randomization security for specific outputs, while ptyhon 3 has this feature
