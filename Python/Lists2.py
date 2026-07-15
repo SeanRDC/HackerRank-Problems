@@ -148,22 +148,39 @@ for i in commands:
 # Problem 16: THE TRAP! If you use `getattr()` like we did in the last challenge, it will crash on the "print" command. 
 # Why? Because `.print()` is NOT a list method! 
 # Write an `if` statement: if cmd == "print", just `print(my_list)`.
-# Mock Input: cmd = "print", my_list = [6, 5, 10]
+cmd = "print" 
+my_list = [6, 5, 10]
 # Expected Output: [6, 5, 10]
+if cmd == 'print':
+    print(my_list)
 
 # Problem 17: We can unpack our `args` list directly into a function using the `*` operator!
 # If cmd == "insert", execute `my_list.insert(*args)`. (Python will unpack [0, 5] into index 0, element 5).
-# Mock Input: cmd = "insert", args = [0, 5], my_list = [10]
+cmd = "insert"
+args = [0, 5]
+my_list = [10]
 # Expected Output (when printing my_list): [5, 10]
+if cmd == 'insert':
+    my_list.insert(*args)
+print(my_list)
 
 # Problem 18: If cmd != "print", use `getattr(my_list, cmd)(*args)` to execute it dynamically! 
 # Test this dynamically on the "append" command. 
-# Mock Input: cmd = "append", args = [9], my_list = [5, 10]
+cmd = "append"
+args = [9]
+my_list = [5, 10]
 # Expected Output (when printing my_list): [5, 10, 9]
+if cmd != 'print':
+    getattr(my_list, cmd)(*args)
+print(my_list)
 
 # Problem 19: Test your `getattr` line on a command with ZERO arguments. Python handles the empty `*args` perfectly!
-# Mock Input: cmd = "reverse", args = [], my_list = [5, 10, 9]
+cmd = "reverse"
+args = []
+my_list = [5, 10, 9]
 # Expected Output (when printing my_list): [9, 10, 5]
+getattr(my_list, cmd)(*args)
+print(my_list)
 
 # Problem 20 (THE GRAND FINALE):
 # Put it all together! 
@@ -174,3 +191,18 @@ for i in commands:
 # 5. if cmd == "print", print the list.
 # 6. else, use `getattr(ans, cmd)(*args)` to execute it!
 # Test it against HackerRank's Sample Input 0!
+# insert, append, remove, pop, reverse, sort
+
+N = int(input())
+ans = []
+
+for i in range(N):
+    command = input().lower()
+    split_values = command.split()
+    cmd = split_values[0]
+    args = list(map(int, split_values[1:]))
+
+    if cmd == 'print':
+        print(ans)
+    else:
+        getattr(ans, cmd)(*args)
