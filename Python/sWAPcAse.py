@@ -44,18 +44,34 @@ else:
 # C
 # a
 # t
-
+string = 'Cat'
+for i in string:
+    print(i)
+    
 # Problem 7: Because strings are immutable, we change them by creating an empty string `""` and adding to it (`+=`).
 # Create `new_word = ""`. Loop through `"Cat"`. Inside the loop, do `new_word += char`. Print `new_word` at the end.
 # Expected Output: Cat
+new_word = ""
+for i in string:
+    new_word += i
+print(new_word)
 
 # Problem 8: Let's swap! Loop through `"Cat"`. If `char.isupper()`, add its lowercase to `new_word`. 
 # Else, add its uppercase. Print `new_word`.
 # Expected Output: cAT
+new_words=""
+for i in string:
+    if i.isupper():
+        new_words += i.lower()
+    else:
+        new_words += i.upper()
+print(new_words)
 
 # Problem 9: What happens to symbols and numbers? 
 # Print the result of `"1".isupper()`. Then print the result of `"1".islower()`.
 # Expected Output: False \n False (Numbers have no case, so they always return False!)
+print('1'.isupper())
+print('1'.islower())
 
 # Problem 10 (MINI-BOSS: COMBINE 6-9):
 # Start with `ans = ""`. Loop through `raw = "a1B!"`. 
@@ -64,7 +80,17 @@ else:
 # Else (if it's a number/symbol), add the character as-is!
 # Print `ans`. 
 # Expected Output: A1b!
+ans = ""
+raw = 'a1B!'
 
+for char in raw:
+    if char.isupper():
+        ans += char.lower()
+    elif char.islower():
+        ans += char.upper()
+    else:
+        ans += char
+print(ans)
 
 # ==========================================
 # SET 3: THE JOIN METHOD (THE PYTHONIC WAY)
