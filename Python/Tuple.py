@@ -72,25 +72,30 @@ print(boss_tup)
 # A "hash" is a fixed-size integer that Python generates to uniquely identify a piece of data. 
 
 # Problem 11: Print the hash of an integer. (Surprise: the hash of a small integer is just itself!)
-# Mock Input: num = 5
+num = 5
 # Expected Output: 5
+print(hash(num))
 
 # Problem 12: Print the hash of a string. 
-# Mock Input: my_string = "Hello"
+my_string = "Hello"
 # Expected Output: (A giant random number, e.g., 65123985123...)
+print(hash(my_string))
 
 # Problem 13: Print the hash of a tuple.
-# Mock Input: my_tup = (1, 2)
+my_tup1 = (1, 2)
 # Expected Output: 3713081631934410656 
+print(hash(my_tup1))
 
 # Problem 14: Try to print the hash of a list: `hash([1, 2])`. 
 # Run it, watch it crash with a TypeError, and comment it out. 
 # (Why? Because lists can change! Python refuses to fingerprint something that might change later).
+# print(hash[1, 2])
 
 # Problem 15 (MINI-BOSS: COMBINE 11-14):
 # Create a tuple containing the strings "Hacker" and "Rank". 
 # Save it to `word_tup`. Print `hash(word_tup)`.
-
+word_tup = ('Hacker', 'Rank')
+print(hash(word_tup))
 
 # ==========================================
 # SET 4: THE GRAND FINALE (HACKERRANK READY)
