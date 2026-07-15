@@ -95,33 +95,50 @@ print(boss_list)
 # The commands have different lengths (e.g., "sort" vs "insert 0 5"). We need a smarter parser!
 
 # Problem 11: Split the string "sort". Save the first word to `cmd`. Print `cmd`.
-# Mock Input: raw = "sort"
+raw = "sort"
 # Expected Output: sort
+cmd = raw.split()
+print(cmd[0])
 
 # Problem 12: Split the string "append 5". Save the first word to `cmd`. 
 # Use a list slice `[1:]` to grab everything AFTER the command. Save it to `args_list`. Print `args_list`.
-# Mock Input: raw = "append 5"
+raw = "append 5"
 # Expected Output: ['5']
+cmd = raw.split()
+args_list = cmd[1:]
+print(args_list)
 
 # Problem 13: Split "insert 0 5". Get the `args_list` using the `[1:]` slice. 
 # Use list comprehension (or map) to convert `args_list` into a list of actual integers. Print the integers.
-# Mock Input: raw = "insert 0 5"
+raw = "insert 0 5"
 # Expected Output: [0, 5]
+cmd = raw.split()
+args_list = list(map(int, cmd[1:]))
+print(args_list)
 
 # Problem 14: Combine it! Write a generic 3-line parser for ANY command length.
 # 1. split the input. 2. cmd = split[0]. 3. args = list(map(int, split[1:]))
 # Test it on `raw = "pop"`. Print `cmd` and `args`. (Notice args will just be an empty list [] !)
-# Mock Input: raw = "pop"
+raw = "pop"
 # Expected Output: pop, []
+cmd = raw.split()
+split = cmd[0]
+args = list(map(int, cmd[1:]))
+print(split, args)
 
 # Problem 15 (MINI-BOSS: PARSING ENGINE):
 # Loop through the list of strings below. Use your 3-line parser from Problem 14 on each string.
 # Print an f-string for each: f"Command: {cmd}, Arguments: {args}"
-# Mock Input: commands = ["insert 0 5", "sort", "remove 6"]
+commands = ["insert 0 5", "sort", "remove 6"]
 # Expected Output:
 # Command: insert, Arguments: [0, 5]
 # Command: sort, Arguments: []
 # Command: remove, Arguments: [6]
+for i in commands:
+    split_list = i.split()
+    cmd = split_list[0] 
+    args = list(map(int, split_list[1:]))
+    print(f'Command: {cmd}, Arguments: {args}')
 
 
 # ==========================================
