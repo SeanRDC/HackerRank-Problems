@@ -6,12 +6,21 @@
 # Problem 1: Convert the string `word = "Python"` into a list of characters. 
 # Save it to `word_list` and print it.
 # Expected Output: ['P', 'y', 't', 'h', 'o', 'n']
-
+word = "Python"
+word_list = []
+for i in word:
+    word_list += i
+    
+print(word_list)
+# shortcut for string to list word_list = list(word)
 # Problem 2: Change the character at index 3 of `word_list` to "x". Print the list.
 # Expected Output: ['P', 'y', 't', 'x', 'o', 'n']
+word_list[3] = 'x'
+print(word_list)
 
 # Problem 3: Smash `word_list` back into a string using `"".join()` and print it.
 # Expected Output: Pytxon
+print(''.join(word_list))
 
 
 # ==========================================
