@@ -7,6 +7,7 @@
 # Expected Output: 1
 # (Wait, why 1? The built-in method doesn't count OVERLAPPING strings! 
 # It finds the first "CDC", skips past it, and only checks the last "C". We need to find 2!)
+print("ABCDCDC".count("CDC"))
 
 
 # ==========================================
@@ -21,6 +22,8 @@ sub = "CDC"
 # Problem 2: First, we need to know how big our window is.
 # Create a variable `window = len(sub)`. Print `window`.
 # Expected Output: 3
+window = len(sub)
+print(window)
 
 # Problem 3: Now let's loop through the main word using its length.
 # Write a for loop: `for i in range(len(word)):`
@@ -34,6 +37,8 @@ sub = "CDC"
 # CDC
 # DC
 # C
+for i in range(len(word)):
+    print(word[i:i + window])
 
 
 # ==========================================
@@ -49,9 +54,14 @@ sub = "CDC"
 # 6. Return the count at the very end.
 
 def count_substring(string, sub_string):
-    # Your logic here!
-    pass
-
-# Test it:
+    count = 0
+    window = len(sub_string)
+    
+    for i in range(len(string)):
+        sliced = string[i:i + window]
+        if sliced == sub_string:
+            count += 1
+    return count
+    
 print(count_substring("ABCDCDC", "CDC"))
 # Expected Output: 2
