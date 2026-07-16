@@ -7,21 +7,42 @@
 # Problem 1: Create a simple class called `Dog`. Inside it, put the word `pass` (which just means "do nothing").
 # Instantiate it by writing `my_dog = Dog()`. Print `my_dog`. 
 # Expected Output: <__main__.Dog object at 0x...> (It prints a memory address!)
+class Dog:
+    pass
+
+my_dog = Dog()
+print(my_dog)
 
 # Problem 2: Delete `pass`. Add the constructor: `def __init__(self):`. 
 # Inside the constructor, `print("A dog was born!")`. 
 # Run `my_dog = Dog()`. 
 # Expected Output: A dog was born!
+class Dog:
+    def __init__(self):
+        print("A dog was born!")
+
+my_dog = Dog()
 
 # Problem 3: Let's pass data into the constructor. 
 # Update it to `def __init__(self, name):`. Inside, `print(name)`. 
 # Run `my_dog = Dog("Fido")`.
 # Expected Output: Fido
+class Dog:
+    def __init__(self, name):
+        print(name)
+
+my_dog = Dog("Fido")
 
 # Problem 4: Printing the name is nice, but we need to SAVE it inside the object so we can use it later.
 # We do this using `self`. Inside `__init__`, delete the print statement and write `self.name = name`.
 # Run `my_dog = Dog("Fido")`. Then, outside the class, print `my_dog.name`.
 # Expected Output: Fido
+class Dog:
+    def __init__(self, name):
+        self.name = name
+
+my_dog = Dog("Fido")
+print(my_dog.name)
 
 # Problem 5 (MINI-BOSS: COMBINE 1-4):
 # Create the `Person` class. 
@@ -29,8 +50,12 @@
 # Inside it, save `initialAge` to an instance variable called `self.age`.
 # Create `p = Person(10)` and print `p.age`.
 # Expected Output: 10
+class Person:
+    def __init__(self, initialAge):
+        self.age = initialAge
 
-
+p = Person(10)
+print(p.age)
 # ==========================================
 # SET 2: CONSTRUCTOR LOGIC
 # ==========================================
