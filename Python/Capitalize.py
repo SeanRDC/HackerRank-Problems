@@ -77,15 +77,18 @@ print(' '.join(capitalized_words))
 # Problem 10: Drop your one-line logic into the HackerRank function!
 
 def solve(s):
-    capitalized_words = []
-    spliited_word = s.split(' ')
-    for i in spliited_word:
-        new = i.capitalize()
-        capitalized_words.append(new)
-    print(' '.join(capitalized_words))
+    #capitalized_words = []
+    #for i in s.split(' '):
+        #new = i.capitalize()
+        #capitalized_words.append(new)
+    #return' '.join(capitalized_words)
+    
+    # or
+    capitalized_words = ' '.join([i.capitalize() for i in s.split(' ')])
+    return capitalized_words
 
 # Test it:
-solve("1 w 2 r 3g")
+print(solve("1 w 2 r 3g"))
 # Expected Output: 1 W 2 R 3g
-solve("chris alan")
-solve("sean rhani dela cruz")
+print(solve("chris alan"))
+print(solve("sean rhani dela     cruz"))
