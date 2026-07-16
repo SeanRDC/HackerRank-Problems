@@ -118,21 +118,56 @@ class Person:
 # Problem 11: Go back to a simple `Dog` class with `self.name = name` in the init.
 # Below `__init__`, add a new method: `def bark(self):`. Inside it, print `"Woof!"`.
 # Create `my_dog = Dog("Fido")` and call `my_dog.bark()`. 
+class Dog:
+    def __init__(self, name):
+        self.name = name
+    
+    def bark(self):
+        print("Woof!")
+
+my_dog = Dog("Fido")
+my_dog.bark()
 
 # Problem 12: Because methods take `self`, they have access to the object's saved data!
 # Add a method `def say_name(self):`. Inside it, print `self.name`. 
 # Call `my_dog.say_name()`. 
 # Expected Output: Fido
+class Dog:
+    def __init__(self, name):
+        self.name = name
+    
+    def bark(self):
+        print("Woof!")
+    
+    def say_name(self):
+        print(self.name)
+
+my_dog = Dog("Fido")
+my_dog.say_name()
 
 # Problem 13: Let's mutate (change) the data! 
 # Inside your `Person` class, create a new method: `def yearPasses(self):`.
 # Inside it, increment `self.age` by 1 (e.g., `self.age += 1`).
+class Person:
+    def __init__(self, initialAge):
+        if initialAge < 0:
+            print("Age is not valid, setting age to 0.")
+            self.age = 0
+        else:
+            self.age = initialAge
+    
+    def yearPasses(self):
+        self.age += 1
 
 # Problem 14: Test the aging process. 
 # Create `p = Person(10)`. 
 # Call `p.yearPasses()` twice. 
 # Print `p.age`. 
 # Expected Output: 12
+p = Person(10)
+p.yearPasses()
+p.yearPasses()
+print(p.age)
 
 # Problem 15 (MINI-BOSS: AGE TIME MACHINE):
 # Create `p = Person(-1)`. (This should trigger the HackerRank warning and set age to 0).
@@ -141,6 +176,9 @@ class Person:
 # Expected Output: 
 # Age is not valid, setting age to 0.
 # 1
+p = Person(-1)
+p.yearPasses()
+print(p.age)
 
 
 # ==========================================
@@ -155,7 +193,14 @@ class Person:
 # Print `"You are a teenager."`
 
 # Problem 18: Add an `else` statement. Print `"You are old."`
-
+age = 10
+if age < 13:
+    print("You are young.")
+elif 13 <= age < 18:
+    print("You are a teenager.")
+else:
+    print("You are old.")
+    
 # Problem 19: Move this entire `if/elif/else` block into the `Person` class under a new method: `def amIOld(self):`.
 # CAUTION: Inside the method, you can't just check `age`. You must check `self.age`!
 
@@ -173,3 +218,32 @@ class Person:
 # Expected Output: 
 # You are a teenager.
 # You are old.
+
+class Person:
+    def __init__(self, initialAge):
+        if initialAge < 0:
+            print("Age is not valid, setting age to 0.")
+            self.age = 0
+        else:
+            self.age = initialAge
+    
+    def amIOld(self):
+        if self.age < 13:
+            print("You are young.")
+        elif self.age >= 13 and self.age < 18:
+            print("You are a teenager.")
+        else:
+            print("You are old.")
+    
+    def yearPasses(self):
+        self.age += 1
+
+t = int(input())
+for i in range(0, t):
+    age = int(input())
+    p = Person(age)
+    p.amIOld()
+    for j in range (0, 3):
+        p.yearPasses()
+    p.amIOld()
+    print("")
