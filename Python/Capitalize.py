@@ -79,8 +79,7 @@ print(' '.join(capitalized_words))
 def solve(s):
     #capitalized_words = []
     #for i in s.split(' '):
-        #new = i.capitalize()
-        #capitalized_words.append(new)
+        #capitalized_words.append(i.capitalize())
     #return' '.join(capitalized_words)
     
     # or
