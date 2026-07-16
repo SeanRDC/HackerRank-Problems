@@ -64,21 +64,51 @@ print(p.age)
 # Problem 6: Inside your `Person` constructor, add an `if` statement before you save the age.
 # If `initialAge < 0`, print `"Too young!"`.
 # Test it with `p = Person(-5)`.
+class Person:
+    def __init__(self, initialAge):
+        if initialAge < 0:
+            print('Too Young!')
+
+p = Person(-5)
 
 # Problem 7: If `initialAge < 0`, we don't just want to print a warning. We want to force the age to be valid.
 # Inside that same `if` block, set `self.age = 0`. 
+class Person:
+    def __init__(self, initialAge):
+        if initialAge < 0:
+            print('Too Young!')
+            self.age = 0
+
+p = Person(-5)
 
 # Problem 8: Add an `else` block. If `initialAge` is NOT less than 0, set `self.age = initialAge`.
+class Person:
+    def __init__(self, initialAge):
+        if initialAge < 0:
+            print('Too Young!')
+            self.age = 0
+        else:
+            self.age = initialAge
+            print(initialAge)
 
 # Problem 9: Test your logic! 
 # Create `p1 = Person(-5)`. Print `p1.age`. (Should print "Too young!" and then 0).
 # Create `p2 = Person(15)`. Print `p2.age`. (Should just print 15).
+p1 = Person(-5)
+p2 = Person(15)
 
 # Problem 10 (MINI-BOSS: HACKERRANK INIT):
 # Update your `__init__` method to match the exact HackerRank requirements.
 # If `< 0`: print `"Age is not valid, setting age to 0."` and set `self.age = 0`.
 # Else: set `self.age = initialAge`.
-
+class Person:
+    def __init__(self, initialAge):
+        if initialAge < 0:
+            print("Age is not valid, setting age to 0.")
+            self.age = 0
+        else:
+            self.age = initialAge
+            print(initialAge)
 
 # ==========================================
 # SET 3: INSTANCE METHODS (BEHAVIOR)
