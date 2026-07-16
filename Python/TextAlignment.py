@@ -7,19 +7,25 @@
 # Problem 1: Create a string `word = "Hacker"`. 
 # Use `.ljust()` to put it in a box of width 15, using "-" as the fill character. Print it.
 # Expected Output: Hacker---------
+word = "Hacker"
+print(word.ljust(15, '-'))
 
 # Problem 2: Put `word` in a box of width 15 using `.rjust()`, filling with "*". Print it.
 # Expected Output: *********Hacker
+print(word.rjust(15, '*'))
 
 # Problem 3: Put `word` in a box of width 15 using `.center()`, filling with "_". Print it.
 # Expected Output: ____Hacker_____
+print(word.center(15, '_'))
 
 # Problem 4: If you don't provide a fill character, Python uses spaces.
 # Print `word` centered in a box of width 20 (no fill character).
+print(word.center(20))
 
 # Problem 5: String multiplication is crucial here. 
 # Print the letter "H" multiplied by 5. 
 # Expected Output: HHHHH
+print('H' * 5)
 
 
 # ==========================================
@@ -36,6 +42,8 @@ c = "H"
 #   (blank space)
 #  H
 # HH
+for i in range(3):
+    print((c * i).rjust(3))
 
 # Problem 7 (Right side of a cone): 
 # In a new `for` loop (`range(3)`), multiply `c` by `i`. 
@@ -44,6 +52,8 @@ c = "H"
 #   (blank space)
 # H  
 # HH 
+for i in range(3):
+    print((c*i).ljust(3))
 
 # Problem 8 (The Full Top Cone): 
 # Combine them! In a `range(3)` loop, print:
@@ -52,13 +62,17 @@ c = "H"
 #   H  
 #  HHH 
 # HHHHH
+for i in range(3):
+    print((c * i).rjust(3) + c.center(1) + (c * i).ljust(3))
 
 # Problem 9 (The Pillars): 
 # Print `"HHH"` centered in a box of width 6.
 # Expected Output:  HHH  
+print('HHH'.center(6))
 
 # Problem 10 (The Belt):
 # Print `"HHHHHHHHHHHHHHH"` centered in a box of width 18.
+print("HHHHHHHHHHHHHHH".center(18))
 
 
 # ==========================================
@@ -72,6 +86,8 @@ c = "H"
 # 2
 # 1
 # 0
+for i in range(3):
+    print(3 - i - 1)
 
 # Problem 12 (Bottom Cone - Just the shape):
 # In a `range(3)` loop, multiply `c` by `(3 - i - 1)`. 
@@ -80,16 +96,23 @@ c = "H"
 # HHHHH
 #  HHH 
 #   H  
+for i in range(3):
+    print((c * (3 - i - 1)).rjust(3) + c.center(1) + (c * (3 - i - 1)).ljust(3))
 
 # Problem 13 (The Giant Shift):
 # Take the string "Move Me" and right-justify it in a massive box of width 40.
+print("Move me".rjust(40))
 
 # Problem 14 (Moving the Cone):
 # Take your print statement from Problem 12. Wrap the ENTIRE thing in parentheses,
 # and right-justify the whole cone in a width of 20.
+for i in range(3):
+    print(((c * (3 - i - 1)).rjust(3) + c.center(1) + (c * (3 - i - 1)).ljust(3)).rjust(40))
 
 # Problem 15 (Dynamic Variables):
 # Set `t = 5`. Print `c * (t * 5)` centered in a width of `t * 6`.
+t = 5
+print((c * (t * 5)).center(t * 6))
 
 
 # ==========================================
