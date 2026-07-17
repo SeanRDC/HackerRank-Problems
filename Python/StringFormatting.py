@@ -44,12 +44,15 @@ print(hex(17)[2:].upper())
 # The prompt says: "Each value should be space-padded to match the width of the binary value of N."
 
 # Problem 8: Create a variable `N = 17`.
+N = 17
 
 # Problem 9: Generate the clean (sliced) binary string for `N`. Save it to `max_bin`.
+max_bin = bin(N)[2:]
 
 # Problem 10: Find the length of `max_bin`. Save it to a variable called `width` and print it.
 # Expected Output: 5
-
+width = len(max_bin)
+print(width)
 
 # ==========================================
 # SET 4: FORMATTING WITH RJUST
@@ -59,16 +62,21 @@ print(hex(17)[2:].upper())
 # Problem 11: Set a test variable `i = 1`. 
 # Convert `i` to a string, and right-justify it using your `width` variable. Print it.
 # Expected Output:     1  (four spaces, then the 1)
+i = 1
+a = str(i).rjust(width)
 
 # Problem 12: Get the clean octal string for `i`. Right-justify it using `width`. Print it.
+b = str(oct(i)[2:]).rjust(width) # the oct hex bin already returns a string but for safety still wrapped them in str
 
 # Problem 13: Get the clean, uppercase hex string for `i`. Right-justify it using `width`. Print it.
+c = str(hex(i)[2:].upper()).rjust(width)
 
 # Problem 14: Get the clean binary string for `i`. Right-justify it using `width`. Print it.
+d = str(bin(i)[2:]).rjust(width)
 
 # Problem 15: Print all four formatted strings on a single line. 
 # Hint: If you pass multiple variables to `print(a, b, c, d)`, Python automatically puts one space between them!
-
+print(a, b, c, d)
 
 # ==========================================
 # SET 5: THE F-STRING SUPERPOWER (New Concept)
