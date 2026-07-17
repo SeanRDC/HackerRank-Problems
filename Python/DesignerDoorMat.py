@@ -56,11 +56,16 @@ print((pattern * 5).center(M, '-'))
 # 5
 # 7
 # 9
+for i in range(1, 10, 2):
+    print(i)
 
 # Problem 10: Now let's combine it! For N = 9, the top half of the mat needs rows 1, 3, 5, 7.
 # Write a `for` loop using `range(1, N, 2)`. 
 # Inside, multiply `pattern` by `i`, and center it in width `M` filled with "-". Print it.
 # Expected Output: (The entire top half of the door mat!)
+N = 9
+for i in range(1, N, 2):
+    print((pattern * i).center(M, '-'))
 
 # Problem 11: To build the bottom cone, we have to count BACKWARDS.
 # Write a `for` loop: `for i in range(7, 0, -2):` and print `i`.
@@ -69,12 +74,15 @@ print((pattern * 5).center(M, '-'))
 # 5
 # 3
 # 1
+for i in range(7, 0, -2):
+    print(i)
 
 # Problem 12: Let's make that backwards range dynamic based on N. 
 # If N = 9, the highest odd number below it is N - 2 (which is 7).
 # Write a `for` loop using `range(N - 2, 0, -2)`. Print `i`.
 # Expected Output: 7, 5, 3, 1
-
+for i in range(N - 2, 0, -2):
+    print((pattern * i).center(M, '-'))
 
 # ==========================================
 # SET 4: THE GRAND FINALE
