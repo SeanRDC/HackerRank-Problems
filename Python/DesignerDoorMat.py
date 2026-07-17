@@ -28,16 +28,19 @@ print('WELCOME'.center(M, '-'))
 
 # Problem 5: Print `pattern` multiplied by 1, centered in a width of M, filled with "-".
 # Expected Output: ------------.|.------------
+print((pattern * 1).center(M, '-'))
 
 # Problem 6: Print `pattern` multiplied by 3, centered in a width of M, filled with "-".
 # Expected Output: ---------.|..|..|.---------
+print((pattern * 3).center(M, '-'))
 
 # Problem 7: Print `pattern` multiplied by 5, centered in a width of M, filled with "-".
 # Expected Output: ------.|..|..|..|..|.------
+print((pattern * 5).center(M, '-'))
 
 # Problem 8: Look at the outputs from 5, 6, and 7. They exactly match the top of the door mat!
 # What is the mathematical pattern of the multiplier? (Answer: It goes 1, 3, 5, 7... odd numbers!)
-
+# odd numbers (% 2 != 0)
 
 # ==========================================
 # SET 3: THE ODD NUMBER GENERATOR
