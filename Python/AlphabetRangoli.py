@@ -6,14 +6,20 @@
 # Problem 1: Import the string module (`import string`). 
 # Print `string.ascii_lowercase`.
 # Expected Output: abcdefghijklmnopqrstuvwxyz
+import string
+
+print(string.ascii_lowercase)
 
 # Problem 2: Set `N = 5`. Slice the first N letters of the alphabet. 
 # Save it to a variable called `letters` and print it.
 # Expected Output: abcde
+N = 5
+letters = (string.ascii_lowercase[:5])
+print(letters)
 
 # Problem 3: Practice your slicing. Print `letters` completely reversed using `[::-1]`.
 # Expected Output: edcba
-
+print(letters[::-1])
 
 # ==========================================
 # SET 2: BUILDING THE DIAMOND CORE
