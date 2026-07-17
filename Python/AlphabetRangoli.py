@@ -31,16 +31,23 @@ print(letters[::-1])
 # Slice `letters` from index `i` to the end (`letters[i:]`), and then reverse it using `[::-1]`.
 # Save it to `left_side` and print it. 
 # Expected Output: edc
+i = 2
+left_side = (letters[i:])[::-1]
+print(left_side)
 
 # Problem 5: Slice `letters` from index `i + 1` to the end (`letters[i+1:]`). 
 # Save it to `right_side` and print it.
 # Expected Output: de
+right_side = letters[i+1:]
+print(right_side)
 
 # Problem 6: Add `left_side` and `right_side` together! Save it to `combined` and print it.
 # Expected Output: edcde
+combined = left_side + right_side
 
 # Problem 7: Use `"-".join(combined)` to put dashes between every letter. Print it.
 # Expected Output: e-d-c-d-e
+combined1 = '-'.join(combined)
 
 
 # ==========================================
@@ -52,16 +59,28 @@ print(letters[::-1])
 # Problem 8: The middle row happens when `i = 0`. 
 # Using the exact logic from Problems 4, 5, and 6, generate the `combined` string for `i = 0`.
 # Expected Output: edcbabcde
+letters = string.ascii_lowercase[:5]
+
+j = 0
+left_side = (letters[j:])[::-1] # letters[j:] = abcde, [::-1]edcba
+right_side = letters[j+1:] # letters[j+1] = bcde
+combined = left_side + right_side # edcbabcde
+print(combined)
 
 # Problem 9: Use `"-".join()` on your string from Problem 8. Save it to `master_row` and print it.
 # Expected Output: e-d-c-b-a-b-c-d-e
+master_row = '-'.join(combined)
+print(master_row)
 
 # Problem 10: Find the `len()` of `master_row`. Save it to `width` and print it.
 # Expected Output: 17
+width = len(master_row)
+print(width)
 
 # Problem 11: Take your short string from Problem 7 ("e-d-c-d-e") and use `.center()` 
 # on it using your `width` variable and "-" as the fill character. Print it!
 # Expected Output: ------e-d-c-d-e------
+print(combined1.center(width, '-'))
 
 
 # ==========================================
