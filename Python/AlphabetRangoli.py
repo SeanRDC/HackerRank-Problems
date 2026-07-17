@@ -89,6 +89,7 @@ print(combined1.center(width, '-'))
 # Instead of printing right away, we are going to store our rows in a list.
 
 # Problem 12: Create an empty list called `rows = []`.
+rows = []
 
 # Problem 13: Write a `for` loop: `for i in range(N - 1, -1, -1):`
 # (This counts backward from 4 down to 0). Print `i` inside to verify it works.
@@ -104,7 +105,14 @@ print(combined1.center(width, '-'))
 
 # Problem 18: Outside the loop, print your `rows` list. 
 # You should see the entire top half and the middle row of the Rangoli!
-
+for i in range(N - 1, -1, -1):
+    print(i)
+    left_side = letters[i:][::-1]
+    right_side = letters[i+1:]
+    row_string = '-'.join(left_side + right_side)
+    center_row = row_string.center(width, '-')
+    rows.append(center_row)
+print(rows)
 
 # ==========================================
 # SET 5: THE GRAND FINALE
@@ -114,11 +122,31 @@ print(combined1.center(width, '-'))
 # just flipped upside down (and missing the middle row so it doesn't duplicate).
 # Create `bottom_half = rows[:-1][::-1]`. 
 # (This slices away the last item, which is the middle row, and reverses the rest of the list!)
+bottom_half = rows[:-1][::-1]
 
 # Problem 20: Combine the lists: `final_rangoli = rows + bottom_half`.
 # Finally, use `"\n".join(final_rangoli)` to print the entire diamond beautifully!
+final_rangoli = rows + bottom_half
+print('\n'.join(final_rangoli))
 
 # Try plugging it into the HackerRank function!
 def print_rangoli(size):
-    # Your beautiful, dynamic code goes here!
-    pass
+    letters = string.ascii_lowercase[:size]
+    master_row = '-'.join(letters[::-1] + letters[1:])
+    width = len(master_row)
+    rows = []
+    
+    for i in range(size -1, -1, -1):
+        left_side = letters[i:][::-1]
+        right_side = letters[i+1:]
+        row_string = '-'.join(left_side + right_side)
+        center_row = row_string.center(width, '-')
+        rows.append(center_row)
+        
+    bottom_half = rows[:-1][::-1]
+        
+    final_rangoli = rows + bottom_half
+    print('\n'.join(final_rangoli))
+
+n = int(input())
+print_rangoli(n)
