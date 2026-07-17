@@ -105,3 +105,14 @@ for i in range(N - 2, 0, -2):
 # Write a `for` loop from N-2 down to 0 (stepping by -2). Print the centered pattern.
 
 # Problem 18, 19, 20: Just bask in the glory of your finished code. You've solved it!
+N, M = map(int, input().split())
+pattern = ".|."
+word = "WELCOME"
+
+for i in range(1, N, 2):
+    print((pattern * i).center(M, '-'))
+
+print(word.center(M, '-'))
+
+for j in range(N - 2, 0, -2):
+    print((pattern * j).center(M, '-'))
