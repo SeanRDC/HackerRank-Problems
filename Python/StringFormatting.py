@@ -86,17 +86,21 @@ print(a, b, c, d)
 # and `.rjust()` entirely. 
 # Syntax: f"{value:>{width}base}"
 # base = 'd' (decimal), 'o' (octal), 'X' (uppercase hex), 'b' (binary)
+print(f'{i:>{width}b}')
 
 # Problem 16: Let's test the binary conversion. Print `f"{i:b}"`. 
 # (Notice it converts to binary WITHOUT the '0b' prefix!)
+print(f'{i:b}')
 
 # Problem 17: Let's add the dynamic padding. Print `f"{i:>{width}b}"`.
 # Expected Output:     1  (binary 1, right-justified in a width of 5)
+print(f'{i:>{width}b}')
 
 # Problem 18: Do the same thing, but format it as uppercase hex using 'X'. Print it.
+print(f'{i:>{width}X}')
 
 # Problem 19: Do the same thing, but format it as octal using 'o'. Print it.
-
+print(f'{i:>{width}o}')
 
 # ==========================================
 # SET 6: THE GRAND FINALE
@@ -107,10 +111,28 @@ print(a, b, c, d)
 # 1. Calculate your dynamic `width` using the binary version of `number`.
 # 2. Write a `for` loop that goes from 1 up to `number` (inclusive!).
 # 3. Inside the loop, print the four values separated by spaces, correctly aligned.
+# D O H B
 
 def print_formatted(number):
-    # Your logic here!
-    pass
+    width = len(bin(number)[2:])
 
-# Test it:
-# print_formatted(17)
+    for i in range(1, number + 1):
+        print(f'{i:>{width}d} {i:>{width}o} {i:>{width}X} {i:>{width}b}')
+
+print_formatted(17)
+
+# Version 2
+
+def print_formatted2(number):
+    width = len(bin(number)[2:])
+    
+    for i in range(1, number + 1): # like: i += 1
+        
+        decimal = str(i).rjust(width)
+        octal = (oct(i)[2:]).rjust(width)
+        hexadecimal = ((hex(i)[2:]).upper()).rjust(width)
+        binary = (bin(i)[2:]).rjust(width)
+        
+        print(decimal, octal, hexadecimal, binary)
+
+print_formatted2(17)
