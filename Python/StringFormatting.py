@@ -24,16 +24,19 @@ print(hex(17))
 
 # Problem 4: Use string slicing to chop off the first two characters of `bin(17)`. Print it.
 # Expected Output: 10001
+print(bin(17)[2:])
 
 # Problem 5: Slice off the first two characters of `oct(17)`. Print it.
 # Expected Output: 21
+print(oct(17)[2:])
 
 # Problem 6: Slice off the first two characters of `hex(17)`. Print it.
 # Expected Output: 11
+print(hex(17)[2:])
 
 # Problem 7: HackerRank specifically asks for CAPITALIZED hex values (e.g., 'a' becomes 'A').
 # Take your sliced hex string from Problem 6 and chain your uppercase string method to it. Print it.
-
+print(hex(17)[2:].upper())
 
 # ==========================================
 # SET 3: FINDING THE MASTER WIDTH
