@@ -6,13 +6,15 @@
 
 # Problem 1: Print `bin(17)`. 
 # Expected Output: 0b10001 (The '0b' stands for binary).
+print(bin(17))
 
 # Problem 2: Print `oct(17)`.
 # Expected Output: 0o21 (The '0o' stands for octal).
+print(oct(17))
 
 # Problem 3: Print `hex(17)`.
 # Expected Output: 0x11 (The '0x' stands for hexadecimal).
-
+print(hex(17))
 
 # ==========================================
 # SET 2: CLEANING THE STRINGS
