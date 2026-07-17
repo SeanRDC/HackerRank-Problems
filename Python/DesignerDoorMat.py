@@ -7,16 +7,19 @@
 # N, M = map(int, input().split())
 
 # Problem 1: Hardcode our test case for now. Set N = 9 and M = 27.
-
+N = 9
+M = 27
 # Problem 2: Save the core pattern ".|." to a variable named `pattern`.
+pattern = '.|.'
 
 # Problem 3: Print `pattern` multiplied by 3. 
 # Expected Output: .|..|..|.
+print(pattern * 3)
 
 # Problem 4: The middle belt is the easiest part. 
 # Print the word "WELCOME" centered in a width of M, using "-" as the fill character.
 # Expected Output: ----------WELCOME----------
-
+print('WELCOME'.center(M, '-'))
 
 # ==========================================
 # SET 2: MASTERING THE CENTER METHOD
