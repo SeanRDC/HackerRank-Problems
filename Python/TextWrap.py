@@ -104,5 +104,8 @@ print(textwrap.fill(s,1))
 # Problem 20: Inside the function, use the ultimate shortcut from Set 4 to 
 # return the wrapped text. (Remember to `import textwrap` at the top of your script!)
 
+def wrap(string, max_width):
+    return textwrap.fill(string, max_width)
+
 # Test it:
-# print(wrap("ABCDEFGHIJKLIMNOQRSTUVWXYZ", 4))
+print(wrap("ABCDEFGHIJKLIMNOQRSTUVWXYZ", 4))
