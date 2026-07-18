@@ -120,9 +120,13 @@ for _ in range(T):
 # Rank
 
 # Problem 19: Get the integer input for `T` from the user.
+T = int(input())
 
 # Problem 20: Write the final loop that runs `T` times. 
 # Inside, get the string input from the user and immediately print its even and odd slices.
+for _ in range(T):
+    user_input = input()
+    print(user_input[0::2], user_input[1::2])
 
 # TERMINAL EXPECTED OUTPUT:
 # Hce akr
