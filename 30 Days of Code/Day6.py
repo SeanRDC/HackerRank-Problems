@@ -93,18 +93,21 @@ print(S[0::2], S[1::2])
 
 # MOCK INPUT:
 # T = 2
+T = 2
 
 # Problem 16: Create a mock variable `T` for the number of test cases and set it to 2.
 
 # Problem 17: Write a loop that runs `T` times. 
 # (Pro-tip: use `_` as your loop variable instead of `i` when you just need the loop to count).
+for _ in range(T):
 
 # Problem 18: Inside the loop, create a mock input `S` set to "Hacker". 
 # On the next line, print the sliced even and odd characters just like you did in Set 3.
 # EXPECTED OUTPUT:
 # Hce akr
 # Hce akr
-
+    S = "Hacker"
+    print(S[0::2], S[1::2])
 
 # ==========================================
 # SET 5: THE GRAND FINALE
