@@ -47,7 +47,6 @@ print(arr)
 # EXPECTED OUTPUT: 2 3 4 1
 print(' '.join(map(str, arr)))
 
-
 # ==========================================
 # SET 3: THE SLICING SUPERPOWER
 # ==========================================
@@ -55,15 +54,19 @@ print(' '.join(map(str, arr)))
 # slicing trick you used for strings works on lists!
 
 # Problem 9: Reset your `arr` variable to `[1, 4, 3, 2]`.
+arr = [1, 4, 3, 2]
 
 # Problem 10: Use the `[::-1]` slice on `arr` and save it to a variable called `sliced_arr`.
+sliced_arr = arr[::-1]
 
 # Problem 11: Print `sliced_arr`.
 # EXPECTED OUTPUT: [2, 3, 4, 1]
+print(sliced_arr)
 
 # Problem 12: Print it as a space-separated string using the `.join()` and `map()` 
 # trick you learned in Problem 8.
 # EXPECTED OUTPUT: 2 3 4 1
+print(' '.join(map(str, sliced_arr)))
 
 
 # ==========================================
