@@ -78,13 +78,16 @@ print(' '.join(map(str, sliced_arr)))
 # Example: `print(*my_list)`
 
 # Problem 13: Reset your `arr` variable to `[1, 4, 3, 2]`.
+arr = [1, 4, 3, 2]
 
 # Problem 14: Use the unpacking operator `*` inside a print statement on `arr`.
 # EXPECTED OUTPUT: 1 4 3 2
+print(*arr)
 
 # Problem 15: Let's combine our superpowers. Inside a single print statement, 
 # use the unpacking operator `*` on a reversed slice of `arr` (i.e., `arr[::-1]`).
 # EXPECTED OUTPUT: 2 3 4 1
+print(*arr[::-1])
 
 # Problem 16: Take a moment to realize you just turned a standard algorithmic problem 
 # into exactly ONE line of code.
@@ -100,13 +103,17 @@ print(' '.join(map(str, sliced_arr)))
 # 1 4 3 2
 
 # Problem 17: Write the `if __name__ == '__main__':` block just like HackerRank does.
+if __name__ == '__main__':
 
 # Problem 18: Inside the block, get the integer input for `n` (array size).
+    n = int(input())
 
 # Problem 19: Next, paste HackerRank's exact code for grabbing the array:
 # `arr = list(map(int, input().rstrip().split()))`
+    arr = list(map(int, input().rstrip().split()))
 
 # Problem 20: Use the ultimate one-liner from Problem 15 to print the reversed array!
+    print(*arr[::-1])
 
 # TERMINAL EXPECTED OUTPUT:
 # 2 3 4 1
