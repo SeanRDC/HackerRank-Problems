@@ -4,15 +4,25 @@
 # Let's set up our test case and manually grab the characters.
 
 # Problem 1: Create a test string `S` set to "Hacker".
+S = "Hacker"
 
 # Problem 2: Print the character at index 0, index 2, and index 4. 
 # (Expected Output: H, c, e)
+a = S[0]
+b = S[2]
+c = S[4]
+print(f'{a}, {b}, {c}')
 
 # Problem 3: Print the character at index 1, index 3, and index 5.
 # (Expected Output: a, k, r)
+a = S[1]
+b = S[3]
+c = S[5]
+print(f'{a}, {b}, {c}')
 
 # Problem 4: Create two empty string variables: `even_chars` and `odd_chars`.
-
+even_chars = ""
+odd_chars = ""
 
 # ==========================================
 # SET 2: THE LOOP METHOD (THE HARD WAY)
