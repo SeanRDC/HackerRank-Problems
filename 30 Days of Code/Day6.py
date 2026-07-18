@@ -61,25 +61,29 @@ print(f'{even_chars} {odd_chars}')
 # starting from the beginning of `S` and print them.
 # EXPECTED OUTPUT: 
 # Hce 
+print(S[0::2])
 
 # Problem 12: Now let's grab the odd indices. Using string slicing, start at index 1 
 # and step by 2 to grab all the odd-indexed characters. Print them.
 # EXPECTED OUTPUT: 
 # akr
+print(S[1::2])
 
 # Problem 13: Combine both slices into a single print statement. 
 # (Hint: Pass them as two separate arguments to the print function so it automatically adds a space!)
 # EXPECTED OUTPUT: 
 # Hce akr
+print(S[0::2], S[1::2])
 
 # MOCK INPUT UPDATE:
 # S = "Rank"
+S = "Rank"
 
 # Problem 14: Try it with the second test string. 
 # Update `S` to "Rank" and run the exact same print statement from Problem 13 again.
 # EXPECTED OUTPUT: 
 # Rn ak
-
+print(S[0::2], S[1::2])
 
 # ==========================================
 # SET 4: HANDLING HACKERRANK'S TEST CASES
