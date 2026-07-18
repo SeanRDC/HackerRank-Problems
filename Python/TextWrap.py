@@ -58,17 +58,22 @@ print("\n".join(lines))
 # Python has a built-in module literally called `textwrap` that does all of Set 2 for you.
 
 # Problem 11: Import the module at the top of your code: `import textwrap`
+import textwrap
 
 # Problem 12: Use the `textwrap.wrap()` function. Pass it your string and width: 
 # `textwrap.wrap(s, w)`. Save the result to a variable `wrapped_list` and print it.
 # Expected Output: ['ABCD', 'EFGH', 'IJKL', 'IMNO', 'QRST', 'UVWX', 'YZ']
+wrapped_list = textwrap.wrap(s, w)
+print(wrapped_list)
 
 # Problem 13: Look familiar? `textwrap.wrap()` perfectly created the list from Problem 9!
 # Print `"\n".join(wrapped_list)` to see the final formatted block.
+print("\n".join(wrapped_list))
 
 # Problem 14: What if you have actual words? 
 # Print `textwrap.wrap("Hello world how are you", 5)`. 
 # (Notice how it smartly tries NOT to chop words in half if it doesn't have to!)
+print(textwrap.wrap("Hello world how are you",5))
 
 
 # ==========================================
@@ -78,11 +83,15 @@ print("\n".join(lines))
 
 # Problem 15: Call `textwrap.fill(s, w)`. Save it to `final_text` and print it.
 # Expected Output: The fully formatted, multi-line string, instantly!
+final_text = textwrap.fill(s, w)
+print(final_text)
 
 # Problem 16: Marvel at how the 5-line loop from Set 2 just became a single line of code.
 
 # Problem 17: Try `textwrap.fill(s, 10)`. See how easily it adapts.
 # Problem 18: Try `textwrap.fill(s, 1)`.
+print(textwrap.fill(s,10))
+print(textwrap.fill(s,1))
 
 
 # ==========================================
