@@ -79,9 +79,11 @@ print(list_B)
 
 # Problem 13: Generate the cartesian product of `list_A` and `list_B` using `list(product())`. 
 # Save it to `final_product`.
+final_product = list(product(list_A, list_B))
 
 # Problem 14: How do we strip the square brackets off a list and print the elements 
 # separated by spaces? Hint: Use the "Secret Weapon" you learned in the Reverse Array challenge!
+print(*final_product)
 
 # Problem 15: Use the unpacking operator `*` inside a print statement on `final_product`.
 # EXPECTED OUTPUT: (1, 3) (1, 4) (2, 3) (2, 4)
