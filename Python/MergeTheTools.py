@@ -57,15 +57,12 @@ print(unique_chunk)
 # EXPECTED OUTPUT: AB
 # (Try changing chunk to 'ADA' and running it again. It should print 'AD').
 
-
 # ==========================================
 # SET 3: COMBINING THE STEPS
 # ==========================================
 # Let's put the deduplicator inside the chunking loop.
 
 # MOCK INPUT:
-# s = 'AABCAAADA'
-# k = 3
 
 # Problem 11: Set up your `s` and `k` variables again, and write your `range` loop 
 # that steps by `k` (from Set 1).
@@ -76,6 +73,18 @@ print(unique_chunk)
 # your inner loop that checks characters and adds them if they are new (from Set 2).
 
 # Problem 14: At the very end of the outer loop, print `unique_chunk`.
+s= 'AABCAAADA'
+k= 3
+
+
+for i in range(0, len(s), k):
+    unique = ""
+    chunk = s[i : i + k]
+    for j in chunk:
+        if j not in unique:
+            unique += j
+    print(unique)
+
 # EXPECTED OUTPUT:
 # AB
 # CA
@@ -94,14 +103,18 @@ print(unique_chunk)
 # chunk = 'AAB'
 
 # Problem 15: Create the mock variable `chunk`.
+chunk = 'AAB'
 
 # Problem 16: Use `dict.fromkeys(chunk)` and save it to a variable called `my_dict`.
 # Print `my_dict`.
 # EXPECTED OUTPUT: {'A': None, 'B': None} (Notice the extra 'A' is gone!)
+my_dict = dict.fromkeys(chunk)
+print(my_dict)
 
 # Problem 17: We just need the keys joined together as a string. 
 # Use `"".join()` directly on `my_dict` and print it.
 # EXPECTED OUTPUT: AB
+print(''.join(my_dict))
 
 # Problem 18: Marvel at how the 4-line inner loop from Set 3 can be replaced 
 # by a single `.join(dict.fromkeys())` statement.
@@ -114,10 +127,24 @@ print(unique_chunk)
 
 # Problem 19: Define the function exactly as HackerRank asks: 
 # `def merge_the_tools(string, k):`
+def merge_the_tools(string, k):
 
 # Problem 20: Inside the function, write your chunking loop. Inside that loop, 
 # grab the chunk, and print the deduplicated version using whichever method you prefer 
 # (the manual string builder or the dictionary shortcut). 
-
+    # Method 1
+    for i in range(0, len(string), k):
+        chunk = string[i : i + k]
+        unique = ""
+        for j in chunk:
+            if j not in unique:
+                unique += j
+        print(unique)
+    # Method 2
+    for i in range(0, len(string), k):
+        chunk = string[i : i + k]
+        my_dict = dict.fromkeys(chunk)
+        print("".join(my_dict))
+        
 # Test it by calling:
-# merge_the_tools('AABCAAADA', 3)
+merge_the_tools('AABCAAADA', 3)
