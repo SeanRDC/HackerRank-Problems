@@ -8,14 +8,20 @@
 # k = 3
 
 # Problem 1: Create the mock variables `s` and `k`.
+s= 'AABCAAADA'
+k= 3
 
 # Problem 2: Write a loop that iterates over the indices of `s`, but instead of 
 # going up by 1, it steps by `k`. (Hint: Use `range(start, stop, step)`).
+s_len = len(s)
+for i in range(0, s_len, k):
 
 # Problem 3: Inside the loop, slice the string `s` from the current index 
 # to the current index plus `k`. Save this to a variable called `chunk`.
+    chunk = s[i : i + k]
 
 # Problem 4: Still inside the loop, print `chunk`.
+    print(chunk)
 # EXPECTED OUTPUT:
 # AAB
 # CAA
