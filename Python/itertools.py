@@ -53,18 +53,22 @@ print(list(product(A, B)))
 # HackerRank gives us strings like "1 2" instead of actual lists. We need to parse them.
 
 # MOCK STRING INPUT:
-# input_A = "1 2"
-# input_B = "3 4"
+input_A = "1 2"
+input_B = "3 4"
 
 # Problem 9: Create the mock string variables `input_A` and `input_B`.
 
 # Problem 10: Using the `split()`, `map()`, and `list()` combo you learned in the 
 # reverse array challenge, convert `input_A` into a list of integers. Save it to `list_A`.
+list_A = list(map(int, input_A.split()))
+
 
 # Problem 11: Do the exact same thing to convert `input_B` into `list_B`.
+list_B = list(map(int, input_B.split()))
 
 # Problem 12: Print `list_A` and `list_B` to verify they are actual integer lists.
-
+print(list_A)
+print(list_B)
 
 # ==========================================
 # SET 4: FORMATTING THE OUTPUT
