@@ -34,14 +34,17 @@ print(manual_product)
 # NEW SYNTAX: `from itertools import product`
 
 # Problem 6: Import the `product` function from the `itertools` module.
+from itertools import product
 
 # Problem 7: Call `product(A, B)` and save it to a variable called `result`. 
 # Print `result`. (Notice it just prints an "itertools object" in memory!)
+result = product(A, B)
 
 # Problem 8: The `product` function generates items lazily to save memory. 
 # Wrap your `product(A, B)` call inside `list()` to force it to generate all the pairs, 
 # then print it.
 # EXPECTED OUTPUT: [(1, 3), (1, 4), (2, 3), (2, 4)]
+print(list(product(A, B)))
 
 
 # ==========================================
