@@ -101,9 +101,13 @@ print(*final_product)
 # Problem 16: Make sure your `import` statement is at the very top.
 
 # Problem 17: Get the first line of user input, map it to integers, and save it as list A.
+lsit_A = list(map(int, input().split()))
 
 # Problem 18: Get the second line of user input, map it to integers, and save it as list B.
+list_B = list(map(int, input().split()))
 
 # Problem 19: Compute the product of A and B, convert it to a list, and save it to a variable.
+result = list(product(list_A, list_B))
 
 # Problem 20: Print the unpacked list to perfectly match HackerRank's required format.
+print(*result)
