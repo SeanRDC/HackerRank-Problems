@@ -37,18 +37,23 @@ for i in range(0, s_len, k):
 # chunk = 'AAB'
 
 # Problem 5: Create a new mock variable `chunk` set to 'AAB'.
+chunk = 'ADA'
 
 # Problem 6: Create an empty string variable called `unique_chunk`. 
 # We will use this to build our final word letter by letter.
+unique_chunk = ""
 
 # Problem 7: Write a loop that iterates through every character in `chunk`.
+for i in chunk:
 
 # Problem 8: Inside the loop, write a conditional statement: check if the character 
 # is NOT `in` your `unique_chunk` string.
+    if i not in unique_chunk:
 
 # Problem 9: If it is not in there yet, add the character to `unique_chunk`.
-
+        unique_chunk += i
 # Problem 10: Outside the loop, print `unique_chunk`. 
+print(unique_chunk)
 # EXPECTED OUTPUT: AB
 # (Try changing chunk to 'ADA' and running it again. It should print 'AD').
 
