@@ -5,15 +5,19 @@
 
 # Problem 1: Create an empty dictionary called `phone_book`. 
 # (Hint: Use curly braces `{}`).
+phone_book = {}
 
 # Problem 2: Add a new entry to the dictionary where the key is "sam" 
 # and the value is "99912222". 
 # Syntax: dictionary[key] = value
+phone_book['sam'] = 99912222
 
 # Problem 3: Add another entry for "tom" with the number "11122222".
+phone_book['tom'] = 11122222
 
 # Problem 4: Print the phone number for "sam" by accessing `phone_book["sam"]`.
 # EXPECTED OUTPUT: 99912222
+print(phone_book['sam'])
 
 
 # ==========================================
@@ -21,17 +25,23 @@
 # ==========================================
 # If you try to access a key that doesn't exist (like `phone_book["edward"]`), 
 # Python will crash with a KeyError. We must check if it exists first!
+# print(phone_book['edward'])
 
 # Problem 5: Create a mock variable `query_1 = "sam"`.
+query_1 = 'sam'
 
 # Problem 6: Write an `if` statement checking if `query_1` is `in` the `phone_book`.
+if query_1 in phone_book:
 
 # Problem 7: If it is in the phone book, print the perfectly formatted string:
 # name=phonenumber (e.g., sam=99912222). 
 # Hint: Use an f-string! `f"{query_1}={phone_book[query_1]}"`
+    print(f'{query_1}={phone_book[query_1]}')
 
 # Problem 8: Write the `else` block. If it is NOT in the phone book, print "Not found".
 # Change `query_1` to "edward" and run it again to test your else block!
+else:
+    print('Not Found')
 
 
 # ==========================================
@@ -44,16 +54,22 @@
 # sam 99912222
 # tom 11122222
 # harry 12299933
+phone_book = {}
 
 # Problem 9: Read the first line of input and convert it to an integer `n`.
+n = int(input())
 
 # Problem 10: Write a `for` loop that runs `n` times using `range(n)`.
-
+for i in range(n):
 # Problem 11: Inside the loop, read the line, split it, and unpack it into two 
 # variables: `name` and `phone`.
+    line = input().split()
+    name = line[0]
+    phone = int(line[1]) 
 
 # Problem 12: Add the `name` and `phone` to your `phone_book` dictionary.
-
+    phone_book[name] = phone
+print(phone_book)
 
 # ==========================================
 # SET 4: HANDLING UNKNOWN QUERIES (THE EOF TRAP)
