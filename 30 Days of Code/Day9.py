@@ -80,3 +80,18 @@ def factorial(n):
 
 # Problem 20: DO NOT touch any of the code under `if __name__ == '__main__':`. 
 # HackerRank wrote that so their automatic testing system can pass values into your function and read the result.
+
+# ANOTHER RECURSION CHALLENGE FROM GOOGLE'S GEMINI
+
+def fibonacci(n):
+    """
+    Series of numbers where each number is the sum of the two numbers that came before it.
+    """
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return (fibonacci(n - 1) + fibonacci(n - 2))
+        
+print(fibonacci(4))
