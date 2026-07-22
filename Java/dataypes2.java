@@ -1,59 +1,120 @@
 /* ==========================================
-   BLOCK 1: THE STRUCTURAL SHELL (YOUR TURN!)
+   BLOCK 1: THE BOILERPLATE & SCANNER
    ==========================================
-   To master Java, you need to build muscle memory for the boilerplate.
-   1. At the very top, write your imports for java.util.* and java.io.*
-   2. Create your public class named Solution.
-   3. Inside the class, write your standard main method signature.
-   4. Inside main, initialize your Scanner object to read from System.in.
-   5. Grab the first integer (let's call it 't') which tells us how many test cases there are.
-   6. Create a 'for' loop that runs 't' times.
-*/
-
-/* ==========================================
-   BLOCK 2: THE TRY-CATCH SAFETY NET
-   ==========================================
-   Inside your 'for' loop, you need a try-catch block. Why?
-   Because if the grader feeds your program a massive number, it is too 
-   big for even the `long` memory bucket. It overflows and the scanner crashes.
+   THEORY: Java requires strict structure. Every program needs imported tools, 
+   a class wrapper, and a main method where the code actually starts running. 
+   To read user input, we instantiate a Scanner object: `Scanner scanName = new Scanner(System.in);`
    
-   1. Write a `try { ... }` block.
-   2. Inside the try block, grab the massive input: `long x = sc.nextLong();`
-   3. Print the starting message exactly as requested: x + " can be fitted in:"
-   4. Immediately after the try block, write a `catch(Exception e) { ... }` block.
-   5. Inside the catch block, the scanner crashed before grabbing the data. 
-      Use `sc.next()` to grab the bad data as a String, and print it concatenated 
-      with " can't be fitted anywhere."
+   WORD PROBLEM: Import the `java.util.*` and `java.io.*` libraries. 
+   Create a public class named `Solution`. Inside it, create the standard 
+   `public static void main(String []args)` method. Inside the main method, 
+   create a Scanner object named `sc` to read standard input. Grab the very 
+   first integer from the scanner and store it in an `int` variable named `t`.
 */
 
 /* ==========================================
-   BLOCK 3: UNDERSTANDING MEMORY BUCKETS
+   BLOCK 2: THE FOR LOOP
    ==========================================
-   Now, go back inside your 'try' block (under your print statement). 
-   We need to check which buckets 'x' fits in.
-   * byte: The shot glass (8 bits). Holds numbers from -128 to 127.
-   * short: The coffee mug (16 bits).
-   * int: The pitcher (32 bits).
-   * long: The water tower (64 bits).
-*/
-
-/* ==========================================
-   BLOCK 4: THE BUILT-IN CONSTANTS (ASSEMBLING THE LOGIC)
-   ==========================================
-   To check if 'x' fits in a bucket, you COULD type out the exact max/min numbers 
-   like -2147483648 to 2147483647. But one typo fails the test! 
-   Instead, use Java's built-in variables: Short.MIN_VALUE, Short.MAX_VALUE, etc.
+   THEORY: A Java `for` loop gives you microscopic control over the iteration. 
+   It has three parts separated by semicolons: (1) Where to start, (2) When 
+   to stop, and (3) How to count. 
+   Example: `for (int i = 0; i < 5; i++) { ... }`
    
-   1. Write an 'if' statement checking if 'x' is between -128 and 127. 
+   WORD PROBLEM: The integer `t` you just grabbed represents the number of 
+   test cases HackerRank will throw at you. Write a `for` loop that initializes 
+   an integer `i` at 0, runs as long as `i` is less than `t`, and increments 
+   `i` by 1 each cycle.
+*/
+
+/* ==========================================
+   BLOCK 3: THE TRY-CATCH TRAPDOOR
+   ==========================================
+   THEORY: A `try-catch` block protects your program from violently crashing. 
+   If you try to put a massive number into a `long` using `sc.nextLong()`, 
+   and the number is too big for 64-bit memory, the Scanner panics. 
+   The code inside `try { ... }` instantly stops, and the program falls 
+   through the trapdoor into the `catch (Exception e) { ... }` block.
+   
+   WORD PROBLEM: Inside your `for` loop, create a try-catch block. 
+   Inside the `try` section, grab the next long integer from the scanner and 
+   save it in a `long` variable named `x`. Directly below that, print `x` 
+   concatenated with the exact text " can be fitted in:" to the console.
+*/
+
+/* ==========================================
+   BLOCK 4: CLEARING THE BUFFER (THE CATCH BLOCK)
+   ==========================================
+   THEORY: When `sc.nextLong()` fails, the massive bad text doesn't disappear; 
+   it stays stuck inside the Scanner! If we don't remove it, the loop will 
+   crash again on the next cycle. The command `sc.next()` reads data as a 
+   String (text). A String can be infinitely long, so it safely acts like a 
+   vacuum, sucking up the massive bad number.
+   
+   WORD PROBLEM: Inside the `catch` section, the scanner has just crashed. 
+   Grab the massive string from the scanner using `sc.next()` and print it 
+   concatenated with the exact text " can't be fitted anywhere."
+*/
+
+/* ==========================================
+   BLOCK 5: THE MEMORY BUCKETS (SEQUENTIAL IF'S)
+   ==========================================
+   THEORY: To check if a number fits inside a bucket, we check if it is 
+   greater than or equal to the minimum, AND (`&&`) less than or equal to 
+   the maximum. Java has built-in constants so you don't have to memorize 
+   the exact numbers: `Short.MIN_VALUE`, `Integer.MAX_VALUE`, etc. 
+   (Note: We use independent `if` statements, NOT `else if`, because a tiny 
+   number can fit into multiple buckets at the same time!)
+   
+   WORD PROBLEM: Go back inside your `try` block, right under your print statement.
+   1. Write an `if` statement checking if `x` is >= -128 AND <= 127. 
       If true, print "* byte".
-   2. Write a separate 'if' statement checking if 'x' is between Short.MIN_VALUE 
-      and Short.MAX_VALUE. If true, print "* short".
-   3. Write a separate 'if' statement checking if 'x' is between Integer.MIN_VALUE 
-      and Integer.MAX_VALUE. If true, print "* int".
-   4. Because HackerRank assigned the input to a `long x`, if the code reaches 
-      this point without crashing to the catch block, it inherently fits in a long! 
-      No 'if' statement needed—just print "* long".
-      
-   Finally, outside your for loop and at the end of your main method, 
-   don't forget to close your scanner!
+   2. Write an `if` statement checking if `x` is between `Short.MIN_VALUE` 
+      and `Short.MAX_VALUE`. If true, print "* short".
+   3. Write an `if` statement checking if `x` is between `Integer.MIN_VALUE` 
+      and `Integer.MAX_VALUE`. If true, print "* int".
+   4. Finally, since the program successfully saved the input to the `long x` 
+      variable without crashing, we already know it fits! Without writing any 
+      `if` statement at all, simply print "* long".
 */
+
+/* ==========================================
+   BLOCK 6: CLEANUP
+   ==========================================
+   THEORY: Scanners consume memory and keep an open stream to the operating 
+   system. It is a strict best practice to close them when you are done.
+   
+   WORD PROBLEM: Outside of your `for` loop, at the very bottom of your 
+   `main` method, close your scanner using `.close()`. 
+*/
+
+import java.util.*;
+import java.io.*;
+
+
+public class dataypes2 {
+    public static void main (String [] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+
+        for(int i = 0; i < t; i++) {
+            try {
+                long x = sc.nextLong();
+                System.out.println(x + " can be fitted in:");
+                if (x >= -128 && x <= 127) {
+                    System.out.println("* byte");
+                }
+                if (x >= Short.MIN_VALUE && x <= Short.MAX_VALUE) {
+                    System.out.println("* short");
+                }
+                if (x >= Integer.MIN_VALUE && x <= Integer.MAX_VALUE) {
+                    System.out.println("* int");
+                }
+                System.out.println("* long");
+
+            } catch (Exception e) {
+                System.out.println(sc.next() + " can't be fitted anywhere.");
+            }
+        }
+    sc.close();
+    }
+}
