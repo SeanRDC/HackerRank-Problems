@@ -62,7 +62,6 @@
 // `System.out.println();`
 
 import java.util.*;
-import java.io.*;
 
 class loop2{
     public static void main(String []argh){
