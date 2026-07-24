@@ -48,28 +48,29 @@ p.printPerson()
 
 # Problem 6: Define a new class named `Student` that inherits from `Person`. 
 # Syntax: `class SubClass(BaseClass):`
-
+class Student(Person):
 
 # Problem 7: Define the `Student` constructor (`__init__`). 
 # It needs to take `self`, plus the three Person traits (`firstName`, `lastName`, `idNumber`), 
 # AND a new trait: `scores` (which will be a list of integers).
-
+    def __init__(self, firstName, lastName, idNumber, scores):
 
 # Problem 8: We don't want to rewrite the logic for saving the name and ID. The parent class already knows how!
 # Inside your `Student` constructor, use the `super()` function to call the parent's `__init__`.
 # Syntax: `super().__init__(arg1, arg2, arg3)` 
 # Pass it the three variables `Person` requires: `firstName`, `lastName`, and `idNumber`.
-
+        super().__init__(firstName, lastName, idNumber)
 
 # Problem 9: The `super()` call handled the first three variables. 
 # Now, right below that, manually save the new `scores` list to an instance variable `self.scores`.
-
+        self.scores = scores
 
 # Problem 10 (MINI-BOSS: TEST THE INHERITANCE):
 # Create a test student: `s = Student("Jane", "Smith", 9876, [100, 80])`.
 # Call `s.printPerson()`. 
 # Notice how you never wrote `printPerson` inside `Student`? It inherited it! If it works, comment out your test.
-
+s = Student("Jane", "Smith", 9876, [100, 80])
+s.printPerson()
 
 
 # ==========================================
