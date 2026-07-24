@@ -69,16 +69,16 @@ class MyBook(Book):
 # Because the parent class has `@abstractmethod def display(self):`, Python will crash if we don't build our own `display` method inside `MyBook`. We have to fulfill the contract!
 
 # Problem 11: Inside `MyBook`, below the constructor, define the method: `def display(self):`
-
+    def display(self):
 
 # Problem 12: Inside `display`, write a print statement using an f-string to output: "Title: {self.title}"
-
+        print(f"Title: {self.title}")
 
 # Problem 13: On the next line, write a print statement using an f-string to output: "Author: {self.author}"
-
+        print(f"Author: {self.author}")
 
 # Problem 14: On the next line, write a print statement using an f-string to output: "Price: {self.price}"
-
+        print(f"Price: {self.price}")
 
 # Problem 15 (MINI-BOSS: THE CONTRACT FULFILLED):
 # Review your `display` method. It should consist of three clean `print` f-strings. 
