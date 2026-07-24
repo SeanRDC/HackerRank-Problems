@@ -10,26 +10,32 @@
 # Problem 1: Define a class named `Person`. Inside it, define the constructor method `__init__`.
 # It needs to take four things: `self`, `firstName`, `lastName`, and `idNumber`. 
 # Just put `pass` inside it for now.
-
+class Person:
+    def __init__(self, firstName, lastName, idNumber):
 
 # Problem 2: Delete `pass`. Inside your constructor, save the three passed arguments 
 # into instance variables using `self` (e.g., `self.firstName = firstName`). This takes the temporary data passed in and permanently attaches it to the object.
-
-
+        self.firstName = firstName
+        self.lastName = lastName
+        self.idNumber = idNumber
+        
 # Problem 3: A person should be able to introduce themselves. 
 # Below your constructor, create a new instance method called `printPerson(self)`.
 # (Notice how it also needs `self`? That's so it can look up its own name later!). Just put `pass` inside it for now.
-
+    def printPerson(self):
 
 # Problem 4: Inside `printPerson`, we need to print the name exactly like this: "Name: lastName, firstName"
 # Write a print statement that outputs this string format using your instance variables (`self.lastName` and `self.firstName`).
-
+        print(f"Name: {self.lastName}, {self.firstName}")
 
 # Problem 5 (MINI-BOSS: THE PARENT IS READY):
 # Still inside `printPerson`, add a second print statement on the next line: "ID: idNumber" (using `self.idNumber`).
 # Test your class by creating a test variable outside the class: `p = Person("John", "Doe", 12345)` 
 # Then call `p.printPerson()`. If it prints correctly, comment out your test code!
+        print(f"ID: {self.idNumber}")
 
+p = Person("John", "Doe", 12345)
+p.printPerson()
 
 
 # ==========================================
