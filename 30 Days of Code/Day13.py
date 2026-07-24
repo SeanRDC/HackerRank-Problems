@@ -95,23 +95,24 @@ class MyBook(Book):
 
 # Problem 16: Outside and at the very bottom of your script, write the main execution block: 
 # `if __name__ == '__main__':`
-
+if __name__ == '__main__':
 
 # Problem 17: Inside this block, create a variable `title` and set it equal to `input()`.
 # On the next line, create `author` and set it equal to `input()`.
-
+    title = input()
+    author = input()
 
 # Problem 18: The price needs to be a number, not a string. 
 # Create a variable `price` and set it equal to `int(input())`.
-
+    price = int(input())
 
 # Problem 19: Instantiate your class! Create a variable called `new_novel` and set it equal to `MyBook(title, author, price)`.
-
+new_novel1 = MyBook(title, author, price)
 
 # Problem 20 (THE GRAND FINALE):
 # Firing the method! On the final line, call the display method on your object: `new_novel.display()`.
 # YOU HAVE NOW WRITTEN THE ENTIRE SCRIPT, PRECODE AND ALL, FROM SCRATCH!
-
+new_novel1.display()
 
 # ==========================================
 # ASSEMBLE YOUR COMPLETE SCRIPT BELOW:
