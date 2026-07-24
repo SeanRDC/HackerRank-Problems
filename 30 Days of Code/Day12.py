@@ -94,13 +94,10 @@ class Student(Person):
 # Problem 14: Calculate the average by dividing `total` by `count`. 
 # Store this result in a variable called `a`.
         a = total / count
-        print(a)
 # Problem 15 (MINI-BOSS: THE MATH CHECK):
 # Temporarily add `print(a)` at the bottom of your `calculate` method.
 # Test it: `s = Student("Test", "User", 111, [100, 80])` -> `s.calculate()`. 
 # It should print `90.0`. Comment out the test code when done!
-s = Student("Test", "User", 111, [100, 80])
-s.calculate()
 
 
 # ==========================================
@@ -115,11 +112,21 @@ s.calculate()
 # Problem 16: Remove the temporary print statement in `calculate`. 
 # Look at "image_cacbda.png". If `a` is between 90 and 100 ($90 \le a \le 100$), `return 'O'`.
 # Write this first `if` statement. (Hint: Python allows chaining like `if 90 <= a <= 100:`)
-
+        if a >= 90 and a <=100:
+            return 'O'
 
 # Problem 17: Write the next two `elif` statements for grade 'E' ($80 \le a < 90$) and grade 'A' ($70 \le a < 80$).
 # Make sure to return the correct characters.
-
+        elif a >= 80 and a < 90:
+            return 'E'
+        elif a >= 70 and a < 80:
+            return 'A'
+        elif a >= 55 and a < 70:
+            return 'P'
+        elif a >= 40 and a < 55:
+            return 'D'
+        else:
+            return 'T'
 
 # Problem 18: Finish the `calculate` method! 
 # Add the `elif` for 'P' ($55 \le a < 70$), 'D' ($40 \le a < 55$), and an `else` for 'T' ($a < 40$).
@@ -129,7 +136,11 @@ s.calculate()
 # Outside and at the very bottom of your script (no indentation), write: `if __name__ == '__main__':`
 # Inside this block, use `input().split()` to read the first line of user input. 
 # Save the first item (index 0) as `firstName`, the second (index 1) as `lastName`, and the third (index 2) as `idNum`.
-
+if __name__ == '__main__':
+    n =  input().split()
+    firstName = n[0]
+    lastName = n[1]
+    idNum = n[2]
 
 # Problem 20 (THE GRAND FINALE):
 # Finish the driver code inside the `if __name__` block! 
@@ -138,7 +149,11 @@ s.calculate()
 # 3. Create a `Student` object using all these inputs (firstName, lastName, idNum, scores).
 # 4. Call `printPerson()` on your object.
 # 5. Print `"Grade: "` followed by the result of `calculate()`.
-
+    num_scores = int(input())
+    scores = list(map(int, input().split()))
+    s = Student(firstName, lastName, idNum, scores)
+    s.printPerson()
+    print(f"Grade: {s.calculate()}")
 
 # ==========================================
 # ASSEMBLE YOUR COMPLETE SCRIPT BELOW:
