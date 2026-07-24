@@ -69,8 +69,6 @@ class Student(Person):
 # Create a test student: `s = Student("Jane", "Smith", 9876, [100, 80])`.
 # Call `s.printPerson()`. 
 # Notice how you never wrote `printPerson` inside `Student`? It inherited it! If it works, comment out your test.
-s = Student("Jane", "Smith", 9876, [100, 80])
-s.printPerson()
 
 
 # ==========================================
@@ -83,25 +81,26 @@ s.printPerson()
 
 # Problem 11: Inside your `Student` class, below the constructor, define a new method: `def calculate(self):`.
 # Put `pass` inside it.
-
+    def calculate(self):
 
 # Problem 12: Inside `calculate`, we need the sum of all test scores. 
 # Create a variable called `total`. Use Python's built-in `sum()` function on your `self.scores` variable.
-
+        total = sum(self.scores)
 
 # Problem 13: We also need to know how many tests were taken. 
 # Create a variable called `count`. Use Python's built-in `len()` function on your `self.scores`.
-
+        count = len(self.scores)
 
 # Problem 14: Calculate the average by dividing `total` by `count`. 
 # Store this result in a variable called `a`.
-
-
+        a = total / count
+        print(a)
 # Problem 15 (MINI-BOSS: THE MATH CHECK):
 # Temporarily add `print(a)` at the bottom of your `calculate` method.
 # Test it: `s = Student("Test", "User", 111, [100, 80])` -> `s.calculate()`. 
 # It should print `90.0`. Comment out the test code when done!
-
+s = Student("Test", "User", 111, [100, 80])
+s.calculate()
 
 
 # ==========================================
