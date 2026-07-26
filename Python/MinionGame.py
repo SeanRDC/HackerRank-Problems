@@ -8,26 +8,29 @@
 
 # Problem 1: Define the function `def minion_game(string):`. 
 # Put `pass` inside it for now.
-
+def minion_game(string):
 
 # Problem 2: Inside the function, delete `pass`. 
 # We need to know what a vowel is. Create a string variable called `vowels` and set it equal to "AEIOU".
-
+    vowels = 'AEIOU'
 
 # Problem 3: We need to keep track of the scores. 
 # Create two variables, `kevin_score` and `stuart_score`, and initialize both of them to 0.
-
+    kevin_score = 0
+    stuart_score = 0
 
 # Problem 4: We will need the total length of the string for our math trick later. 
 # Create a variable called `length` and set it equal to `len(string)`.
-
+    length = len(string)
 
 # Problem 5 (MINI-BOSS: THE LOOP):
 # We need to iterate through the string, but we need the INDEX of each letter. 
 # Write a `for` loop using `range(length)`. Use `i` as your loop variable (e.g., `for i in ...`).
 # Inside the loop, create a variable `char` and grab the current letter using `string[i]`.
 # Put `pass` on the next line. Send this Set 1 code over for review!
-
+    for i in range(length):
+        char = string[i]
+        pass
 
 
 # ==========================================
