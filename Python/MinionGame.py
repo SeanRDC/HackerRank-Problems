@@ -30,7 +30,7 @@ def minion_game(string):
 # Put `pass` on the next line. Send this Set 1 code over for review!
     for i in range(length):
         char = string[i]
-        pass
+        
 
 
 # ==========================================
@@ -47,21 +47,21 @@ def minion_game(string):
 
 # Problem 6: Inside your `for` loop, replace `pass` with an `if` statement.
 # Check if the current `char` exists inside your `vowels` string. (Hint: Use the `in` keyword).
-
+        if char in vowels:
 
 # Problem 7: If the character IS a vowel, Kevin gets the points! 
 # Inside the `if` block, calculate how many substrings can be made using the math trick `(length - i)`.
 # Add this number to `kevin_score`.
-
+            kevin_score = length - i
 
 # Problem 8: Below that, write an `else` statement. 
 # If the character is not in our `vowels` string, it MUST be a consonant!
 
-
 # Problem 9: If it's a consonant, Stuart gets the points! 
 # Inside the `else` block, calculate the substrings using the same math trick `(length - i)`.
 # Add this number to `stuart_score`.
-
+        else:
+            stuart_score = length - i
 
 # Problem 10 (MINI-BOSS: THE SCORING ENGINE):
 # Review your loop. You should be looping through indices, checking if the character at that index is a vowel, and mathematically adding the correct number of substrings to either Kevin or Stuart's score. 
@@ -78,22 +78,23 @@ def minion_game(string):
 
 # Problem 11: OUTSIDE and BELOW your `for` loop (make sure your indentation is correct), 
 # write an `if` statement to check if `stuart_score` is strictly greater than `kevin_score`.
-
+    if stuart_score > kevin_score:
 
 # Problem 12: Inside that `if` block, print Stuart's name and his score separated by a space.
 # (Hint: An f-string like `f"Stuart {stuart_score}"` is perfect here).
-
+        print(f"Stuart {stuart_score}")
 
 # Problem 13: Write an `elif` statement to check if `kevin_score` is strictly greater than `stuart_score`.
-
+    elif kevin_score > stuart_score:
 
 # Problem 14: Inside that `elif` block, print Kevin's name and score separated by a space using an f-string.
-
+        print(f"Kevin {kevin_score}")
 
 # Problem 15 (MINI-BOSS: TIE GAME):
 # What if they have the exact same score? 
 # Write an `else` statement. Inside it, just print the exact word `"Draw"`.
-
+    else:
+        print("Draw")
 
 
 # ==========================================
@@ -105,19 +106,20 @@ def minion_game(string):
 
 # Problem 16: Outside the function, at the very bottom of the file (no indentation), 
 # write the standard execution block: `if __name__ == '__main__':`
+if __name__ == '__main__':
 
 
 # Problem 17: Inside this block, create a variable `s`. 
 # Set it equal to `input()` so HackerRank can pass the test string to us.
-
+    s = input()
 
 # Problem 18: Call your `minion_game` function! 
 # Pass your newly created variable `s` into the function's parentheses.
-
+    minion_game(s)
 
 # Problem 19 (No code needed): 
 # Take a deep breath. You just turned a massive, complex string-parsing nightmare into a highly optimized, $O(N)$ mathematical algorithm! 
-
+    
 
 # Problem 20 (THE GRAND FINALE):
 # Assemble your full script! The function, the variables, the loop, the math trick, the winner logic, and the driver code.
