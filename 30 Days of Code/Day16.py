@@ -75,9 +75,7 @@ except:
 # Change it to specifically catch a ValueError. 
 # Syntax: `except ValueError:`
 
-
 # Problem 12: Inside this specific `except ValueError:` block, ensure you are still printing "Bad String".
-
 
 # Problem 13: (Concept Check - No code needed). 
 # Notice how we didn't use a single `if/else` statement? We didn't check if the string had letters in it. We just blindly attempted the conversion and caught the error. This is a very "Pythonic" way to code, often called EAFP (Easier to Ask for Forgiveness than Permission).
@@ -90,7 +88,11 @@ except:
 # Problem 15 (MINI-BOSS: THE FULL LOGIC):
 # Assemble your complete `try` and `except ValueError` block. 
 # (Assume the variable `S` exists right above it).
-
+S = input()
+try:
+    print(int(S))
+except ValueError:
+    print("Bad String")
 
 
 # ==========================================
