@@ -40,11 +40,12 @@ print(f"{integer} is {type(integer)}")
 # Problem 6: We are going to write the real logic now. 
 # Assume we have a variable called `S` that contains the user's input.
 # Write the keyword `try:` (This opens the safe zone block).
-
+S = input()
+try:
 
 # Problem 7: Inside the `try` block (indented), take the variable `S` and convert it to an integer.
 # You can store it in a variable, or just write `print(int(S))` directly.
-
+    print(int(S))
 
 # Problem 8: (Concept Check - No code needed). 
 # If `S` is "3", the `try` block succeeds and prints 3. But what if `S` is "za"?
@@ -53,13 +54,13 @@ print(f"{integer} is {type(integer)}")
 
 # Problem 9: OUTSIDE the `try` block (un-indented back to the same level as `try`), 
 # write the keyword `except:`
-
+except:
 
 # Problem 10 (MINI-BOSS: THE BACKUP PLAN):
 # Inside the `except` block (indented), write the backup plan. 
 # The instructions say if it fails to convert, we must print "Bad String".
 # Write that print statement here. 
-
+    print("Bad String")
 
 
 # ==========================================
