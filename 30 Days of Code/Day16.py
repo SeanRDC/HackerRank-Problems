@@ -109,7 +109,6 @@ except ValueError:
 # Problem 17: Inside this block, create a variable `S`. 
 # Set it equal to `input()` to grab the user's string.
 
-
 # Problem 18: To be extra safe with inputs, it is a good habit to strip away any accidental spaces the user might have typed.
 # Modify your input to: `S = input().strip()`
 
@@ -120,8 +119,9 @@ except ValueError:
 
 # Problem 20 (THE GRAND FINALE):
 # Assemble your full script! The main execution block, grabbing the input string, trying to print it as an integer, and catching the ValueError to print "Bad String".
-
-
-# ==========================================
-# ASSEMBLE YOUR COMPLETE SCRIPT BELOW:
-# ==========================================
+if __name__ == '__main__':
+    S = input().strip()
+    try:
+        print(int(S))
+    except ValueError:
+        print("Bad String")
