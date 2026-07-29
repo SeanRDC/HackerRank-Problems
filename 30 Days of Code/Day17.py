@@ -19,11 +19,13 @@
 
 # Problem 4: Just put the word `pass` inside the method for now.
 
-
+def passable():
 # Problem 5 (MINI-BOSS: THE SHELL IS READY):
 # Review your class. It should just be the `Calculator` definition and the empty `power` method. 
 # Send Set 1 over for review!
-
+    class calculator:
+        def power(self, n, p):
+            pass
 
 
 # ==========================================
@@ -55,7 +57,10 @@
 
 # Problem 10 (MINI-BOSS: THE TRAP IS SET):
 # Review your `if` statement and `raise` logic. You have successfully built a tripwire for negative numbers!
-
+    class calculator:
+        def power(self, n, p):
+            if n < 0 or p < 0:
+                raise Exception("n and p should be non-negative")
 
 
 # ==========================================
@@ -85,8 +90,12 @@
 
 # Problem 15 (MINI-BOSS: THE METHOD IS COMPLETE):
 # Your `power` method is finished! It guards against negatives and processes the positives perfectly.
-
-
+    class calculator:
+        def power(self, n, p):
+            if n < 0 or p < 0:
+                raise Exception("n and p should be non-negative")
+            return n ** p
+pass
 
 # ==========================================
 # SET 4: WRITING THE DRIVER CODE (The Pre-code)
@@ -123,3 +132,18 @@
 # ==========================================
 # ASSEMBLE YOUR COMPLETE SCRIPT BELOW:
 # ==========================================
+class calculator:
+    def power(self, n, p):
+        if n < 0 or p < 0:
+            raise Exception("n and p should be non-negative")
+        return n ** p
+
+myCalculator = calculator()
+T = int(input())
+for i in range(T):
+    n, p = map(int, input().split())
+    try:
+        ans = myCalculator.power(n, p)
+        print(ans)
+    except Exception as e:
+        print(e)
