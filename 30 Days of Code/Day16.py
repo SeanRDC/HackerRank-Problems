@@ -8,14 +8,14 @@
 
 # Problem 1: Let's do a practice run outside the main code. 
 # Create a dummy variable called `test_string` and set it equal to the string `"12345"`.
-
+test_string = "12345"
 
 # Problem 2: Create a new variable called `test_integer`. 
 # Set it equal to `int(test_string)` to convert the word into a math number.
-
+test_integer = int(test_string)
 
 # Problem 3: Print your `test_integer` variable.
-
+print(test_integer)
 
 # Problem 4: (Concept Check - No code needed)
 # What do you think would happen right now if `test_string` was `"hello"` instead of `"12345"`?
@@ -25,8 +25,9 @@
 # Problem 5 (MINI-BOSS: THE HAPPY PATH):
 # Group your code together. Define a string "99", convert it to an integer, and print it. 
 # (You can comment this out once you see it prints 99 successfully). Send Set 1 over for review!
-
-
+string = "99"
+integer = int(string)
+print(f"{integer} is {type(integer)}")
 
 # ==========================================
 # SET 2: THE SAFETY NET (Try / Except)
