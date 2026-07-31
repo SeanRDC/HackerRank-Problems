@@ -5,7 +5,6 @@
 # Problem 1: We need an object to hold our data structures. 
 # Define a class named `Solution`. Inside it, write the standard constructor method that initializes an object when it is created.
 
-
 # Problem 2: Inside the constructor, we need our two containers. 
 # Create an instance variable for your stack and initialize it as an empty list. 
 # Create a second instance variable for your queue and initialize it as an empty list as well.
@@ -23,7 +22,7 @@
 # Problem 5 (MASTER PROBLEM 1: THE STACK ENGINE):
 # Assemble the `Solution` class, the constructor, and your two stack-related methods. 
 # Ensure your logic correctly adds items to the end and removes them from the end.
-
+    
 
 
 # ==========================================
