@@ -6,16 +6,16 @@
 a = [5, 3]
 
 # Problem 5: Create your total_swaps variable and set it to 0.
-
+total_swaps = 0
 
 # Problem 2: Write an `if` statement to check if the element at index 0 is greater than index 1.
-
+if a[0] > a[1]:
 
     # Problem 3: Inside the `if`, use the Pythonic trick to swap a[0] and a[1].
-    
+    a[0], a[1] = a[1], a[0]
     
     # Problem 6: Still inside the `if`, increment total_swaps by 1.
-    
+    total_swaps += 1
 
 
 # ==========================================
