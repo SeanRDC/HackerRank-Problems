@@ -97,8 +97,61 @@ class Solution:
         # At the very end of the method (outside the if/else routing, but inside the method), 
         # return the current `root`. This hands the updated branch back up to the parent!
         return root
-        
+    
+    
+# ==========================================
+# PHASE 4 & 5: THE WAITING LINE & THE SWEEP
+# ==========================================
 
+    # Problem 19: The Method
+    # Define a method named `levelOrder` inside your `Solution` class. 
+    # It needs to accept `self` and a pointer to the `root` of the tree.
+    def levelOrder(self, root):
+    
+        # Problem 20: The Empty Tree Check
+        # Just in case they hand us a completely empty tree, check if `root` is None.
+        # If it is, simply `return` to exit the function immediately.
+        if root == None:
+            return
+        
+        # Problem 21: Opening the Line
+        # Create an empty list called `queue`.
+        queue = []
+        
+        # Problem 22: The First Customer
+        # Add the `root` node to the back of the `queue`. (Hint: use .append())
+        queue.append(root)
+        
+        # Problem 23: The Sweep Loop
+        # We need to keep processing as long as there is someone in the line.
+        # Write a `while` loop that runs as long as the length of `queue` is greater than 0.
+        while len(queue) > 0:
+        
+            # Problem 24: Calling the Next Customer
+            # Inside the loop, remove the node at the FRONT of the queue (index 0) and save it to a variable named `current`.
+            # (Hint: use queue.pop(0) )
+            current = queue.pop(0)
+            
+            # Problem 25: Printing the Data
+            # Print the data inside the `current` node. 
+            # HackerRank wants all the numbers on a single line separated by spaces.
+            # To stop Python from hitting 'Enter' after printing, write: print(current.data, end=" ")
+            print(current.data, end=" ")
+            
+            # Problem 26: Queuing the Left Child
+            # Write an `if` statement to check if `current.left` is NOT None.
+            if current.left != None:
+            
+                # Problem 27: If it exists, append `current.left` to the back of the `queue`.
+                queue.append(current.left)
+                
+            # Problem 28: Queuing the Right Child
+            # Write an `if` statement to check if `current.right` is NOT None.
+            if current.right != None:
+            
+                # Problem 29: If it exists, append `current.right` to the back of the `queue`.
+                queue.append(current.right)
+            
 # ==========================================
 # TEST YOUR CODE
 # ==========================================
@@ -125,29 +178,29 @@ print(f"Right Child: {root.right.data}")
 # Problem 13: Total Nodes
 # HackerRank always provides the total number of items on the very first line.
 # Read this line from standard input, convert it to an integer, and save it to a variable named `T`.
-
+T = int(input())
 
 # Problem 14: Hiring the Manager
 # We need an instance of our tree-building class to start doing work. 
 # Instantiate a new object of the `Solution` class and save it to a variable called `myTree`.
-
+myTree = Solution()
 
 # Problem 15: The Empty Warehouse
 # A tree has to start somewhere, but before we add any nodes, the root is completely empty. 
 # Initialize a variable named `root` and set it to represent absolute "nothingness" (None).
-
+root = None
 
 # CONCEPT: THE ASSEMBLY LINE
 # Now we need to process the remaining lines of input one by one.
 
 # Problem 16: The Loop
 # Create a loop that will run exactly `T` times.
-
+for _ in range(T):
 
     # Problem 17: Reading the Data
     # Inside the loop, read the next line of standard input and convert it into an integer. 
     # Save it to a variable named `data`.
-    
+    data = int(input())
     
     # Problem 18: Building the Tree
     # Still inside the loop, hand the data to your manager!
@@ -155,7 +208,12 @@ print(f"Right Child: {root.right.data}")
     # CRITICAL: The `insert` method returns the updated root of the tree. 
     # You MUST capture that returned value and use it to overwrite your `root` variable!
     # (e.g., root = ...)
-    
-    
-# We will leave a blank space here at the bottom. 
-# In Phase 5, this is where we will finally call our levelOrder function!
+    root = myTree.insert(root, data)
+
+# ==========================================
+# GRAND FINALE
+# ==========================================
+# Look back at your STDIN parsing code from Phase 3.
+# At the very bottom, OUTSIDE the parsing `for` loop, you have a completely built `myTree` and a populated `root`.
+# Problem 30: Call the `levelOrder` method on `myTree` and pass it your `root`!
+myTree.levelOrder(root)
