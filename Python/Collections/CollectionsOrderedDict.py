@@ -144,5 +144,21 @@ for key, value in manager_ledger.items():
 # APPLE JUICE 20
 # CANDY 20
 # =====================================================================
+from collections import OrderedDict
 
-# Paste your assembled final script here!
+ledger = OrderedDict()
+
+N = int(input())
+for _ in range(N):
+    words = input().split()
+    price = int(words[-1])
+    item = words[:-1]
+    item_name = ' '.join(item)
+    
+    if item_name not in ledger:
+        ledger[item_name] = price
+    else:
+        ledger[item_name] += price
+
+for key, value in ledger.items():
+    print(f"{key} {value}")
