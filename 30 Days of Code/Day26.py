@@ -63,17 +63,21 @@ print(check_days(5, 6))
 # Problem 8: Write a function `check_months(m1, m2)`.
 # If `m1 > m2`, calculate and return the fine (500 * months late).
 # Otherwise, return 0.
-
-
+def check_months(m1, m2):
+    if m1 > m2:
+        months_late = m1 - m2
+        return (500 * months_late)
+    else:
+        return 0 
 # Problem 9: Call `check_months(8, 5)` and print the result.
 # Mock Input: m1=8, m2=5
 # Expected Output: 1500
-
+print(check_months(8, 5))
 
 # Problem 10: Call `check_months(3, 5)` and print the result.
 # Mock Input: m1=3, m2=5
 # Expected Output: 0
-
+print(check_months(3, 5))
 
 # ---------------------------------------------------------
 # BLOCK D: COMBINING MONTH AND DAY (Assume same year)
