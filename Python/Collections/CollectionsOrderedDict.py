@@ -76,32 +76,36 @@ else:
 
 # Problem 11: Total Transactions
 # Read the very first line of standard input, convert it to an integer, and save it to `N`.
-
+N = int(input())
 
 # Problem 12: The Execution Loop
 # Write a `for` loop that runs exactly `N` times.
-
+for i in range(N):
 
     # Problem 13: Read the Line
     # Inside the loop, read the next line of standard input and save it to a variable `line`.
-    
+    line = input()
     
     # Problem 14: Split the Line
     # Split the `line` into a list of words.
-    
+    words = line.split()
     
     # Problem 15: Grab the Price
     # Repeat the logic from Problem 4 here inside the loop. Grab the price and convert to int.
-    
+    price = int(words[-1])
     
     # Problem 16: Grab the Name
     # Repeat the logic from Problems 5 & 6 here to slice and join the item name.
-    
+    item_name = words[:-1]
+    item = ' '.join(item_name)
     
     # Problem 17: Update the Ledger
     # Repeat the logic from Problems 7, 8, 9, and 10 here. 
     # If the item is new, set it. If it exists, add the price to the total!
-
+    if item not in manager_ledger:
+        manager_ledger[item] = price
+    else:
+        manager_ledger[item] += price        
 
 # ---------------------------------------------------------
 # PHASE 5: PRINTING THE RECEIPT
