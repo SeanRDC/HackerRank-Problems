@@ -115,26 +115,40 @@ print(same_year(1, 6, 7, 6))
 
 # Problem 16: Write a final function `library_fine(d1, m1, y1, d2, m2, y2)`.
 # Inside, check if `y1 > y2`. If true, return the fixed fine of 10000.
-
+def library_fine(d1, m1, y1, d2, m2, y2):
+    if y1 > y2:
+        return 10000
 
 # Problem 17: Inside `library_fine`, check if `y1 < y2`. If true, return 0.
-
+    elif y1 < y2:
+        return 0
 
 # Problem 18: Inside `library_fine`, handle the last remaining possibility (`y1 == y2`).
 # If true, return the result of your `same_year(d1, d2, m1, m2)` function!
-
+    else:
+        return same_year(d1, d2, m1, m2)
 
 # Problem 19: Call `library_fine(1, 1, 2016, 31, 12, 2015)` and print the result.
 # Mock Input: Actual=(1, 1, 2016), Expected=(31, 12, 2015)
 # Expected Output: 10000
-
+print(library_fine(1, 1, 2016, 31, 12, 2015))
 
 # Problem 20: Call `library_fine(31, 12, 2014, 1, 1, 2015)` and print the result.
 # Mock Input: Actual=(31, 12, 2014), Expected=(1, 1, 2015)
 # Expected Output: 0
+print(library_fine(31, 12, 2014, 1, 1, 2015))
 
 # =====================================================================
 # FINAL SUBMISSION
-# Once all 20 building blocks work perfectly, you can combine your logic 
-# into one clean, continuous script below to paste into HackerRank!
+# SUMMARY: Assemble your data parsing lines from Phase 1 and your nested 
+# logic functions into a single, continuous script. Read the two lines of 
+# standard input, unpack the date variables, pass them into your master 
+# `library_fine` function, and print the final result to beat the challenge!
+# 
+# MOCK INPUT (STDIN): 
+# 9 6 2015
+# 6 6 2015
+# 
+# EXPECTED OUTPUT: 
+# 45
 # =====================================================================
