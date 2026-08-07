@@ -38,16 +38,22 @@ print(y2)
 # Problem 5: Write a function `check_days(d1, d2)`. 
 # If `d1 > d2`, calculate and return the fine (15 * days late).
 # Otherwise, return 0.
-
+def check_days(d1, d2):
+    if d1 > d2:
+        days_late = d1 - d2
+        return (15 * days_late)
+    else:
+        return 0
 
 # Problem 6: Call `check_days(9, 6)` and print the result.
 # Mock Input: d1=9, d2=6
 # Expected Output: 45
-
+print(check_days(9, 6))
 
 # Problem 7: Call `check_days(5, 6)` and print the result.
 # Mock Input: d1=5, d2=6
 # Expected Output: 0
+print(check_days(5, 6))
 
 
 # ---------------------------------------------------------
