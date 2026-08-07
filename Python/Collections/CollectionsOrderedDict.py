@@ -114,11 +114,11 @@ for i in range(N):
 # Problem 18: Unpacking the Ledger
 # Step completely outside the `N` loop.
 # Write a new `for` loop that unpacks BOTH the keys and values from your dictionary at the same time.
-
+for key, value in manager_ledger.items():
 
     # Problem 19: The Final Output
     # Inside this new loop, print the key (the item) and the value (the total) separated by a space.
-
+    print(f"{key} {value}")
 
 # =====================================================================
 # FINAL SUBMISSION
