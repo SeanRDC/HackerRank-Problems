@@ -29,20 +29,17 @@ manager_ledger = OrderedDict()
 # Create a variable `words` and split `mock_line` into a list of individual strings.
 mock_line = "POTATO CHIPS 30"
 words = mock_line.split()
-print(words)
 
 # Problem 4: Extracting the Price
 # The price is ALWAYS the very last item in the list, no matter how long the item name is. 
 # How do you target the last element of a list in Python?
 # Grab it, convert it to an integer, and save it to a variable named `price`.
 price = int(words[-1])
-print(price)
 
 # Problem 5: Extracting the Name Pieces
 # How do you grab a "slice" of a list that contains everything EXCEPT the last item?
 # Grab that slice and save it to a variable named `name_pieces`.
 name_pieces = words[:-1]
-print(name_pieces)
 
 # Problem 6: Rebuilding the Name
 # Right now, `name_pieces` is a list of strings: ['POTATO', 'CHIPS']. We want a clean string.
@@ -50,7 +47,6 @@ print(name_pieces)
 # Perform this action, save the result to `item_name`, and print it to test!
 # Expected Output: POTATO CHIPS
 item_name = ' '.join(name_pieces)
-print(item_name)
 
 # ---------------------------------------------------------
 # PHASE 3: THE COUNTING LOGIC (Mock Testing)
@@ -58,21 +54,21 @@ print(item_name)
 
 # Problem 7: The First Scan
 # Write an `if` statement to check if your `item_name` does NOT exist in your `manager_ledger`.
-
+if item_name not in manager_ledger:
 
     # Problem 8: The Initial Price
     # Inside the if-block, add `item_name` to the `manager_ledger` as a new key, 
     # and set its value to your `price` variable.
-
+    manager_ledger[item_name] = price
 
 # Problem 9: The Repeat Scan
 # Write an `else:` block for when the item already exists in the ledger.
-
+else:
 
     # Problem 10: Accumulating the Total
     # Inside the else-block, look up the existing `item_name` in the ledger 
     # and mathematically add the new `price` to its current total.
-
+    manager_ledger[item_name] += price
 
 # ---------------------------------------------------------
 # PHASE 4: THE MASTER LOOP (Real Execution)
