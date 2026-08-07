@@ -85,23 +85,28 @@ print(check_months(3, 5))
 
 # Problem 11: Write a function `same_year(d1, d2, m1, m2)`.
 # Inside, check if `m1 == m2`. If true, return the result of `check_days(d1, d2)`.
-
+def same_year(d1, d2, m1, m2):
+    if m1 == m2:
+        return check_days(d1, d2)
 
 # Problem 12: Inside `same_year`, add a check: if `m1 > m2`, 
 # return the result of `check_months(m1, m2)`.
-
+    elif m1 > m2:
+        return check_months(m1, m2)
 
 # Problem 13: Inside `same_year`, add a check: if `m1 < m2`, return 0.
-
+    elif m1 < m2:
+        return 0
 
 # Problem 14: Call `same_year(9, 6, 6, 6)` and print the result.
 # Mock Input: d1=9, d2=6, m1=6, m2=6
 # Expected Output: 45
-
+print(same_year(9, 6, 6, 6))
 
 # Problem 15: Call `same_year(1, 6, 7, 6)` and print the result.
 # Mock Input: d1=1, d2=6, m1=7, m2=6
 # Expected Output: 500
+print(same_year(1, 6, 7, 6))
 
 
 # ---------------------------------------------------------
