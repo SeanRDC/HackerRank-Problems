@@ -167,10 +167,8 @@ for char, value in cut_chars:
 # ==============================================================================
 s = input().strip()
 
-count = Counter(s)
-counted = count.items()
-sorting_key = lambda t: (t[1] * -1, t[0])
-sorted_mech = sorted(counted, key=sorting_key)
-cut_chars = sorted_mech[:3]
-for char, value in cut_chars:
+count = Counter(s).items()
+sorting_key = lambda t: (-t[1], t[0])
+sorted_mech = sorted(count, key=sorting_key)[:3]
+for char, value in sorted_mech:
     print(f"{char} {value}")
