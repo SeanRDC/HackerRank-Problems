@@ -53,29 +53,29 @@ class TestDataEmptyArray:
 
 # Problem 5: Class Definition
 # Define a class named `TestDataUniqueValues`.
-
+class TestDataUniqueValues:
 
     # Problem 6: The Static Method Decorator
     # Add the static method decorator again for the next method.
-
+    @staticmethod
 
     # Problem 7: The Array Method
     # Define a method named `get_array`.
-
+    def get_array():
 
         # Problem 8: Returning Unique Data
         # Inside `get_array`, return a hardcoded list of at least 2 integers where 
         # EVERY integer is completely unique.
         # Example Mock List: [5, 10, 15, 20]
-        
+        return [5, 10, 15, 20]
 
     # Problem 9: The Static Method Decorator
     # Add the static method decorator for the next method.
-
+    @staticmethod
 
     # Problem 10: The Expected Result Method
     # Define a method named `get_expected_result`.
-
+    def get_expected_result():
 
         # Problem 11: Finding the Minimum Index
         # Look at the hardcoded list you created in Problem 8.
@@ -83,7 +83,7 @@ class TestDataEmptyArray:
         # Return that exact integer value here.
         # Mock Input: Assuming list is [5, 10, 15]
         # Expected Output: 0
-
+        return 0
 
 # ---------------------------------------------------------
 # PHASE 3: EXACTLY TWO MINIMUMS TEST DATA
