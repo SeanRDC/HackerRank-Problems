@@ -91,30 +91,30 @@ class TestDataUniqueValues:
 
 # Problem 12: Class Definition
 # Define a class named `TestDataExactlyTwoDifferentMinimums`.
-
+class TestDataExactlyTwoDifferentMinimums:
 
     # Problem 13: The Static Method Decorator
     # Add the static method decorator.
-
+    @staticmethod
 
     # Problem 14: The Array Method
     # Define a method named `get_array`.
-
+    def get_array():
 
         # Problem 15: Returning Duplicate Minimums Data
         # Inside `get_array`, return a hardcoded list of integers.
         # CRUCIAL RULE: The absolute minimum value in this list MUST appear exactly twice.
         # Every other number must be strictly greater than that minimum value.
         # Example Mock List: [8, 3, 9, 3, 12] (The minimum is 3, and it appears at index 1 and 3)
-
+        return [8, 3, 9, 3, 12]
 
     # Problem 16: The Static Method Decorator
     # Add the static method decorator.
-
+    @staticmethod
 
     # Problem 17: The Expected Result Method
     # Define a method named `get_expected_result`.
-
+    def get_expected_result():
 
         # Problem 18: Finding the FIRST Minimum Index
         # Look at the hardcoded list you created in Problem 15.
@@ -123,7 +123,7 @@ class TestDataUniqueValues:
         # Return that exact integer value here.
         # Mock Input: Assuming list is [8, 3, 9, 3, 12]
         # Expected Output: 1
-
+        return 1
 
 # ---------------------------------------------------------
 # PHASE 4: UNDERSTANDING THE TARGET FUNCTION
@@ -155,4 +155,70 @@ class TestDataUniqueValues:
 # OK
 # =====================================================================
 
-# Paste your assembled final script (including the precode) here!
+class TestDataEmptyArray:
+    @staticmethod
+    def get_array():
+        return []
+    
+class TestDataUniqueValues:
+    @staticmethod
+    def get_array():
+        return [5, 10, 15, 20]
+
+    @staticmethod
+    def get_expected_result():
+        return 0
+
+class TestDataExactlyTwoDifferentMinimums:
+    @staticmethod
+    def get_array():
+        return [8, 3, 9, 3, 12]
+
+    @staticmethod
+    def get_expected_result():
+        return 1
+    
+def minimum_index(seq):
+    if len(seq) == 0:
+        raise ValueError("Cannot get the minimum value index from an empty sequence")
+    min_idx = 0
+    for i in range(1, len(seq)):
+        if seq[i] < seq[min_idx]:
+            min_idx = i
+    return min_idx
+
+def TestWithEmptyArray():
+    try:
+        seq = TestDataEmptyArray.get_array()
+        result = minimum_index(seq)
+    except ValueError as e:
+        pass
+    else:
+        assert False
+
+
+def TestWithUniqueValues():
+    seq = TestDataUniqueValues.get_array()
+    assert len(seq) >= 2
+
+    assert len(list(set(seq))) == len(seq)
+
+    expected_result = TestDataUniqueValues.get_expected_result()
+    result = minimum_index(seq)
+    assert result == expected_result
+
+
+def TestiWithExactyTwoDifferentMinimums():
+    seq = TestDataExactlyTwoDifferentMinimums.get_array()
+    assert len(seq) >= 2
+    tmp = sorted(seq)
+    assert tmp[0] == tmp[1] and (len(tmp) == 2 or tmp[1] < tmp[2])
+
+    expected_result = TestDataExactlyTwoDifferentMinimums.get_expected_result()
+    result = minimum_index(seq)
+    assert result == expected_result
+
+TestWithEmptyArray()
+TestWithUniqueValues()
+TestiWithExactyTwoDifferentMinimums()
+print("OK")
