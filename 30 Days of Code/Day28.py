@@ -27,103 +27,105 @@
 
 # Problem 1: The Import
 # Regex requires a specific module in Python. Write the code to import the `re` module.
-import re
+def passable():
+    import re
 
-# Problem 2: The Literal String
-# We are looking for emails that end with "@gmail.com". In regex, a period "." 
-# is a special character that means "any character". To match a literal period, 
-# you must escape it with a backslash. 
-# Concept: How do you write "@gmail.com" so that the period is treated as a literal dot?
-email = "@gmail\.com"
-# Problem 3: The End-of-String Anchor
-# If an email is "user@gmail.com.org", it contains "@gmail.com" but does not END with it.
-# In regex, the dollar sign "$" asserts that the match must happen at the very end of the string.
-# Concept: Combine your escaped string from Problem 2 with the end-of-string anchor.
-email = "@gmail\.com$"
-# Problem 4: Defining the Pattern
-# Create a variable named `regex_pattern`.
-# Assign it a raw string (prefix the string with an 'r', like r"pattern") containing 
-# the combined regex logic you figured out in Problem 3.
-regex_pattern = r"@gmail\.com$"
+    # Problem 2: The Literal String
+    # We are looking for emails that end with "@gmail.com". In regex, a period "." 
+    # is a special character that means "any character". To match a literal period, 
+    # you must escape it with a backslash. 
+    # Concept: How do you write "@gmail.com" so that the period is treated as a literal dot?
+    email = "@gmail\.com"
+    # Problem 3: The End-of-String Anchor
+    # If an email is "user@gmail.com.org", it contains "@gmail.com" but does not END with it.
+    # In regex, the dollar sign "$" asserts that the match must happen at the very end of the string.
+    # Concept: Combine your escaped string from Problem 2 with the end-of-string anchor.
+    email = "@gmail\.com$"
+    # Problem 4: Defining the Pattern
+    # Create a variable named `regex_pattern`.
+    # Assign it a raw string (prefix the string with an 'r', like r"pattern") containing 
+    # the combined regex logic you figured out in Problem 3.
+    regex_pattern = r"@gmail\.com$"
 
-# Problem 5: The Match Function
-# Python's `re.search(pattern, string)` scans through a string looking for a match.
-# Create a mock email: `test_email_1 = "alice@gmail.com"`
-# Use `re.search()` to check `test_email_1` against your `regex_pattern`.
-# Mock Output: A Match object (e.g., <re.Match object; span=(5, 15), match='@gmail.com'>)
-test_email_1 = "alice@gmail.com"
-print(re.search(regex_pattern, test_email_1))
+    # Problem 5: The Match Function
+    # Python's `re.search(pattern, string)` scans through a string looking for a match.
+    # Create a mock email: `test_email_1 = "alice@gmail.com"`
+    # Use `re.search()` to check `test_email_1` against your `regex_pattern`.
+    # Mock Output: A Match object (e.g., <re.Match object; span=(5, 15), match='@gmail.com'>)
+    test_email_1 = "alice@gmail.com"
+    print(re.search(regex_pattern, test_email_1))
 
-# Problem 6: Testing Invalid Domains
-# Create another mock email: `test_email_2 = "bob@yahoo.com"`
-# Use `re.search()` on this email. 
-# Mock Output: None
-test_email_2 = "bob@yahoo.com"
-print(re.search(regex_pattern, test_email_2))
-# Problem 7: Testing the Anchor
-# Create a tricky mock email: `test_email_3 = "charlie@gmail.com.uk"`
-# Use `re.search()` on this email. Because of your "$" anchor, it should reject it.
-# Mock Output: None
-test_email_3 = "charlie@gmail.com.uk"
-print(re.search(regex_pattern, test_email_3))
-# ---------------------------------------------------------
-# PHASE 2: DATA STRUCTURES & FILTERING
-# ---------------------------------------------------------
+    # Problem 6: Testing Invalid Domains
+    # Create another mock email: `test_email_2 = "bob@yahoo.com"`
+    # Use `re.search()` on this email. 
+    # Mock Output: None
+    test_email_2 = "bob@yahoo.com"
+    print(re.search(regex_pattern, test_email_2))
+    # Problem 7: Testing the Anchor
+    # Create a tricky mock email: `test_email_3 = "charlie@gmail.com.uk"`
+    # Use `re.search()` on this email. Because of your "$" anchor, it should reject it.
+    # Mock Output: None
+    test_email_3 = "charlie@gmail.com.uk"
+    print(re.search(regex_pattern, test_email_3))
+    # ---------------------------------------------------------
+    # PHASE 2: DATA STRUCTURES & FILTERING
+    # ---------------------------------------------------------
 
-# Problem 8: The Storage Container
-# You will be reading multiple rows of data and need to save the valid names.
-# Create an empty list named `valid_names`.
-valid_names = []
+    # Problem 8: The Storage Container
+    # You will be reading multiple rows of data and need to save the valid names.
+    # Create an empty list named `valid_names`.
+    valid_names = []
 
-# Problem 9: Mock Extraction
-# Imagine you just processed a line of input.
-# Set `mock_name = "samantha"` and `mock_email = "samantha@gmail.com"`.
-mock_name = "samantha"
-mock_email = "samantha@gmail.com"
+    # Problem 9: Mock Extraction
+    # Imagine you just processed a line of input.
+    # Set `mock_name = "samantha"` and `mock_email = "samantha@gmail.com"`.
+    mock_name = "samantha"
+    mock_email = "samantha@gmail.com"
 
-# Problem 10: Conditional Regex
-# Write an `if` statement that checks if `re.search()` finds a match in `mock_email` 
-# using your `regex_pattern`. 
-if re.search(regex_pattern, mock_email):
+    # Problem 10: Conditional Regex
+    # Write an `if` statement that checks if `re.search()` finds a match in `mock_email` 
+    # using your `regex_pattern`. 
+    if re.search(regex_pattern, mock_email):
 
-# Problem 11: Appending to the List
-# Inside that `if` block, append the `mock_name` to your `valid_names` list.
-# Mock Output of valid_names: ['samantha']
-    valid_names.append(mock_name)
-print(valid_names)
-# Problem 12: Invalid Extraction Test
-# Repeat problems 9-11 mentally with `mock_name = "julia"` and `mock_email = "julia@julia.me"`.
-# The regex will return None, the `if` block will not trigger, and the list won't change.
-mock_name = "julia"
-mock_email = "julia@julia.me"
+    # Problem 11: Appending to the List
+    # Inside that `if` block, append the `mock_name` to your `valid_names` list.
+    # Mock Output of valid_names: ['samantha']
+        valid_names.append(mock_name)
+    print(valid_names)
+    # Problem 12: Invalid Extraction Test
+    # Repeat problems 9-11 mentally with `mock_name = "julia"` and `mock_email = "julia@julia.me"`.
+    # The regex will return None, the `if` block will not trigger, and the list won't change.
+    mock_name = "julia"
+    mock_email = "julia@julia.me"
 
-if re.search(regex_pattern, mock_email):
-    valid_names.append(mock_name)
-print(valid_names)
+    if re.search(regex_pattern, mock_email):
+        valid_names.append(mock_name)
+    print(valid_names)
 
-# ---------------------------------------------------------
-# PHASE 3: SORTING & OUTPUTTING
-# ---------------------------------------------------------
+    # ---------------------------------------------------------
+    # PHASE 3: SORTING & OUTPUTTING
+    # ---------------------------------------------------------
 
-# Problem 13: The Unsorted List
-# Create a hardcoded list of names to simulate a completed extraction process.
-# `unsorted_names = ["tanya", "julia", "samantha", "julia", "riya"]`
-unsorted_names = ["tanya", "julia", "samantha", "julia", "riya"]
+    # Problem 13: The Unsorted List
+    # Create a hardcoded list of names to simulate a completed extraction process.
+    # `unsorted_names = ["tanya", "julia", "samantha", "julia", "riya"]`
+    unsorted_names = ["tanya", "julia", "samantha", "julia", "riya"]
 
-# Problem 14: Alphabetical Sorting
-# Use Python's built-in sorting method or function to sort `unsorted_names` 
-# in standard alphabetical order. Save or modify it to be sorted.
-# Mock Output: ['julia', 'julia', 'riya', 'samantha', 'tanya']
-sorted(unsorted_names)
+    # Problem 14: Alphabetical Sorting
+    # Use Python's built-in sorting method or function to sort `unsorted_names` 
+    # in standard alphabetical order. Save or modify it to be sorted.
+    # Mock Output: ['julia', 'julia', 'riya', 'samantha', 'tanya']
+    sorted(unsorted_names)
 
-# Problem 15: The Output Loop
-# Write a `for` loop that iterates over your newly sorted list of names.
-for names in sorted(unsorted_names):
+    # Problem 15: The Output Loop
+    # Write a `for` loop that iterates over your newly sorted list of names.
+    for names in sorted(unsorted_names):
 
-# Problem 16: Printing Line by Line
-# Inside the loop, print each name. Since standard `print()` adds a newline automatically, 
-# this will correctly print one name per line.
-    print(names)
+    # Problem 16: Printing Line by Line
+    # Inside the loop, print each name. Since standard `print()` adds a newline automatically, 
+    # this will correctly print one name per line.
+        print(names)
+pass
 # ---------------------------------------------------------
 # PHASE 4: INTEGRATING WITH HACKERRANK'S PRECODE
 # ---------------------------------------------------------
@@ -173,3 +175,27 @@ for names in sorted(unsorted_names):
 # samantha
 # tanya
 # ==============================================================================
+import re
+
+if __name__ == '__main__':
+    N = int(input().strip())
+    included_names = []
+
+    for N_itr in range(N):
+        
+        first_multiple_input = input().rstrip().split()
+
+        firstName = first_multiple_input[0]
+
+        emailID = first_multiple_input[1]
+        
+        if re.search(r"@gmail\.com$", emailID):
+            included_names.append(firstName)
+
+    for names in sorted(included_names):
+        print(names)
+        
+    
+    
+    
+    
