@@ -128,31 +128,37 @@ print(optimal_B_fail)
 # Problem 15: The Boundary Fails
 # Concept: Write an `if` statement checking if `optimal_B_fail` is less than or equal to `N_fail`.
 # (Since 3 is not <= 2, this condition will evaluate to False).
-
+if optimal_B_fail <= N_fail:
 # Problem 16: The Mathematical Fallback
 # If `optimal_B` is greater than `N`, it is mathematically impossible to pair our `target` 
 # with anything in the sequence. A mathematical theorem for this specific problem proves 
 # that if `K - 1` fails, the absolute maximum valid result is ALWAYS exactly `K - 2`.
 # Concept: Create a variable `fallback_result` and set it to `K_fail - 2`.
 # Mock Output: 0
-
+    fallback_result = K_fail - 2
 # ---------------------------------------------------------
 # PHASE 5: THE FINAL LOGIC ENGINE
 # ---------------------------------------------------------
 
 # Problem 17: Function Definition
 # Concept: Define a function named `bitwiseAnd` that accepts two parameters: `N` and `K`.
+def bitwiseAnd(N, K):
 
 # Problem 18: Isolate the Target inside the Function
 # Concept: Inside the function, calculate the `target` (which is K - 1) and save it to a variable.
+    target = K - 1
 
 # Problem 19: Calculate Optimal B inside the Function
 # Concept: Inside the function, calculate the optimal pairing integer using the 
 # Bitwise OR rule (target | K) and save it to a variable.
-
+    optimal_B = target | K
 # Problem 20: The Master Return Statement
 # Concept: Use an `if/else` block (or a one-line ternary return) to return the `target` 
 # IF the optimal pairing integer is less than or equal to `N`. ELSE, return `K - 2`.
+    if optimal_B <= N:
+        return target
+    else:
+        return K - 2
 
 # ==============================================================================
 # FINAL SUBMISSION
