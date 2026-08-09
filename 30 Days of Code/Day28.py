@@ -73,22 +73,33 @@ print(re.search(regex_pattern, test_email_3))
 # Problem 8: The Storage Container
 # You will be reading multiple rows of data and need to save the valid names.
 # Create an empty list named `valid_names`.
+valid_names = []
 
 # Problem 9: Mock Extraction
 # Imagine you just processed a line of input.
 # Set `mock_name = "samantha"` and `mock_email = "samantha@gmail.com"`.
+mock_name = "samantha"
+mock_email = "samantha@gmail.com"
 
 # Problem 10: Conditional Regex
 # Write an `if` statement that checks if `re.search()` finds a match in `mock_email` 
 # using your `regex_pattern`. 
+if re.search(regex_pattern, mock_email):
 
 # Problem 11: Appending to the List
 # Inside that `if` block, append the `mock_name` to your `valid_names` list.
 # Mock Output of valid_names: ['samantha']
-
+    valid_names.append(mock_name)
+print(valid_names)
 # Problem 12: Invalid Extraction Test
 # Repeat problems 9-11 mentally with `mock_name = "julia"` and `mock_email = "julia@julia.me"`.
 # The regex will return None, the `if` block will not trigger, and the list won't change.
+mock_name = "julia"
+mock_email = "julia@julia.me"
+
+if re.search(regex_pattern, mock_email):
+    valid_names.append(mock_name)
+print(valid_names)
 
 # ---------------------------------------------------------
 # PHASE 3: SORTING & OUTPUTTING
