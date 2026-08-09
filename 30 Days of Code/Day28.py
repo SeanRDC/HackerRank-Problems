@@ -27,39 +27,45 @@
 
 # Problem 1: The Import
 # Regex requires a specific module in Python. Write the code to import the `re` module.
+import re
 
 # Problem 2: The Literal String
 # We are looking for emails that end with "@gmail.com". In regex, a period "." 
 # is a special character that means "any character". To match a literal period, 
 # you must escape it with a backslash. 
 # Concept: How do you write "@gmail.com" so that the period is treated as a literal dot?
-
+email = "@gmail\.com"
 # Problem 3: The End-of-String Anchor
 # If an email is "user@gmail.com.org", it contains "@gmail.com" but does not END with it.
 # In regex, the dollar sign "$" asserts that the match must happen at the very end of the string.
 # Concept: Combine your escaped string from Problem 2 with the end-of-string anchor.
-
+email = "@gmail\.com$"
 # Problem 4: Defining the Pattern
 # Create a variable named `regex_pattern`.
 # Assign it a raw string (prefix the string with an 'r', like r"pattern") containing 
 # the combined regex logic you figured out in Problem 3.
+regex_pattern = r"@gmail\.com$"
 
 # Problem 5: The Match Function
 # Python's `re.search(pattern, string)` scans through a string looking for a match.
 # Create a mock email: `test_email_1 = "alice@gmail.com"`
 # Use `re.search()` to check `test_email_1` against your `regex_pattern`.
 # Mock Output: A Match object (e.g., <re.Match object; span=(5, 15), match='@gmail.com'>)
+test_email_1 = "alice@gmail.com"
+print(re.search(regex_pattern, test_email_1))
 
 # Problem 6: Testing Invalid Domains
 # Create another mock email: `test_email_2 = "bob@yahoo.com"`
 # Use `re.search()` on this email. 
 # Mock Output: None
-
+test_email_2 = "bob@yahoo.com"
+print(re.search(regex_pattern, test_email_2))
 # Problem 7: Testing the Anchor
 # Create a tricky mock email: `test_email_3 = "charlie@gmail.com.uk"`
 # Use `re.search()` on this email. Because of your "$" anchor, it should reject it.
 # Mock Output: None
-
+test_email_3 = "charlie@gmail.com.uk"
+print(re.search(regex_pattern, test_email_3))
 # ---------------------------------------------------------
 # PHASE 2: DATA STRUCTURES & FILTERING
 # ---------------------------------------------------------
