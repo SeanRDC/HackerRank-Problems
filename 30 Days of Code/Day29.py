@@ -63,10 +63,13 @@ print(4 | 5)
 # Mathematically, what is the absolute highest integer that is strictly less than K?
 # Concept: Create a variable `K` and set it to 5. Then create a variable `target` 
 # that represents this highest possible answer relative to `K`.
+K = 5
+target = K - 1
 
 # Problem 6: Checking the Target
 # Concept: Print your `target` variable from Problem 5.
 # Mock Output: 4
+print(target)
 
 # Problem 7: The Optimal Pair Rule
 # To achieve our `target` using `target & B = target`, the integer `B` must contain 
@@ -74,11 +77,13 @@ print(4 | 5)
 # The absolute smallest integer greater than `target` that satisfies this is `target | (target + 1)`.
 # Concept: Since `target` is `K - 1`, then `target + 1` is simply `K`. 
 # Write an expression that calculates `target | K`. Save this to a variable `optimal_B`.
+optimal_B = target | K
 
 # Problem 8: Checking the Optimal Pair
 # Concept: Print your `optimal_B` variable to see the smallest integer we can pair with `target`.
 # Mock Input (K=5, target=4): 4 | 5
 # Mock Output: 5
+print(optimal_B)
 
 # ---------------------------------------------------------
 # PHASE 3: THE UPPER BOUNDARY CHECK
@@ -87,26 +92,34 @@ print(4 | 5)
 # Problem 9: Setting the Upper Limit
 # We have a sequence that only goes up to `N`. 
 # Concept: Create a variable `N` and set it to 8. 
+N = 8
 
 # Problem 10: Validating the Optimal Pair
 # We know our `target` is perfectly achievable IF our `optimal_B` is actually in the sequence.
 # Concept: Write an `if` statement that checks if `optimal_B` is less than or equal to `N`.
+if optimal_B <= N:
 
 # Problem 11: Setting the Result
 # Concept: Inside that `if` block, create a variable `result` and assign it the value of `target`.
-
+    result = target
+    
 # Problem 12: A Failing Scenario
 # Let's test a scenario where the boundary fails. 
 # Concept: Create variables `K_fail = 2` and `N_fail = 2`.
+K_fail = 2
+N_fail = 2
 
 # Problem 13: Recalculating Target for Failure Case
 # Concept: Calculate the `target_fail` for `K_fail` (which is K_fail - 1). 
 # Mock Output: 1
+target_fail = K_fail - 1
 
 # Problem 14: Recalculating Optimal B for Failure Case
 # Concept: Calculate `optimal_B_fail` using the bitwise OR rule from Problem 7 
 # (target_fail | K_fail).
 # Mock Output (1 | 2): 3
+optimal_B_fail = target_fail | K_fail
+print(optimal_B_fail)
 
 # ---------------------------------------------------------
 # PHASE 4: THE MATHEMATICAL FALLBACK
