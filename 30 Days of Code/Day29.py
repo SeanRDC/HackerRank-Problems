@@ -31,22 +31,28 @@
 # To understand bitwise logic, we must look at binary. 
 # Concept: Use the built-in Python function to convert the integer 4 into a binary string.
 # Mock Output: '0b100'
+print(bin(4))
 
 # Problem 2: Binary Conversion II
 # Concept: Convert the integer 5 into a binary string.
 # Mock Output: '0b101'
+print(bin(5))
 
 # Problem 3: Bitwise AND
 # The Bitwise AND operator (&) compares bits. If both bits are 1, it results in 1. Otherwise, 0.
 # Concept: Write an expression that performs a bitwise AND on the integers 4 and 5. 
 # (Mentally compare 100 & 101).
 # Mock Output: 4 (Because 100 & 101 = 100)
+print(bin(4 & 5))
+print(4 & 5)
 
 # Problem 4: Bitwise OR
 # The Bitwise OR operator (|) compares bits. If AT LEAST one bit is 1, it results in 1.
 # Concept: Write an expression that performs a bitwise OR on the integers 4 and 5.
 # (Mentally compare 100 | 101).
 # Mock Output: 5 (Because 100 | 101 = 101)
+print(bin(4 | 5))
+print(4 | 5)
 
 # ---------------------------------------------------------
 # PHASE 2: THE THEORETICAL MAXIMUM
