@@ -108,19 +108,22 @@ print(valid_names)
 # Problem 13: The Unsorted List
 # Create a hardcoded list of names to simulate a completed extraction process.
 # `unsorted_names = ["tanya", "julia", "samantha", "julia", "riya"]`
+unsorted_names = ["tanya", "julia", "samantha", "julia", "riya"]
 
 # Problem 14: Alphabetical Sorting
 # Use Python's built-in sorting method or function to sort `unsorted_names` 
 # in standard alphabetical order. Save or modify it to be sorted.
 # Mock Output: ['julia', 'julia', 'riya', 'samantha', 'tanya']
+sorted(unsorted_names)
 
 # Problem 15: The Output Loop
 # Write a `for` loop that iterates over your newly sorted list of names.
+for names in sorted(unsorted_names):
 
 # Problem 16: Printing Line by Line
 # Inside the loop, print each name. Since standard `print()` adds a newline automatically, 
 # this will correctly print one name per line.
-
+    print(names)
 # ---------------------------------------------------------
 # PHASE 4: INTEGRATING WITH HACKERRANK'S PRECODE
 # ---------------------------------------------------------
