@@ -59,22 +59,26 @@ print(blocks[-1])
 # To make our logic work, the first cube we pick must be <= the "top". 
 # Concept: Create a variable `top_of_pile` and set it to mathematical infinity 
 # using `float('inf')`. This guarantees the very first block is always valid!
+top_of_pile = float('inf')
 
 # Problem 6: The Comparison
 # Concept: Write an `if/elif/else` block that compares the leftmost block 
 # and the rightmost block of your deque. 
 # Goal: We want to extract (pop) whichever side is LARGER or equal.
+if blocks:
+    if blocks[0] >= blocks[-1]:
 
 # Problem 7: Popping the Left
 # Concept: Inside the condition where the left block is >= the right block, 
 # use the correct deque method to remove and return the left block. 
 # Save this returned value to a variable named `popped_block`.
-
+        popped_block = blocks.popleft()
 # Problem 8: Popping the Right
 # Concept: Inside the condition where the right block is > the left block, 
 # use the correct deque method to remove and return the right block. 
 # Save this returned value to the same variable `popped_block`.
-
+    elif blocks[-1] > blocks[0]:
+        popped_block = blocks.pop()
 # ---------------------------------------------------------
 # PHASE 3: THE VALIDITY CHECK & LOOP ENGINE
 # ---------------------------------------------------------
