@@ -110,10 +110,11 @@ print(f"{result:.2f}")
 
 # Problem 14: Line 1 - The Import
 # Concept: Your first line of the final script is simply your import statement from Problem 1.
-
+from collections import namedtuple
 # Problem 15: Line 2 - The Double Assignment
 # We can read `N` and build the `Student` blueprint in one line using tuple unpacking!
 # Concept: Write `N, Student = int(input()), namedtuple('Student', input().split())`.
+N, Student = int(input()), namedtuple('Student', input().split())
 
 # Problem 16: Line 3 (Part A) - The List Comprehension Loop
 # Instead of a `for` loop, we can gather all the marks in one go using a list comprehension.
@@ -122,7 +123,7 @@ print(f"{result:.2f}")
 # Problem 17: Line 3 (Part B) - Reading and Unpacking inside the Comprehension
 # Inside that comprehension, we need to read the line, split it, unpack it, and build a Student.
 # Concept: Replace the `___` with `Student(*input().split())`
-
+marks = [int(Student(*input().split()).MARKS) for _ in range(N)]
 # Problem 18: Line 3 (Part C) - Extracting the Marks
 # We don't want a list of Student objects; we just want their integer marks!
 # Concept: Modify Part B to extract the `.MARKS` attribute and wrap it in `int()`.
@@ -135,6 +136,7 @@ print(f"{result:.2f}")
 # Problem 20: Line 4 - The Final Calculation and Print
 # Concept: Your final line simply prints the average. Use the `sum()` function on your 
 # `marks` list, divide it by `N`, and wrap it in the f-string formatting from Problem 13!
+print(f"{sum(marks) / N:.2f}")
 
 # ==============================================================================
 # SUMMARY:
@@ -143,3 +145,8 @@ print(f"{result:.2f}")
 # and compress a multi-line data parsing loop into a single, hyper-efficient 
 # list comprehension. 
 # ==============================================================================
+from collections import namedtuple
+
+N, Student = int(input()), namedtuple('Student', input().split())
+marks = [int(Student(*input().split()).MARKS) for _ in range(N)]
+print(f"{sum(marks) / N:.2f}")
