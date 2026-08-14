@@ -107,46 +107,64 @@ print(f"{result:.2f}")
 # ---------------------------------------------------------
 # PHASE 5: THE 4-LINE CHALLENGE (CODE GOLFING)
 # ---------------------------------------------------------
+def passable():
+    # Problem 14: Line 1 - The Import
+    # Concept: Your first line of the final script is simply your import statement from Problem 1.
+    from collections import namedtuple
+    # Problem 15: Line 2 - The Double Assignment
+    # We can read `N` and build the `Student` blueprint in one line using tuple unpacking!
+    # Concept: Write `N, Student = int(input()), namedtuple('Student', input().split())`.
+    N, Student = int(input()), namedtuple('Student', input().split())
 
-# Problem 14: Line 1 - The Import
-# Concept: Your first line of the final script is simply your import statement from Problem 1.
+    # Problem 16: Line 3 (Part A) - The List Comprehension Loop
+    # Instead of a `for` loop, we can gather all the marks in one go using a list comprehension.
+    # Concept: Write the skeleton of a list comprehension that loops N times: `[___ for _ in range(N)]`
+
+    # Problem 17: Line 3 (Part B) - Reading and Unpacking inside the Comprehension
+    # Inside that comprehension, we need to read the line, split it, unpack it, and build a Student.
+    # Concept: Replace the `___` with `Student(*input().split())`
+    marks = [int(Student(*input().split()).MARKS) for _ in range(N)]
+    # Problem 18: Line 3 (Part C) - Extracting the Marks
+    # We don't want a list of Student objects; we just want their integer marks!
+    # Concept: Modify Part B to extract the `.MARKS` attribute and wrap it in `int()`.
+    # E.g., `int(Student(*input().split()).MARKS)`
+
+    # Problem 19: Line 3 (Complete) - The Marks List
+    # Concept: Combine 16, 17, and 18 into a single line. Assign it to a variable called `marks`.
+    # (e.g., `marks = [int(...) for _ in range(N)]`)
+
+    # Problem 20: Line 4 - The Final Calculation and Print
+    # Concept: Your final line simply prints the average. Use the `sum()` function on your 
+    # `marks` list, divide it by `N`, and wrap it in the f-string formatting from Problem 13!
+    print(f"{sum(marks) / N:.2f}")
+
+    # ==============================================================================
+    # SUMMARY:
+    # You just learned how to create lightweight objects on the fly, map dynamic 
+    # column headers to class attributes, unpack lists into arguments using `*`, 
+    # and compress a multi-line data parsing loop into a single, hyper-efficient 
+    # list comprehension. 
+    # ==============================================================================
+    from collections import namedtuple
+
+    N, Student = int(input()), namedtuple('Student', input().split())
+    marks = [int(Student(*input().split()).MARKS) for _ in range(N)]
+    print(f"{sum(marks) / N:.2f}")
+pass
+# Expanded version
+
 from collections import namedtuple
-# Problem 15: Line 2 - The Double Assignment
-# We can read `N` and build the `Student` blueprint in one line using tuple unpacking!
-# Concept: Write `N, Student = int(input()), namedtuple('Student', input().split())`.
-N, Student = int(input()), namedtuple('Student', input().split())
 
-# Problem 16: Line 3 (Part A) - The List Comprehension Loop
-# Instead of a `for` loop, we can gather all the marks in one go using a list comprehension.
-# Concept: Write the skeleton of a list comprehension that loops N times: `[___ for _ in range(N)]`
+total_students = int(input())
+column_headers = input().split()
+Student = namedtuple('Student', column_headers)
 
-# Problem 17: Line 3 (Part B) - Reading and Unpacking inside the Comprehension
-# Inside that comprehension, we need to read the line, split it, unpack it, and build a Student.
-# Concept: Replace the `___` with `Student(*input().split())`
-marks = [int(Student(*input().split()).MARKS) for _ in range(N)]
-# Problem 18: Line 3 (Part C) - Extracting the Marks
-# We don't want a list of Student objects; we just want their integer marks!
-# Concept: Modify Part B to extract the `.MARKS` attribute and wrap it in `int()`.
-# E.g., `int(Student(*input().split()).MARKS)`
+total_marks = 0
 
-# Problem 19: Line 3 (Complete) - The Marks List
-# Concept: Combine 16, 17, and 18 into a single line. Assign it to a variable called `marks`.
-# (e.g., `marks = [int(...) for _ in range(N)]`)
+for _ in range(total_students):
+    row_data = input().split()
+    current_student = Student(*row_data)
+    total_marks += int(current_student.MARKS)
 
-# Problem 20: Line 4 - The Final Calculation and Print
-# Concept: Your final line simply prints the average. Use the `sum()` function on your 
-# `marks` list, divide it by `N`, and wrap it in the f-string formatting from Problem 13!
-print(f"{sum(marks) / N:.2f}")
-
-# ==============================================================================
-# SUMMARY:
-# You just learned how to create lightweight objects on the fly, map dynamic 
-# column headers to class attributes, unpack lists into arguments using `*`, 
-# and compress a multi-line data parsing loop into a single, hyper-efficient 
-# list comprehension. 
-# ==============================================================================
-from collections import namedtuple
-
-N, Student = int(input()), namedtuple('Student', input().split())
-marks = [int(Student(*input().split()).MARKS) for _ in range(N)]
-print(f"{sum(marks) / N:.2f}")
+average = total_marks / total_students
+print(f"{average:.2f}")
