@@ -60,47 +60,48 @@ print(blocks[-1])
 # Concept: Create a variable `top_of_pile` and set it to mathematical infinity 
 # using `float('inf')`. This guarantees the very first block is always valid!
 top_of_pile = float('inf')
+while blocks:
+    # Problem 6: The Comparison
+    # Concept: Write an `if/elif/else` block that compares the leftmost block 
+    # and the rightmost block of your deque. 
+    # Goal: We want to extract (pop) whichever side is LARGER or equal.
+    if blocks:
+        if blocks[0] >= blocks[-1]:
 
-# Problem 6: The Comparison
-# Concept: Write an `if/elif/else` block that compares the leftmost block 
-# and the rightmost block of your deque. 
-# Goal: We want to extract (pop) whichever side is LARGER or equal.
-if blocks:
-    if blocks[0] >= blocks[-1]:
+    # Problem 7: Popping the Left
+    # Concept: Inside the condition where the left block is >= the right block, 
+    # use the correct deque method to remove and return the left block. 
+    # Save this returned value to a variable named `popped_block`.
+            popped_block = blocks.popleft()
+    # Problem 8: Popping the Right
+    # Concept: Inside the condition where the right block is > the left block, 
+    # use the correct deque method to remove and return the right block. 
+    # Save this returned value to the same variable `popped_block`.
+        elif blocks[-1] > blocks[0]:
+            popped_block = blocks.pop()
+    # ---------------------------------------------------------
+    # PHASE 3: THE VALIDITY CHECK & LOOP ENGINE
+    # ---------------------------------------------------------
 
-# Problem 7: Popping the Left
-# Concept: Inside the condition where the left block is >= the right block, 
-# use the correct deque method to remove and return the left block. 
-# Save this returned value to a variable named `popped_block`.
-        popped_block = blocks.popleft()
-# Problem 8: Popping the Right
-# Concept: Inside the condition where the right block is > the left block, 
-# use the correct deque method to remove and return the right block. 
-# Save this returned value to the same variable `popped_block`.
-    elif blocks[-1] > blocks[0]:
-        popped_block = blocks.pop()
-# ---------------------------------------------------------
-# PHASE 3: THE VALIDITY CHECK & LOOP ENGINE
-# ---------------------------------------------------------
-
-# Problem 9: Checking Validity
-# Concept: Now that you have `popped_block`, write an `if` statement to check 
-# if it is less than or equal to `top_of_pile`.
-
-# Problem 10: Updating the State
-# Concept: If the `popped_block` is valid, it becomes the new top of our pile. 
-# Inside the `if` block from Problem 9, update `top_of_pile` to equal `popped_block`.
-
-# Problem 11: The Failure State
-# Concept: Add an `else` block to the condition from Problem 9. If the `popped_block` 
-# is strictly greater than `top_of_pile`, we can't stack it. 
-# Inside this `else` block, print "No".
-
-# Problem 12: Triggering the Escape
-# If stacking fails, we want to immediately stop checking this test case.
-# Concept: Right beneath your `print("No")` statement, write the command to 
-# forcefully exit a loop. (Hint: break).
-
+    # Problem 9: Checking Validity
+    # Concept: Now that you have `popped_block`, write an `if` statement to check 
+    # if it is less than or equal to `top_of_pile`.
+    if popped_block <= top_of_pile:
+    # Problem 10: Updating the State
+    # Concept: If the `popped_block` is valid, it becomes the new top of our pile. 
+    # Inside the `if` block from Problem 9, update `top_of_pile` to equal `popped_block`.
+        top_of_pile = popped_block
+    # Problem 11: The Failure State
+    # Concept: Add an `else` block to the condition from Problem 9. If the `popped_block` 
+    # is strictly greater than `top_of_pile`, we can't stack it. 
+    # Inside this `else` block, print "No".
+    else:
+        print("No")
+    # Problem 12: Triggering the Escape
+    # If stacking fails, we want to immediately stop checking this test case.
+    # Concept: Right beneath your `print("No")` statement, write the command to 
+    # forcefully exit a loop. (Hint: break).
+        break
 # Problem 13: The Master Loop
 # Concept: Wrap the logic from Problems 6 through 12 inside a `while` loop 
 # that runs as long as the `blocks` deque is not empty (i.e., `while blocks:`).
@@ -111,7 +112,8 @@ if blocks:
 # emptied the deque without ever hitting a `break` statement).
 # Concept: Attach an `else:` block directly to the bottom of your `while` loop 
 # (at the same indentation level as `while`). Inside it, print "Yes".
-
+else:
+    print("Yes")
 # ---------------------------------------------------------
 # PHASE 4: HACKERRANK INTEGRATION
 # ---------------------------------------------------------
