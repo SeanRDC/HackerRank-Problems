@@ -121,25 +121,39 @@ else:
 # Problem 15: The Test Case Loop
 # HackerRank provides an integer T for the number of test cases.
 # Concept: Write a `for _ in range(T):` loop to handle multiple test cases.
+T = int(input())
+for _ in range(T):
 
 # Problem 16: Reading N
 # Concept: Inside the T loop, read the next line of input (which is the number 
 # of cubes, N). You actually don't need to use N for our deque logic, but 
 # you MUST read it to clear the line. Call it `n = int(input())`.
-
+    n = int(input())
 # Problem 17: Parsing the Blocks
 # Concept: Read the next line of input, split the space-separated string, 
-# convert each item to an integer, and wrap the whole thing directly in `deque()`.
+# convert each item to an integer, and wrap the whole thing directly in `deque()`.  
 # Assign it to `blocks`.
-
+    blocks = deque(map(int, input().strip().split()))
 # Problem 18: Resetting the Pile
 # Concept: Make sure you initialize `top_of_pile = float('inf')` INSIDE the 
 # T loop, so each test case starts with a fresh, empty pile.
-
+    top_of_pile = float('inf')
 # Problem 19: Insert the Engine
 # Concept: Place your entire `while` loop logic (from Phase 3) inside the T loop, 
 # right under your deque and `top_of_pile` setup.
-
+    while blocks:
+        if blocks[0] >= blocks[-1]:
+            popped = blocks.popleft()
+        elif blocks[-1] > blocks[0]:
+            popped = blocks.pop()
+        
+        if popped <= top_of_pile:
+            top_of_pile = popped
+        else:
+            print('No')
+            break 
+    else:
+        print('Yes')        
 # Problem 20: Final Polish
 # Double-check your indentation. Your `for` loop manages the test cases, 
 # your `while` loop empties the deque, and your `while...else` structure 
