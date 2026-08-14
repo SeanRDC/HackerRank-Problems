@@ -51,17 +51,21 @@ print(student_1.MARKS)
 # But HackerRank gives us the exact order on line 2! 
 # Concept: Create a mock input string: `mock_headers = "MARKS CLASS NAME ID"`. 
 # Use the `.split()` method on it to create a list of strings, and save it to `columns_list`.
+mock_headers = "MARKS CLASS NAME ID"
+columns_list = mock_headers.split()
 
 # Problem 6: The Dynamic Blueprint
 # Did you know `namedtuple` can accept a list of strings for its fields, not just a single string?
 # Concept: Recreate the `Student` blueprint, but this time pass `columns_list` 
 # as the second argument instead of a hardcoded string.
+Student = namedtuple('Student', columns_list)
 
 # Problem 7: Validating the Dynamic Blueprint
 # Concept: Create `student_2 = Student('92', '2', 'Calum', '1')`. 
 # Print `student_2.MARKS` to verify it correctly mapped '92' to MARKS based on your dynamic list!
 # Mock Output: '92'
-
+student_2 = Student('92', '2', 'Calum', '1')
+print(student_2.MARKS)
 # ---------------------------------------------------------
 # PHASE 3: THE UNPACKING OPERATOR (*)
 # ---------------------------------------------------------
