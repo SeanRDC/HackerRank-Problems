@@ -91,18 +91,19 @@ print(student_3.NAME)
 
 # Problem 11: The Accumulator
 # Concept: Create a variable `total_marks` and set it to 0. 
-
+total_marks = 0
 # Problem 12: Converting to Integer
 # When we pull `.MARKS` from our namedtuple, it's a string. We must convert it to do math.
 # Concept: Write an expression that takes `student_3.MARKS`, converts it to an integer, 
 # and adds it to `total_marks`.
-
+total_marks += int(student_3.MARKS)
 # Problem 13: Formatting to 2 Decimal Places
 # Concept: Assume `total_marks` is now 94, and `N` (total students) is 1. 
 # The average is 94.0. Using an f-string, write a print statement that formats 
 # `total_marks / 1` to exactly two decimal places using `:.2f`.
 # Mock Output: '94.00'
-
+result = total_marks / 1
+print(f"{result:.2f}")
 # ---------------------------------------------------------
 # PHASE 5: THE 4-LINE CHALLENGE (CODE GOLFING)
 # ---------------------------------------------------------
