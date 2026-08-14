@@ -31,19 +31,24 @@
 # Problem 1: The Import
 # Concept: We need double-ended queue functionality. Write the code to import 
 # `deque` from the `collections` module.
+from collections import deque
 
 # Problem 2: Creating the Deque
 # Concept: Create a mock list: `mock_input = [4, 3, 2, 1, 3, 4]`. 
 # Pass this list into `deque()` and assign it to a variable named `blocks`.
+mock_input = [4, 3, 2, 1, 3, 4]
+blocks = deque(mock_input)
 
 # Problem 3: Inspecting Ends Without Popping
 # We need to look at the ends of the deque to decide which one to take.
 # Concept: Write an expression to view the leftmost element of `blocks` without removing it.
 # Mock Output: 4
+print(blocks[0])
 
 # Problem 4: Inspecting the Right End
 # Concept: Write an expression to view the rightmost element of `blocks` without removing it.
 # Mock Output: 4
+print(blocks[-1])
 
 # ---------------------------------------------------------
 # PHASE 2: THE GREEDY CHOICE & STATE
