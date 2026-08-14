@@ -25,21 +25,22 @@
 
 # Problem 1: The Import
 # Concept: Write the code to import `namedtuple` from the `collections` module.
-
+from collections import namedtuple
 # Problem 2: Creating the Blueprint
 # A namedtuple creates a mini-class. You give it a name, and a string of space-separated fields.
 # Concept: Create a namedtuple blueprint called `Student`. Pass the string 
 # `'Student'` as the first argument, and `'ID MARKS NAME CLASS'` as the second. 
 # Assign this blueprint to a variable named `Student`.
-
+Student = namedtuple('Student', 'ID MARKS NAME CLASS')
 # Problem 3: Instantiating an Object
 # Concept: Now that you have the `Student` blueprint, create a new student named `student_1`.
 # Pass in 4 string arguments: '1', '97', 'Raymond', '7'.
-
+student_1 = Student('1', '97', 'Raymond', '7')
 # Problem 4: Accessing Attributes
 # Concept: Instead of using `student_1[1]` like a normal tuple, write an expression 
 # to access the marks using dot notation (e.g., `.MARKS`) and print it.
 # Mock Output: '97'
+print(student_1.MARKS)
 
 # ---------------------------------------------------------
 # PHASE 2: DYNAMIC COLUMN CREATION
