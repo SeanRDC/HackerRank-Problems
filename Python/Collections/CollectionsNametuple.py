@@ -73,16 +73,18 @@ print(student_2.MARKS)
 # Problem 8: Row Data
 # Concept: Create a mock list representing a row of data from input().split():
 # `row_data = ['94', '2', 'Jason', '3']`
+row_data = ['94', '2', 'Jason', '3']
 
 # Problem 9: The Asterisk (*) Unpacker
 # If you try `Student(row_data)`, Python thinks you are passing 1 argument (a list) 
 # instead of 4 separate arguments. The `*` operator unpacks a list into separate arguments!
 # Concept: Create `student_3` by passing `*row_data` into your `Student` blueprint.
+student_3 = Student(*row_data)
 
 # Problem 10: Validating the Unpack
 # Concept: Print `student_3.NAME` to ensure the unpacking worked perfectly.
 # Mock Output: 'Jason'
-
+print(student_3.NAME)
 # ---------------------------------------------------------
 # PHASE 4: THE STANDARD LOOP ENGINE
 # ---------------------------------------------------------
