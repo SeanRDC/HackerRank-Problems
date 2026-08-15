@@ -70,14 +70,14 @@ print(sum('a' in c for c in combos))
 # Concept: HackerRank gives us the length of the list (N) on line 1. But `len(list)` 
 # makes this redundant! Read an input and assign it to a single underscore `_`. 
 # This tells other programmers "I have to read this, but I'm ignoring it."
-_ = input()
+# _ = input()
 # Problem 10: Reading the Target List
 # Concept: Read a space-separated string `"a a c d"` using `input().split()`. 
 # Assign it to a variable `letters`.
-letters = input().split()
+# letters = input().split()
 # Problem 11: Reading K
 # Concept: The third line of input is K. Read it and convert it to an integer.
-K = int(input())
+# K = int(input())
 # ---------------------------------------------------------
 # CONCEPT BLOCK 5: PROBABILITY MATH
 # ---------------------------------------------------------
@@ -85,12 +85,14 @@ K = int(input())
 # Problem 12: Basic Probability
 # Concept: Probability is just (Favorable Outcomes) / (Total Outcomes).
 # Create `favorable = 5` and `total = 6`. Create a variable `prob = favorable / total`.
-
+favorable = 5
+total = 6
+prob = favorable / total
 # Problem 13: The Discrepancy
 # Concept: The HackerRank instructions say "correct up to 3 decimal places".
 # BUT the sample output is exactly `0.8333` (4 decimal places!). Always trust the sample output.
 # Write an f-string to print `prob` rounded to exactly 4 decimal places.
-
+print(f"{prob:.4f}")
 # Problem 14: The Division by Zero Trap (Mental Check)
 # Concept: If `total` combinations could theoretically be 0, dividing by it crashes your code. 
 # However, look at the constraints: K <= N. You will always have at least 1 combination!
@@ -103,7 +105,7 @@ K = int(input())
 # Concept: The problem asks to "select any K indices". 
 # What if we did `combinations(range(4), 2)`? This gives us combinations of indices: 
 # (0, 1), (0, 2), etc. 
-
+print(list(combinations(range(4), 2)))
 # Problem 16: Checking Indices
 # Concept: If we have an index tuple `(0, 2)`, how do we check the letters?
 # We would have to do: `letters[0] == 'a' or letters[2] == 'a'`. 
@@ -122,7 +124,7 @@ K = int(input())
 # Problem 19: Counting without 'a'
 # Concept: Using the complement rule, write a generator expression inside `sum()` 
 # that counts combinations where `'a'` is NOT in `c`. 
-
+sum('a' not in c for c in combos)
 # Problem 20: The Final Blueprint
 # Concept: You now have the tools. Read the throwaway N, read the letters, read K.
 # Generate the combinations and cast to a list. Find the length (Total). 
@@ -135,13 +137,13 @@ K = int(input())
 # --- The Initial Inputs ---
 # Line 1 input() receives: "4"
 # (We assign this to `_` because we don't actually need it)
-
+_ = input()
 # Line 2 input() receives: "a a c d"
 # The string is split, so `letters` becomes: ['a', 'a', 'c', 'd']
-
+letters = input().split()
 # Line 3 input() receives: "2"
 # K is cast to int: 2
-
+K = int(input())
 # --- Generating Combinations ---
 # We pass `letters` and `K` into `combinations()` and cast to `list`.
 # combos list becomes: 
@@ -153,10 +155,10 @@ K = int(input())
 #   ('a', 'd'), 
 #   ('c', 'd')
 # ]
-
+combos = list(combinations(letters, K))
 # --- The Math ---
 # total_outcomes = len(combos)  --> evaluates to 6
-
+total = len(combos)
 # favorable_outcomes evaluates:
 # 'a' in ('a', 'a') --> True (1)
 # 'a' in ('a', 'c') --> True (1)
@@ -165,7 +167,20 @@ K = int(input())
 # 'a' in ('a', 'd') --> True (1)
 # 'a' in ('c', 'd') --> False (0)
 # favorable_outcomes = sum(...) --> evaluates to 5
+favorable = sum('a' in c for c in combos)
 
 # --- Final Output ---
 # Math performed: 5 / 6 = 0.8333333333333334
 # Formatted and printed to console: 0.8333
+result = favorable / total
+print(f"{result:.4f}")
+
+# Final code
+from itertools import combinations
+
+_ = input()
+letters = input().split()
+K = int(input())
+combos = list(combinations(letters, K))
+result = sum('a' in c for c in combos) / len(combos)
+print(f"{result:.4f}")
