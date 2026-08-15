@@ -4,21 +4,22 @@
 
 # Problem 1: The Import
 # Concept: Import the `combinations` tool from the `itertools` module.
-
+from itertools import combinations
 # Problem 2: Basic Combinations
 # Concept: Use `combinations("xyz", 2)`, cast it to a list, and print it. 
 # Notice that ('x', 'y') is generated, but ('y', 'x') is not. Order doesn't matter!
-
+print(list(combinations("xyz", 2)))
 # Problem 3: Combinations with Duplicates
 # Concept: Pass a list with identical elements: `['a', 'a', 'b']` into combinations 
 # with K=2. Print the list. Notice it treats the two 'a's as separate, unique 
 # items based on their original position!
+print(list(combinations(['a', 'a', 'b'], 2)))
 
 # Problem 4: The Length of an Iterator
 # Concept: `combinations()` creates an iterator, which doesn't have a length.
 # Try `len(combinations("abc", 2))`. You will get a TypeError. 
 # Fix it by casting the combinations to a `list()` first, then wrapping it in `len()`.
-
+print(len(list(combinations("abc", 2))))
 # ---------------------------------------------------------
 # CONCEPT BLOCK 2: TUPLE MEMBERSHIP & SEARCHING
 # ---------------------------------------------------------
@@ -26,13 +27,25 @@
 # Problem 5: The 'in' Keyword
 # Concept: Create a tuple: `combo = ('c', 'd')`. Write an expression to check 
 # if the string `'a'` is in the tuple. Print the result. (It should evaluate to False).
-
+combo = ('c', 'd')
+if 'a' in combo:
+    print(True)
+else:
+    print(False)
 # Problem 6: Boolean Mapping
 # Concept: Create a list of tuples: `combos = [('a', 'b'), ('c', 'd'), ('a', 'c')]`.
 # Write a list comprehension that loops through `combos` and returns True if `'a'` 
 # is in the tuple, and False if it isn't.
 # Mock Output: [True, False, True]
-
+combos = [('a', 'b'), ('c', 'd'), ('a', 'c')]
+result = [True if 'a' in i else False for i in combos]
+# Expanded form
+#for i in combos:
+    #if 'a' in i:
+        #result.append(True)
+    #else:
+        #result.append(False)
+print(result)
 # ---------------------------------------------------------
 # CONCEPT BLOCK 3: BOOLEAN MATH (THE SECRET CHEAT CODE)
 # ---------------------------------------------------------
