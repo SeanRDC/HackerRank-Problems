@@ -16,17 +16,18 @@
 # Concept: We need a tool to generate every possible combination of picking one 
 # item from multiple lists. 
 # Write the code to import `product` from the `itertools` module.
-
+from itertools import product
 # Problem 2: Mocking the Lists
 # Concept: Create two simple lists to test the product tool. 
 # `list1 = [5, 4]` and `list2 = [7, 8]`.
-
+list1 = [5, 4]
+list2 = [7, 8]
 # Problem 3: Generating Combinations
 # Concept: Use `product(list1, list2)` to generate the combinations. Wrap the 
 # whole thing in `list()` so we can see the output, and print it.
 # Mock Output: [(5, 7), (5, 8), (4, 7), (4, 8)]
 # Notice how it gives us every possible way to pick one from each list!
-
+print(list(product(list1, list2)))
 # ---------------------------------------------------------
 # PHASE 2: THE MATH ENGINE
 # ---------------------------------------------------------
