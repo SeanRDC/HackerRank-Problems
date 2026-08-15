@@ -55,12 +55,13 @@ print(result)
 # Create a list `bools = [True, False, True, True]`. Pass it into Python's built-in 
 # `sum()` function and print the result. 
 # Mock Output: 3
-
+bools = [True, False, True, True]
+print(sum(bools))
 # Problem 8: The Generator Expression
 # Concept: Combine Problem 6 and 7! Instead of a list comprehension (which uses brackets []), 
 # use a generator expression (which has no brackets) directly inside `sum()`.
 # Write: `sum('a' in c for c in combos)` using the combos list from Problem 6.
-
+print(sum('a' in c for c in combos))
 # ---------------------------------------------------------
 # CONCEPT BLOCK 4: INPUT PARSING STRATEGIES
 # ---------------------------------------------------------
@@ -69,14 +70,14 @@ print(result)
 # Concept: HackerRank gives us the length of the list (N) on line 1. But `len(list)` 
 # makes this redundant! Read an input and assign it to a single underscore `_`. 
 # This tells other programmers "I have to read this, but I'm ignoring it."
-
+_ = input()
 # Problem 10: Reading the Target List
 # Concept: Read a space-separated string `"a a c d"` using `input().split()`. 
 # Assign it to a variable `letters`.
-
+letters = input().split()
 # Problem 11: Reading K
 # Concept: The third line of input is K. Read it and convert it to an integer.
-
+K = int(input())
 # ---------------------------------------------------------
 # CONCEPT BLOCK 5: PROBABILITY MATH
 # ---------------------------------------------------------
