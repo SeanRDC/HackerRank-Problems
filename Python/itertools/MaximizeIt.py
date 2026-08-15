@@ -35,25 +35,30 @@ print(list(product(list1, list2)))
 # Problem 4: The Mock Combo
 # Concept: Assume our product generator just gave us this specific combination.
 # Create a variable: `combo = (5, 9, 10)` and a modulo variable `M = 1000`.
-
+combo = (5, 9, 10)
+M = 1000
 # Problem 5: Squaring the Elements
 # Concept: We need to square every number in that combination. 
 # Write a list comprehension that squares each `x` in `combo`.
 # Mock Output: [25, 81, 100]
-
+squared = [x**2 for x in combo]
+print(squared)
 # Problem 6: Summing the Squares
 # Concept: Wrap your list comprehension from Problem 5 inside Python's built-in 
 # `sum()` function to add them all together.
 # Mock Output: 206
-
+total = sum(squared)
 # Problem 7: Applying the Modulo
 # Concept: Take the entire sum from Problem 6 and apply the modulo operator 
 # (`% M`). Assign this final math equation to a variable `result` and print it.
-
+result = total % M
+print(result)
 # Problem 8: The Math Function (Optional but clean)
 # Concept: Wrap the logic from Problem 7 into a quick lambda function (or standard function) 
 # named `calculate_score(combo, M)` that returns the final modulo math.
-
+def calculate_score(combo, M):
+    return sum([x ** 2 for x in combo]) % M
+print(calculate_score((5, 9, 10),1000))
 # ---------------------------------------------------------
 # PHASE 3: INPUT PARSING (THE TRICKY PART)
 # ---------------------------------------------------------
