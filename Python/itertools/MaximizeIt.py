@@ -66,28 +66,31 @@ print(calculate_score((5, 9, 10),1000))
 # Problem 9: Reading K and M
 # Concept: The first line of input is "3 1000". Write the code to read the 
 # input, split it, convert both to integers, and assign them to `K` and `M`.
-
+K, M = map(int, input().split())
+print(K)
+print(M)
 # Problem 10: The List Container
 # Concept: Create an empty list called `all_lists`. We will append all our 
 # parsed rows into this master list.
-
+all_list = []
 # Problem 11: Reading a Row
 # Concept: A row looks like this: "3 7 8 9". The first number (3) just tells us 
 # how many elements there are. We don't actually need it for our math!
 # Create a mock string: `row_input = "3 7 8 9"`
-
+row_input = "3 7 8 9"
 # Problem 12: Slicing the Row
 # Concept: Split `row_input` into a list of strings. Then, use Python slicing 
 # (`[1:]`) to chop off that first number, leaving only `['7', '8', '9']`.
-
+row_input[1:]
 # Problem 13: Mapping to Integers
 # Concept: Wrap your sliced list from Problem 12 in `map(int, ...)` and then 
 # `list(...)` to convert those string numbers into real integers. 
 # Save it to `parsed_row`.
-
+parsed_row = list(map(int, row_input.split()[1:]))
 # Problem 14: Appending to the Master List
 # Concept: Append `parsed_row` into your `all_lists` from Problem 10.
-
+all_list.append(parsed_row)
+print(all_list)
 # ---------------------------------------------------------
 # PHASE 4: ASSEMBLY & THE UNPACKING OPERATOR
 # ---------------------------------------------------------
