@@ -125,3 +125,46 @@
 # Problem 20: The Dual Catch
 # Concept: Add your two `except` blocks (ZeroDivisionError and ValueError) 
 # underneath, ensuring they print the formatted "Error Code:" message!
+
+# ==========================================
+# FULL SCRIPT DATA FLOW (MOCK INPUTS/OUTPUTS)
+# ==========================================
+
+# --- The Initial Input ---
+# input() receives: "3"
+# T evaluates to: 3
+
+# --- Test Case Loop 1 ---
+# input().split() receives: "1 0"
+# Variables extracted: a = "1", b = "0" (Both Strings)
+# 
+# ENTER TRY BLOCK:
+#   Conversion: "1" -> 1, "0" -> 0 (Success!)
+#   Math: 1 // 0 (CRASH! ZeroDivisionError triggered)
+# 
+# ENTER EXCEPT BLOCK (ZeroDivisionError):
+#   Catches error object 'e'
+#   Console Prints: Error Code: integer division or modulo by zero
+
+# --- Test Case Loop 2 ---
+# input().split() receives: "2 $"
+# Variables extracted: a = "2", b = "$" (Both Strings)
+#
+# ENTER TRY BLOCK:
+#   Conversion: "2" -> 2, "$" -> int("$") (CRASH! ValueError triggered)
+#   Math: Skipped entirely due to early crash.
+#
+# ENTER EXCEPT BLOCK (ValueError):
+#   Catches error object 'e'
+#   Console Prints: Error Code: invalid literal for int() with base 10: '$'
+
+# --- Test Case Loop 3 ---
+# input().split() receives: "3 1"
+# Variables extracted: a = "3", b = "1" (Both Strings)
+#
+# ENTER TRY BLOCK:
+#   Conversion: "3" -> 3, "1" -> 1 (Success!)
+#   Math: 3 // 1 -> evaluates to 3 (Success!)
+#   Console Prints: 3
+#
+# EXCEPT BLOCKS: Skipped entirely.
