@@ -14,30 +14,32 @@
 # Problem 1: The Import
 # Concept: We need the `datetime` class from the `datetime` module. 
 # Write the import statement to bring in `datetime`.
-
+from datetime import datetime
+now = datetime.now()
 # Problem 2: Parsing the Day of the Week
 # Concept: The string starts with "Sun". The format code for an abbreviated 
 # weekday is `%a`. Create a string variable `fmt_day = "%a"`.
-
+fmt_day = "%a"
 # Problem 3: Parsing the Date
 # Concept: The next part is "10 May 2015". 
 # The codes are `%d` (day), `%b` (abbreviated month), and `%Y` (4-digit year).
 # Create a string variable `fmt_date` combining these with spaces.
-
+fmt_date = "%d %b %Y"
 # Problem 4: Parsing the Time
 # Concept: The time is "13:54:36".
 # The codes are `%H` (24hr hour), `%M` (minute), `%S` (second).
 # Create a string variable `fmt_time` combining these with colons.
-
+fmt_time = "%H:%M:%S"
 # Problem 5: Parsing the Timezone
 # Concept: The timezone is "-0700".
 # The code for a UTC offset is `%z`. Create a variable `fmt_tz = "%z"`.
-
+fmt_tz = "%z"
 # Problem 6: The Master Format String
 # Concept: Combine all the codes from Problems 2-5 into a single format string 
 # that exactly matches "Day dd Mon yyyy hh:mm:ss +xxxx".
 # Assign this to a variable called `time_format`.
-
+time_format = "%a %d %b %Y %H:%M:%S %z"
+print(time_format)
 # ---------------------------------------------------------
 # CONCEPT BLOCK 2: CONVERTING STRINGS TO OBJECTS
 # ---------------------------------------------------------
