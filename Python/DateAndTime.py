@@ -46,13 +46,14 @@ print(time_format)
 
 # Problem 7: The Test String
 # Concept: Create a mock string: `time_str = "Sun 10 May 2015 13:54:36 -0700"`
-
+time_str = "Sun 10 May 2015 13:54:36 -0700"
 # Problem 8: The Conversion
 # Concept: Use `datetime.strptime()` passing in your `time_str` and your 
 # `time_format`. Assign it to a variable `dt_obj` and print it.
 # Mock Output: 2015-05-10 13:54:36-07:00
 # Notice how Python translated the string into a mathematical object!
-
+dt_obj = datetime.strptime(time_str, time_format)
+print(dt_obj)
 # ---------------------------------------------------------
 # CONCEPT BLOCK 3: TIMEDELTA MATH
 # ---------------------------------------------------------
@@ -61,27 +62,32 @@ print(time_format)
 # Concept: Create a second mock object representing exactly one hour later 
 # in the SAME timezone. (Just hardcode the string and parse it).
 # `time_str_2 = "Sun 10 May 2015 14:54:36 -0700"`. Parse it to `dt_obj_2`.
-
+time_str_2 = "Sun 10 May 2015 14:54:36 -0700"
+dt_obj2 = datetime.strptime(time_str_2, time_format)
+print(dt_obj2)
 # Problem 10: Subtracting Time
 # Concept: In Python, you can literally subtract two datetime objects using `-`.
 # Write: `difference = dt_obj - dt_obj_2` and print `difference`.
 # Mock Output: -1 day, 23:00:00
 # (Python represents negative 1 hour as "negative 1 day plus 23 hours").
-
+difference = dt_obj - dt_obj2
+print(difference)
 # Problem 11: The Absolute Difference
 # Concept: We don't care which time came first. We just want the raw gap.
 # Wrap your subtraction in the built-in `abs()` function. Print it.
 # Mock Output: 1:00:00 (Exactly 1 hour difference!)
-
+difference2 = abs(dt_obj - dt_obj2)
+print(difference2)
 # Problem 12: Total Seconds
 # Concept: A timedelta object has a built-in method called `.total_seconds()`.
 # Call this method on your absolute difference from Problem 11.
 # Mock Output: 3600.0 (Because 60 mins * 60 secs = 3600).
-
+print(difference2.total_seconds())
 # Problem 13: Floating Point Fix
 # Concept: `.total_seconds()` returns a float (3600.0). HackerRank expects 
 # an integer. Wrap your total seconds calculation in `int()` and print it.
 # Mock Output: 3600
+print(int(difference2.total_seconds()))
 
 # ---------------------------------------------------------
 # CONCEPT BLOCK 4: TIMEZONE SHIFTING (THE INVISIBLE MATH)
