@@ -96,15 +96,18 @@ print(int(difference2.total_seconds()))
 # Problem 14: The UTC Shift
 # Concept: Create two strings with the EXACT same clock time, but different zones.
 # `t1 = "Sun 10 May 2015 13:54:36 -0700"`
-# `t2 = "Sun 10 May 2015 13:54:36 -0000"`
+# `t1 = "Sun 10 May 2015 13:54:36 -0700`
 # Parse both into datetime objects.
-
+t1 = "Sun 10 May 2015 13:54:36 -0700"
+t2 = "Sun 10 May 2015 13:54:36 -0000"
 # Problem 15: Proving the Shift
 # Concept: Subtract `t2` from `t1`, get the absolute value, convert to total 
 # seconds, and cast to an integer. Print it.
 # Mock Output: 25200 
 # (Python automatically calculated the 7-hour timezone difference!)
-
+n1 = datetime.strptime(t1, time_format)
+n2 = datetime.strptime(t2, time_format)
+print(int(abs(n1 - n2).total_seconds()))
 # ---------------------------------------------------------
 # CONCEPT BLOCK 5: INPUT ARCHITECTURE
 # ---------------------------------------------------------
@@ -112,15 +115,23 @@ print(int(difference2.total_seconds()))
 # Problem 16: Reading Test Cases
 # Concept: The first line of input is the number of test cases. 
 # Read it and convert it to an integer `T`.
-
+T = int(input())
 # Problem 17: The Outer Loop
 # Concept: Write a `for` loop that runs `T` times. 
 # (Use the `_` throwaway variable for the loop).
 
+def get_time_diff(t1, t2):
+    format = "%a %d %b %Y %H:%M:%S %z"
+    n1 = datetime.strptime(t1, format)
+    n2 = datetime.strptime(t2, format)
+    return int(abs(n1 - n2).total_seconds())
+
+for _ in range(T):
 # Problem 18: Reading the Pairs
 # Concept: Inside the loop, read two sequential inputs and assign them to 
 # `string_1` and `string_2`.
-
+    string_1 = input()
+    string_2 = input()
 # Problem 19: The Execution Function (Optional but Clean)
 # Concept: Write a function `get_time_diff(t1, t2)` that takes two raw strings, 
 # parses them, and returns the integer total seconds. 
@@ -128,7 +139,7 @@ print(int(difference2.total_seconds()))
 # Problem 20: The Final Print
 # Concept: Inside your T loop, call your execution function with your two 
 # strings and print the result.
-
+    print(get_time_diff(string_1, string_2))
 # ==========================================
 # FULL SCRIPT DATA FLOW (MOCK INPUTS/OUTPUTS)
 # ==========================================
