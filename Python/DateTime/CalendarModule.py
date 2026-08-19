@@ -79,11 +79,12 @@ print(day_string)
 # Concept: HackerRank requires the output in all capital letters. 
 # Call the built-in `.upper()` string method on your `day_string` and print it.
 # Mock Output: 'WEDNESDAY'
-
+print(day_string.upper())
 # Problem 13: The One-Liner (Optional Optimization)
 # Concept: Try combining Problems 11 and 12 into a single line of code! 
 # Index the array and immediately call `.upper()` on the result.
-
+day_string2 = calendar.day_name[day_int].upper()
+print(day_string2)
 # ---------------------------------------------------------
 # CONCEPT BLOCK 5: THE DATETIME ALTERNATIVE (MIND EXPANSION)
 # ---------------------------------------------------------
