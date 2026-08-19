@@ -58,18 +58,19 @@ print(day_int)
 # Concept: The calendar module contains a built-in array (technically a localized 
 # sequence) called `calendar.day_name`. Print this object directly.
 # Mock Output: <calendar._localized_day object at 0x...>
-
+print(calendar.day_name)
 # Problem 10: Viewing the Array
 # Concept: Because it's a localized sequence, wrap `calendar.day_name` in a 
 # `list()` and print it to see what is inside!
 # Mock Output: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-
+print(list(calendar.day_name))
 # Problem 11: Indexing the Array
 # Concept: Now that you know it acts like a list, you can extract a specific 
 # element using bracket notation. Pass your `day_int` (which is 2) into 
 # `calendar.day_name[]` and print the result. Save it to `day_string`.
 # Mock Output: 'Wednesday'
-
+day_string = calendar.day_name[day_int]
+print(day_string)
 # ---------------------------------------------------------
 # CONCEPT BLOCK 4: STRING MANIPULATION
 # ---------------------------------------------------------
