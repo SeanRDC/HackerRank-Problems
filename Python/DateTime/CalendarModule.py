@@ -38,18 +38,18 @@ print(f"month={date_str1[0]}, day={date_str1[1]}, year={date_str1[2]}")
 
 # Problem 6: The Import
 # Concept: We need the `calendar` module. Write the import statement.
-
+import calendar
 # Problem 7: The Weekday Function
 # Concept: The module has a function called `calendar.weekday()`. However, it 
 # requires its arguments in a specific order: Year, Month, Day. 
 # Pass your variables from Problem 5 into this function (noting the order flip!) 
 # and save it to `day_int`.
-
+day_int = calendar.weekday(date_str1[2], date_str1[0], date_str1[1])
 # Problem 8: Evaluating the Day Integer
 # Concept: Print your `day_int`. 
 # Mock Output: 2
 # Why 2? In the calendar module, Monday is 0, Tuesday is 1, Wednesday is 2.
-
+print(day_int)
 # ---------------------------------------------------------
 # CONCEPT BLOCK 3: INTEGER-TO-STRING MAPPING
 # ---------------------------------------------------------
