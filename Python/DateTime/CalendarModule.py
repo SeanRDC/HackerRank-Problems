@@ -12,26 +12,26 @@
 # Problem 1: The Mock String
 # Concept: Create a mock input string representing the HackerRank sample data.
 # `date_str = "08 05 2015"`
-
+date_str = "08 05 2015"
 # Problem 2: String Splitting
 # Concept: Split the string into a list of individual components.
 # Mock Output: ['08', '05', '2015']
-
+date_str.split()
 # Problem 3: The Leading Zero Behavior
 # Concept: Test how Python's built-in integer conversion handles strings with 
 # leading zeros. Pass the string `"08"` into the `int()` function and print it.
 # Mock Output: 8 (Python naturally strips the leading zero for you!)
-
+print(int("08"))
 # Problem 4: Mapping to Integers
 # Concept: Combine Problems 2 and 3. Use `map()` and `int` on your split string 
 # from Problem 2 to convert all elements into integers.
-
+date_str1 = list(map(int, date_str.split()))
 # Problem 5: Unpacking the Variables
 # Concept: HackerRank gives the input in Month, Day, Year format. 
 # Extract your mapped integers directly into three variables: `month`, `day`, 
 # and `year` in that exact order.
 # Mock Output: month=8, day=5, year=2015
-
+print(f"month={date_str1[0]}, day={date_str1[1]}, year={date_str1[2]}")
 # ---------------------------------------------------------
 # CONCEPT BLOCK 2: THE CALENDAR MODULE
 # ---------------------------------------------------------
