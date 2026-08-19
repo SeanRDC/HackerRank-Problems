@@ -92,16 +92,16 @@ print(day_string2)
 
 # Problem 14: Datetime Import
 # Concept: Write `from datetime import datetime`.
-
+from datetime import datetime
 # Problem 15: Creating the Datetime Object
 # Concept: Pass your `year`, `month`, and `day` into `datetime()`. 
 # Assign it to `dt_obj`. (Notice datetime also requires Year, Month, Day order).
-
+dt_obj = datetime(date_str1[2], date_str1[0], date_str1[1])
 # Problem 16: The String Format Time Method
 # Concept: Use `.strftime()` on your `dt_obj`. 
 # The format code for a full weekday name is `"%A"`. Print the result.
 # Mock Output: 'Wednesday'
-
+print(dt_obj.strftime("%A").upper())
 # Problem 17: Datetime Casing
 # Concept: Just like in Problem 12, append `.upper()` to your `.strftime("%A")` 
 # call and print the result. 
