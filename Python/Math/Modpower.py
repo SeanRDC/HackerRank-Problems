@@ -12,18 +12,20 @@
 # Problem 1: The Mock Variables
 # Concept: Create three integer variables representing the HackerRank sample data.
 # `a = 3`, `b = 4`, and `m = 5`.
-
+a = 3
+b = 4
+m = 5
 # Problem 2: The Double Asterisk Operator
 # Concept: In Python, you can calculate powers using the `**` operator.
 # Calculate `a ** b` and print the result.
 # Mock Output: 81
-
+print(a ** b)
 # Problem 3: The Built-in 2-Argument pow()
 # Concept: Python also provides a built-in function `pow()`. 
 # Pass `a` and `b` as two arguments to `pow()` and print the result.
 # Mock Output: 81
 # (For two arguments, `a ** b` and `pow(a, b)` do the exact same thing!)
-
+print(pow(a, b))
 # ---------------------------------------------------------
 # CONCEPT BLOCK 2: THE MATH MODULE TRAP
 # ---------------------------------------------------------
@@ -31,11 +33,11 @@
 # Problem 4: The Import
 # Concept: Python has a separate `math` module that also contains a power function.
 # Write `import math`.
-
+import math
 # Problem 5: math.pow()
 # Concept: Use `math.pow(a, b)` and print the result.
 # Mock Output: 81.0
-
+print(math.pow(a, b))
 # Problem 6: The Float Difference
 # Concept: Notice the decimal? The `math.pow()` function converts inputs to 
 # floats and returns a float. The built-in `pow()` strictly returns integers 
