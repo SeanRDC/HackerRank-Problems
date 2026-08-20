@@ -56,17 +56,21 @@ except ZeroDivisionError as e:
 # Problem 6: The String Input
 # Concept: HackerRank provides inputs as strings. 
 # Create mock string variables: `str1 = "2"` and `str2 = "$"`.
-
+str1 = "2"
+str2 = "0"
 # Problem 7: The Conversion Crash
 # Concept: Try to convert `str2` using `int()`. 
 # Mock Output: ValueError: invalid literal for int() with base 10: '$'
 # Notice this crashes before any math even happens!
-
+# print(int(str2))
 # Problem 8: The Parsing Safety Net
 # Concept: Wrap the `int()` conversion of `str1` and `str2` inside a new `try:` 
 # block. Catch it with `except ValueError as e:` and print `e`.
 # Mock Output: invalid literal for int() with base 10: '$'
-
+try:
+    int(str2)
+except ValueError as e:
+    print(e)
 # ---------------------------------------------------------
 # CONCEPT BLOCK 4: STACKING EXCEPTIONS
 # ---------------------------------------------------------
@@ -75,12 +79,16 @@ except ZeroDivisionError as e:
 # Concept: You can stack multiple `except` blocks under a single `try` block!
 # Write one `try:` block. Inside it, convert `str1` and `str2` to integers, 
 # then print their integer division.
-
+try:
+    print(int(str1) / int(str2))
 # Problem 10: Adding the Handlers
 # Concept: Below the `try` block from Problem 9, add BOTH of your except 
 # blocks: `except ZeroDivisionError as e:` AND `except ValueError as e:`. 
 # Have them both print `e`.
-
+except ZeroDivisionError as e:
+    print(e)
+except ValueError as e:
+    print(e)
 # Problem 11: Testing the Zero Trap
 # Concept: Set your mock strings to `"1"` and `"0"`. Run your unified block.
 # Mock Output: integer division or modulo by zero
