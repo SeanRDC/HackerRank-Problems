@@ -189,3 +189,12 @@ for _ in range(T):
 #   Console Prints: 3
 #
 # EXCEPT BLOCKS: Skipped entirely.
+T = int(input())
+for _ in range(T):
+    a, b = input().split()
+    try:
+        print(int(a) // int(b))
+    except ZeroDivisionError as div:
+        print(f"Error Code: {div}")
+    except ValueError as val:
+        print(f"Error Code: {val}")
