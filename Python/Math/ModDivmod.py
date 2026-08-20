@@ -13,17 +13,18 @@
 # Problem 1: The Mock Variables
 # Concept: Create two integer variables representing the HackerRank sample data.
 # `a = 177` and `b = 10`.
-
+a = 177
+b = 10
 # Problem 2: Integer Division
 # Concept: We need the quotient without any decimals. 
 # Use the `//` operator to divide `a` by `b` and print the result.
 # Mock Output: 17
-
+print(a // b)
 # Problem 3: Modulo (The Remainder)
 # Concept: We need to know what is left over after the division.
 # Use the `%` operator on `a` and `b` and print the result.
 # Mock Output: 7
-
+print(a % b)
 # Problem 4: Visualizing the Math
 # Concept: Integer division and modulo are two halves of the same coin.
 # 10 goes into 177 exactly 17 times. 17 * 10 = 170. 
@@ -37,17 +38,17 @@
 # Concept: Python has a built-in function `divmod()` that calculates both the 
 # integer division and the modulo at the exact same time. 
 # Pass `a` and `b` into `divmod()` and assign the result to a variable `result`.
-
+result = divmod(a, b)
 # Problem 6: Printing the Result
 # Concept: Print your `result` variable.
 # Mock Output: (17, 7)
-
+print(result)
 # Problem 7: Identifying the Data Type
 # Concept: Notice the parentheses around the output? 
 # Use Python's built-in `type()` function on your `result` variable and print it.
 # Mock Output: <class 'tuple'>
 # `divmod` always returns an immutable tuple containing (quotient, remainder).
-
+print(type(result))
 # ---------------------------------------------------------
 # CONCEPT BLOCK 3: WORKING WITH THE TUPLE
 # ---------------------------------------------------------
