@@ -13,17 +13,18 @@
 # Problem 1: The Import
 # Concept: We need Python's built-in regular expression module. 
 # Write the statement to import `re`.
-
+import re
 # Problem 2: The Valid Mock String
 # Concept: Create a mock string representing a valid regex pattern.
 # `valid_pattern = ".*\+"`
-
+valid_pattern = r".*\+"
 # Problem 3: Compiling the Pattern
 # Concept: The engine checks if a regex is valid by "compiling" it. 
 # Pass `valid_pattern` into `re.compile()` and assign it to `compiled_obj`. 
 # Print it. 
 # Mock Output: re.compile('.*\\+') (It successfully built an object!)
-
+compiled_obj = re.compile(valid_pattern)
+print(compiled_obj)
 # ---------------------------------------------------------
 # CONCEPT BLOCK 2: THE RE.ERROR EXCEPTION
 # ---------------------------------------------------------
