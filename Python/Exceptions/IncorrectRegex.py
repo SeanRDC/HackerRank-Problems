@@ -31,13 +31,14 @@ print(compiled_obj)
 
 # Problem 4: The Invalid Mock String
 # Concept: Create a mock string representing an invalid pattern.
-# `invalid_pattern = ".*+"`
-
+# `invalid_pattern = ".**+"`
+invalid_pattern = ".**+"
 # Problem 5: The Crash
 # Concept: Try to pass `invalid_pattern` into `re.compile()`. 
 # Mock Output: re.error: multiple repeat at position 2
 # Notice how the compilation immediately crashes because the math makes no sense!
-
+#icompiled_obj = re.compile(invalid_pattern)
+#print(icompiled_obj)
 # Problem 6: The Specific Exception
 # Concept: Just like ZeroDivisionError, the `re` module has its own specific 
 # crash object called `re.error`. We need to use this for our safety net.
@@ -48,20 +49,21 @@ print(compiled_obj)
 
 # Problem 7: The Try Block
 # Concept: Open a `try:` block. Inside, attempt to compile `invalid_pattern`.
-
+try:
+    re.compile(invalid_pattern)
 # Problem 8: The Success State
 # Concept: If `re.compile()` succeeds, the pattern is valid! 
 # Directly underneath your compile statement inside the try block, print `True`.
-
+    print(True)
 # Problem 9: The Except Block
 # Concept: Create your `except` block specifically targeting `re.error`.
-
+except re.error:
 # Problem 10: The Failure State
 # Concept: If the `except` block triggers, the pattern is mathematically broken.
 # Inside the except block, print `False`.
 # Run this entire block against `invalid_pattern`.
 # Mock Output: False
-
+    print(False)
 # Problem 11: Testing the Success State
 # Concept: Swap the variable in your try block to `valid_pattern` and run it again.
 # Mock Output: True
