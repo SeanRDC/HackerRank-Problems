@@ -86,9 +86,9 @@ try:
 # blocks: `except ZeroDivisionError as e:` AND `except ValueError as e:`. 
 # Have them both print `e`.
 except ZeroDivisionError as e:
-    print(e)
+    print(f"Error Code: ", e)
 except ValueError as e:
-    print(e)
+    print(f"Error Code: ", e)
 # Problem 11: Testing the Zero Trap
 # Concept: Set your mock strings to `"1"` and `"0"`. Run your unified block.
 # Mock Output: integer division or modulo by zero
@@ -114,35 +114,39 @@ except ValueError as e:
 # Problem 14: Reading T
 # Concept: The first input is the number of test cases. Read it and convert 
 # it to an integer `T`.
-
+T = int(input())
 # Problem 15: The Outer Loop
 # Concept: Write a `for` loop that iterates `T` times.
-
+for _ in range(T):
 # Problem 16: Reading the Row
 # Concept: Inside the loop, read the next line using `input().split()`. 
 # Assign the result to a list called `elements`.
 # Why not `map(int)` right away? Because if you map to an integer outside the 
 # `try` block, a ValueError will crash your script instantly! 
-
+    elements = input().split()
 # Problem 17: Extracting Variables
 # Concept: Assign `elements[0]` to a variable `a`, and `elements[1]` to `b`. 
 # (They are still strings at this point).
-
+    a = elements[0]
+    b = elements[1]
 # ---------------------------------------------------------
 # CONCEPT BLOCK 7: FINAL ASSEMBLY PREP
 # ---------------------------------------------------------
 
 # Problem 18: Entering the Danger Zone
 # Concept: Inside your loop, open your `try:` block.
-
+    try:
 # Problem 19: Safe Conversion & Execution
 # Concept: Inside the `try` block, safely convert `a` and `b` to integers 
 # and immediately print their integer division.
-
+        print(int(a) / int(b))
 # Problem 20: The Dual Catch
 # Concept: Add your two `except` blocks (ZeroDivisionError and ValueError) 
 # underneath, ensuring they print the formatted "Error Code:" message!
-
+    except ZeroDivisionError as e:
+        print(f"Error Code:",e)
+    except ValueError as e:
+        print(f"Error Code:",e)
 # ==========================================
 # FULL SCRIPT DATA FLOW (MOCK INPUTS/OUTPUTS)
 # ==========================================
