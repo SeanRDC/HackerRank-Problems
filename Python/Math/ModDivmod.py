@@ -60,14 +60,16 @@ print(type(result))
 # 17
 # 7
 # (Notice how these exactly match your manual calculations from Block 1!)
-
+print(result[0])
+print(result[1])
 # Problem 9: Tuple Unpacking
 # Concept: You can extract the tuple's contents directly into new variables 
 # on a single line. Write: `quotient, remainder = divmod(a, b)`.
-
+quotient, remainder = divmod(a, b)
 # Problem 10: Verifying the Unpack
 # Concept: Print `quotient` and `remainder` to verify they unpacked correctly.
-
+print(quotient)
+print(remainder)
 # ---------------------------------------------------------
 # CONCEPT BLOCK 4: INPUT ARCHITECTURE
 # ---------------------------------------------------------
@@ -80,25 +82,25 @@ print(type(result))
 # Concept: Call `input()` by itself to read the first line. 
 # Immediately wrap it in `int()` to convert it from a string to an integer.
 # Assign it to `a`.
-
+a = int(input())
 # Problem 13: Reading the Second Line
 # Concept: Call `input()` a second time on the very next line of code, 
 # again wrapping it in `int()`. Assign it to `b`.
 # (Python's `input()` automatically pauses and waits for the next line break).
-
+b = int(input())
 # ---------------------------------------------------------
 # CONCEPT BLOCK 5: FINAL ASSEMBLY PREP
 # ---------------------------------------------------------
 
 # Problem 14: The First Output Line
 # Concept: Print the manual integer division of `a` and `b`.
-
+print(a // b)
 # Problem 15: The Second Output Line
 # Concept: Print the manual modulo of `a` and `b`.
-
+print(a % b)
 # Problem 16: The Third Output Line
 # Concept: Print the direct evaluation of `divmod(a, b)`.
-
+print(divmod(a, b))
 # Problem 17-20: Clean Code Optimization
 # Concept: You don't need any extra variables for the final assembly! 
 # You just need two lines to read the integer inputs, and three print statements 
@@ -127,3 +129,9 @@ print(type(result))
 # Evaluates: divmod(177, 10)
 # Returns Tuple: (17, 7)
 # Console Prints: (17, 7)
+a = int(input())
+b = int(input())
+
+print(a // b)
+print(a % b)
+print(divmod(a, b))
