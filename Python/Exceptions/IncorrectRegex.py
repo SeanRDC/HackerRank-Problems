@@ -75,10 +75,10 @@ except re.error:
 # Problem 12: Reading T
 # Concept: The first input is the number of test cases. Read it and convert 
 # it to an integer `T`.
-
+#T = int(input())
 # Problem 13: The Outer Loop
 # Concept: Write a `for` loop that iterates `T` times using the throwaway `_`.
-
+#for _ in range(T):
 # Problem 14: The Trailing Space Danger
 # Concept: Should we use `input().split()` here? NO! 
 # Regular expressions can intentionally contain spaces! If you split it, you 
@@ -87,17 +87,22 @@ except re.error:
 # Problem 15: Reading the Raw Pattern
 # Concept: Inside your loop, simply use `input()` to read the exact raw string, 
 # spaces and all. Assign it to a variable called `pattern`.
-
+    #pattern = input()
+    #print(is_valid_regex(pattern))
 # ---------------------------------------------------------
 # CONCEPT BLOCK 5: FINAL ASSEMBLY PREP
 # ---------------------------------------------------------
 
 # Problem 16: The Verification Function (Clean Code Practice)
 # Concept: Create a function called `is_valid_regex(pattern)` to house your logic.
-
+def is_valid_regex(pattern):
 # Problem 17: Moving the Logic
 # Concept: Move your `try`/`except` block from Problems 7-10 inside this function.
-
+    try:
+        re.compile(pattern)
+        return True
+    except re.error:
+        return False
 # Problem 18: Return vs Print
 # Concept: Inside the function, change `print(True)` to `return True`, and 
 # `print(False)` to `return False`. 
@@ -143,3 +148,13 @@ except re.error:
 #   Returns: False
 #
 # Console Prints: False
+def is_valid_re(user_ipt):
+    try:
+        re.compile(user_ipt)
+        return True
+    except re.error:
+        return False
+
+T = int(input())
+for _ in range(T):
+    print(is_valid_re(input()))
