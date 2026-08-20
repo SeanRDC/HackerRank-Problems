@@ -12,13 +12,15 @@
 
 # Problem 1: The Mock Variables
 # Concept: Create two integer variables: `num1 = 3` and `num2 = 1`.
-
+num1 = 3
+num2 = 1
 # Problem 2: Python 3 Integer Division
 # Concept: In Python 3, a single slash `/` returns a float (3.0). 
 # A double slash `//` forces integer division (3). 
 # Print the result of `num1` integer divided by `num2`.
 # Mock Output: 3
-
+print(num1 / num2)
+print(num1 // num2)
 # ---------------------------------------------------------
 # CONCEPT BLOCK 2: THE ZERODIVISIONERROR
 # ---------------------------------------------------------
@@ -27,19 +29,26 @@
 # Concept: Change `num2` to `0`. Try to print `num1 // num2` again.
 # Mock Output: ZeroDivisionError: integer division or modulo by zero
 # Notice how the entire script instantly crashes and stops running!
-
+num1 = 3
+num2 = 0
 # Problem 4: The Safety Net (Try/Except)
 # Concept: Wrap your division code inside a `try:` block. 
 # Directly below it, write an `except ZeroDivisionError:` block that simply 
 # prints the string "Math failed!". Run it. 
 # Mock Output: Math failed! (Notice the script didn't crash this time!)
-
+try:
+    num1 / num2
+except ZeroDivisionError:
+    print("Math failed!")
 # Problem 5: The Exception Object
 # Concept: We need the exact error message provided by Python. 
 # Modify your except line to read: `except ZeroDivisionError as e:`
 # Inside the except block, print the variable `e`.
 # Mock Output: integer division or modulo by zero
-
+try:
+    num1 / num2
+except ZeroDivisionError as e:
+    print(e)
 # ---------------------------------------------------------
 # CONCEPT BLOCK 3: THE VALUEERROR (THE MAPPING TRAP)
 # ---------------------------------------------------------
