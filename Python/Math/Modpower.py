@@ -52,7 +52,7 @@ print(math.pow(a, b))
 # Calculate the power of `a` and `b` using `**`, then modulo the whole thing 
 # by `m`. Example: `(a ** b) % m`. Print the result.
 # Mock Output: 1 (Because 81 % 5 leaves a remainder of 1).
-
+print((a ** b) % m)
 # Problem 8: The Hidden Memory Trap
 # Concept: What if `a` was 10000 and `b` was 50000? 
 # `10000 ** 50000` is a number with 200,000 zeros! Calculating that massive 
@@ -72,7 +72,7 @@ print(math.pow(a, b))
 # Problem 10: Testing the 3-Argument pow()
 # Concept: Pass `a`, `b`, and `m` into `pow()` and print the result.
 # Mock Output: 1
-
+print(pow(a, b, m))
 # Problem 11: The Constraint Check
 # Concept: The 3-argument `pow()` has a strict rule: if the third argument is 
 # present, the power (`b`) CANNOT be negative. Try `pow(3, -4, 5)`.
@@ -129,4 +129,10 @@ print(math.pow(a, b))
 # --- Output Line 2 (Modular Exponentiation) ---
 # Evaluates: pow(3, 4, 5) 
 # Note: Calculates (3*3 % 5 * 3 % 5 * 3 % 5) internally under the hood.
-# Console Prints: 1
+# Console Prints: 
+a = int(input())
+b = int(input())
+m = int(input())
+
+print(pow(a, b))
+print(pow(a, b, m))
