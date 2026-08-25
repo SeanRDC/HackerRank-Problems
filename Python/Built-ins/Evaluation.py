@@ -14,4 +14,6 @@
 # --- Final Output ---
 # Console Prints: 5
 # (Script terminates seamlessly without returning 'None')
-print(eval(input()))
+result = eval(input())
+if result is not None:
+    print(result)
