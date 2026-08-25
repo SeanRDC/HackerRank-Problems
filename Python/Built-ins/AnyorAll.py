@@ -12,17 +12,17 @@
 # Problem 1: The Mock List (Integers)
 # Concept: Create a mock list of integers.
 # `nums = [12, 9, 61, 5, 14]`
-
+nums = [12, 9, 61, 5, 14]
 # Problem 2: The Boolean Generator
 # Concept: We need to know if every number is greater than zero.
 # Write a generator expression: `(n > 0 for n in nums)`. 
 # (Remember from our combinations challenge, generators save memory!)
-
+(n > 0 for n in nums)
 # Problem 3: The all() Function
 # Concept: Pass that generator directly into the `all()` function and print it.
 # `print(all(n > 0 for n in nums))`
 # Mock Output: True (Because every single number is positive).
-
+print(all((n > 0 for n in nums)))
 # Problem 4: The False Trigger
 # Concept: Change the `12` in your list to `-12`. Run Problem 3 again.
 # Mock Output: False (Because `all()` immediately fails if it sees even one False).
@@ -35,16 +35,15 @@
 # Concept: To check if a number is a palindrome (reads the same forwards and 
 # backwards), it is much easier to treat it as a string!
 # Create a string: `s = "12321"`
-
+s = "12321"
 # Problem 6: The Slice Reversal
 # Concept: In Python, you can reverse a string instantly using slicing syntax: 
-# `[::-1]`. Print `s[::-1]`.
 # Mock Output: '12321'
-
+s2 = s[::-1]
 # Problem 7: The Equality Check
-# Concept: Check if the string equals its reversed self: `print(s == s[::-1])`.
+# Concept: Check if the string equals its reversed self
 # Mock Output: True
-
+print(s == s2)
 # ---------------------------------------------------------
 # CONCEPT BLOCK 3: THE ANY() FUNCTION
 # ---------------------------------------------------------
@@ -52,17 +51,25 @@
 # Problem 8: The Mock List (Strings)
 # Concept: Let's look at HackerRank's actual input format. They provide strings!
 # `str_nums = ["12", "9", "61", "5", "14"]`
-
+str_nums = ["12", "9", "61", "5", "14"]
 # Problem 9: The Palindrome Generator
 # Concept: Write a generator expression checking if each string equals its reverse.
-# `(s == s[::-1] for s in str_nums)`
 
+# Expanded form
+def passable():
+    for i in str_nums:
+        if i == i[::-1]:
+            print(True)
+        else:
+            print(False)
+pass
+# Generator form
+(True if i == i[::-1] else False for i in str_nums)
 # Problem 10: The any() Function
 # Concept: Pass that generator into `any()` and print it.
-# `print(any(s == s[::-1] for s in str_nums))`
 # Mock Output: True (Because "9" and "5" are palindromes. `any()` stops and 
 # returns True the moment it finds a single match!)
-
+print(any((True if i == i[::-1] else False for i in str_nums)))
 # ---------------------------------------------------------
 # CONCEPT BLOCK 4: THE BOOLEAN SHORT-CIRCUIT (CRITICAL LOGIC)
 # ---------------------------------------------------------
@@ -70,12 +77,12 @@
 # Problem 11: The 'AND' Operator
 # Concept: HackerRank wants to know if Condition 1 AND Condition 2 are true.
 # Write: `True and True`. (Evaluates to True)
-
+print(True and True)
 # Problem 12: The Short-Circuit Rule
 # Concept: If you write `False and True`, Python is smart. It sees the `False`, 
 # knows the whole statement can NEVER be True, and completely skips evaluating 
 # the second half! This is called "short-circuiting."
-
+print(False and True)
 # Problem 13: Order Matters
 # Concept: HackerRank says: "If all integers are positive, THEN check if any 
 # is a palindrome." 
@@ -106,11 +113,9 @@
 # Problem 17: The First Generator (Int Casting)
 # Concept: Because `arr` contains strings, your `all()` generator must cast 
 # them to integers temporarily just to check if they are positive: 
-# `all(int(i) > 0 for i in arr)`
 
 # Problem 18: The Second Generator (String Slicing)
 # Concept: Your `any()` generator can just use the strings directly!
-# `any(i == i[::-1] for i in arr)`
 
 # Problem 19: The Master Equation
 # Concept: Combine Problem 17 and Problem 18 using the `and` operator.
@@ -149,3 +154,6 @@
 # --- Final Output (Line 3) ---
 # True and True evaluates to: True
 # Console Prints: True
+_ = int(input())
+arr = input().split()
+print(all(int(i) > 0 for i in arr) and any(j == j[::-1] for j in arr))
