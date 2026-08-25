@@ -38,9 +38,8 @@
 N, X = map(int, input().split())
 scores_matrix = []
 for _ in range(X):
-    n = map(float, input())
+    n = list(map(float, input().split()))
     scores_matrix.append(n)
 
 for i in zip(*scores_matrix):
-    avg = sum(i)/len(i)
-    print(f"{avg:.2f}")
+    print(f"{sum(i)/len(i):.1f}")
