@@ -9,7 +9,7 @@
 # ---------------------------------------------------------
 # CONCEPT BLOCK 1: STATE & INITIALIZATION
 # ---------------------------------------------------------
-
+import math
 # Problem 1: The Constructor 
 # Concept: Just like your 3D points, the boilerplate passes data into the 
 # `__init__` method. Bind the passed `real` argument to an instance variable.
@@ -18,7 +18,10 @@
 # Concept: Bind the passed `imaginary` argument to an instance variable.
 # Mock Input: Complex(2.0, 1.0)
 # Mock State: self holds real=2.0, imaginary=1.0
-
+class Complex(object):
+    def __init__(self, real, imaginary):
+        self.real = real
+        self.imaginary = imaginary
 # ---------------------------------------------------------
 # CONCEPT BLOCK 2: LINEAR ARITHMETIC (+ and -)
 # ---------------------------------------------------------
@@ -42,7 +45,11 @@
 # Concept: Return a brand new `Complex` object with the differences.
 # Mock Input: self=(2.0, 1.0), no=(5.0, 6.0)
 # Mock Output: Complex(-3.0, -5.0)
-
+    def __add__(self, no):
+        return Complex(self.real + no.real, self.imaginary + no.imaginary)
+    
+    def __sub__(self, no):
+        return Complex(self.real - no.real, self.imaginary - no.imaginary)
 # ---------------------------------------------------------
 # CONCEPT BLOCK 3: MULTIPLICATION (__mul__)
 # ---------------------------------------------------------
@@ -63,7 +70,10 @@
 # Concept: Return a brand new `Complex` object using these calculated parts.
 # Mock Input: self=(2.0, 1.0), no=(5.0, 6.0)
 # Mock Output: Complex(4.0, 17.0)
-
+    def __mul__(self, no):
+        real = (self.real * no.real) - (self.imaginary * no.imaginary)
+        imaginary = (self.real * no.imaginary) + (self.imaginary * no.real)
+        return Complex(real, imaginary)
 # ---------------------------------------------------------
 # CONCEPT BLOCK 4: DIVISION (__truediv__)
 # ---------------------------------------------------------
@@ -88,7 +98,12 @@
 # numerator divided by the divisor.
 # Mock Input: self=(2.0, 1.0), no=(5.0, 6.0)
 # Mock Output: Complex(0.262..., -0.114...)
-
+    def __truediv__(self, no):
+        divisor = no.real**2 + no.imaginary**2
+        real_num = (self.real * no.real) + (self.imaginary * no.imaginary)
+        imaginary_num = (self.imaginary * no.real) - (self.real * no.imaginary)
+        return Complex(real_num / divisor, imaginary_num / divisor)
+    
 # ---------------------------------------------------------
 # CONCEPT BLOCK 5: THE MODULUS (mod)
 # ---------------------------------------------------------
@@ -121,7 +136,9 @@
 # each of your overloaded operators, casts the resulting objects to strings 
 # (triggering the provided `__str__` method), and prints them separated by 
 # newlines.
-
+    def __mod__(self, no):
+        return Complex(math.sqrt(self.real**2 + self.imaginary**2), 0)
+        
 # ==========================================
 # FULL SCRIPT DATA FLOW (MOCK INPUTS/OUTPUTS)
 # ==========================================
@@ -158,3 +175,51 @@
 # Console Prints Line 3: 4.00+17.00i
 # Console Prints Line 4: 0.26-0.11i
 # Console Prints Line 5: 2.24+0.00i
+
+import math
+
+class Complex(object):
+    def __init__(self, real, imaginary):
+        self.real = real
+        self.imaginary = imaginary
+        
+    def __add__(self, no):
+        return Complex(self.real + no.real, self.imaginary + no.imaginary)
+        
+    def __sub__(self, no):
+        return Complex(self.real - no.real, self.imaginary - no.imaginary)
+    
+    def __mul__(self, no):
+        real = (self.real * no.real) - (self.imaginary * no.imaginary)
+        imaginary = (self.real * no.imaginary) + (self.imaginary * no.real)
+        return Complex(real, imaginary)
+    
+    def __truediv__(self, no):
+        divisor = no.real**2 + no.imaginary**2
+        real_num = (self.real * no.real) + (self.imaginary * no.imaginary)
+        imaginary_num = (self.imaginary * no.real) - (self.real * no.imaginary)
+        return Complex(real_num / divisor, imaginary_num / divisor)
+    
+    def mod(self):
+        return Complex(math.sqrt(self.real**2 + self.imaginary**2), 0)
+    
+    def __str__(self):
+        if self.imaginary == 0:
+            result = "%.2f+0.00i" % (self.real)
+        elif self.real == 0:
+            if self.imaginary >= 0:
+                result = "0.00+%.2fi" % (self.imaginary)
+            else:
+                result = "0.00-%.2fi" % (abs(self.imaginary))
+        elif self.imaginary > 0:
+            result = "%.2f+%.2fi" % (self.real, self.imaginary)
+        else:
+            result = "%.2f-%.2fi" % (self.real, abs(self.imaginary))
+        return result
+    
+if __name__ == '__main__':
+    c = map(float, input().split())
+    d = map(float, input().split())
+    x = Complex(*c)
+    y = Complex(*d)
+    print(*map(str, [x+y, x-y, x*y, x/y, x.mod(), y.mod()]), sep='\n')
