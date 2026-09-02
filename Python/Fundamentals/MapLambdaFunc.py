@@ -27,6 +27,10 @@
 # Concept: If the system evaluates `cube(3)`, what will your expression calculate?
 # Mock Input: x = 3
 # Mock Output: 27
+x = 3
+def cube1(x):
+    return x**3
+print(cube1(x)) 
 
 # ---------------------------------------------------------
 # CONCEPT BLOCK 2: FIBONACCI - THE RULES AND EDGE CASES
@@ -53,7 +57,14 @@
 # Concept: Inside `def fibonacci(n):`, set up conditional checks (`if`, `elif`) 
 # to immediately return the correct lists for the `0` and `1` edge cases before 
 # doing any heavy lifting.
+def fibonacci(n):
+    if n == 0:
+        return []
+    elif n == 1:
+        return [0]
 
+print(fibonacci(1))
+print(fibonacci(0))
 # ---------------------------------------------------------
 # CONCEPT BLOCK 3: FIBONACCI - THE GENERATOR ENGINE
 # ---------------------------------------------------------
@@ -62,27 +73,28 @@
 # Concept: If `n` is greater than 1, we can safely initialize our sequence with 
 # the first two numbers. Create a standard list variable holding these two integers.
 # Mock State: current_list = [0, 1]
-
+current_list = [0, 1]
 # Problem 10: The Iteration Goal
 # Concept: If `n = 5`, and our list already has 2 elements, we only need to 
 # calculate 3 more numbers. We need a loop that runs exactly `n - 2` times.
-
+n = 5
+for j in range(n -2):
 # Problem 11: Accessing the End of the List
 # Concept: Inside your loop, you need to grab the last item added to the list. 
 # Remember that negative indexing (like `-1`) allows you to grab the item at 
 # the very end without needing to know the list's total length.
-
+    last = current_list[-1]
 # Problem 12: Accessing the Second-to-Last Item
 # Concept: You also need the item right before it. What negative index grabs 
 # the second-to-last item?
-
+    slast = current_list[-2]
 # Problem 13: The Addition Math
 # Concept: Add the value from Problem 11 and the value from Problem 12 together 
 # to create the `next_number`.
-
+    next_number = last + slast
 # Problem 14: Growing the Sequence
 # Concept: Append the newly calculated `next_number` to your list variable.
-
+    current_list.append(next_number)
 # Problem 15: Returning the Sequence
 # Concept: Once the loop finishes, return the final list.
 # Mock Input (n=5): List initializes as [0, 1]. Loop runs 3 times.
@@ -90,6 +102,11 @@
 # Loop 2: Adds 1 + 1. Appends 2. List is [0, 1, 1, 2].
 # Loop 3: Adds 1 + 2. Appends 3. List is [0, 1, 1, 2, 3].
 # Mock Output: [0, 1, 1, 2, 3]
+n = 10
+current_list = [0, 1]
+for i in range(n - len(current_list)):
+    current_list.append(current_list[-1] + current_list[-2])
+print(current_list)
 
 # ---------------------------------------------------------
 # CONCEPT BLOCK 4: UNDERSTANDING THE BOILERPLATE'S MAP()
@@ -144,3 +161,18 @@
 # --- Output Stage ---
 # Boilerplate casts yielded values into a single array structure.
 # Console Prints: [0, 1, 1, 8, 27]
+cube = lambda x: x**3
+
+n = 5
+def fibo(n):
+    cur = [0, 1]
+    if n == 0:
+        return []
+    if n == 1:
+        return [0]
+
+    for _ in range(n - len(cur)):
+        cur.append(cur[-1] + cur[-2])
+    return cur
+
+print(list(map(cube, fibo(n))))
