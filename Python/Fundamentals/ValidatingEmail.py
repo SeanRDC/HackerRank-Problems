@@ -51,13 +51,16 @@
 # replace all dashes and underscores with empty strings `""`.
 # Mock Input: "britts_54"
 # Mock Output: "britts54"
+username = "bri-ts_54"
+new_username = username.replace("_", "").replace("-","")
+print(new_username)
 
 # Problem 9: The Alphanumeric Check
 # Concept: Now use the built-in string method on that temporary string to check 
 # if it is perfectly alphanumeric. If it is not, return False.
 # Mock Input: "britts54"
 # Mock Output: True
-
+print(f"result: {new_username.isalnum()}")
 # ---------------------------------------------------------
 # CONCEPT BLOCK 3: VALIDATING THE WEBSITE
 # ---------------------------------------------------------
@@ -163,3 +166,53 @@
 # Filter yields surviving strings. Boilerplate creates list.
 # Boilerplate calls .sort() -> Alphabetizes the strings.
 # Console Prints sorted array.
+
+
+
+def fun(s):
+    # @ Checker
+    if len(s.split('@')) == 2:
+        # username checker
+        username = s.split('@')[0]
+        clean = username.replace("_","").replace("-","")
+        if len(username) == 0:
+            return False
+        if not clean.isalnum():
+            return False
+        
+        # . checker
+        domain_str = s.split('@')[1]
+        if len(domain_str.split('.')) == 2:
+            # website checker
+            website = domain_str.split('.')[0]
+            if len(website) == 0:
+                return False
+            if not website.isalnum():
+                return False
+            
+            # extension checker
+            extension = domain_str.split('.')[1]
+            if len(extension) == 0 or len(extension) > 3:
+                return False
+            
+            if not extension.isalpha():
+                return False
+            return True
+        else:
+            return False
+    else:
+        return False
+    
+    
+def filter_mail(emails):
+    return list(filter(fun, emails))
+
+if __name__ == '__main__':
+    n = int(input())
+    emails = []
+    for _ in range(n):
+        emails.append(input())
+
+filtered_emails = filter_mail(emails)
+filtered_emails.sort()
+print(filtered_emails)
