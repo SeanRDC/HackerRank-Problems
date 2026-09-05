@@ -8,7 +8,6 @@
 # ---------------------------------------------------------
 # CONCEPT BLOCK 1: THE FRACTION OBJECT
 # ---------------------------------------------------------
-
 # Problem 1: Object Instantiation
 # Concept: The boilerplate reads input like "3 4" and passes it to the module.
 # Mock State: Fraction(3, 4) creates an object representing 3/4.
@@ -104,3 +103,17 @@
 # Target `t` now equals Fraction(5, 8).
 # Boilerplate extracts `t.numerator` (5) and `t.denominator` (8).
 # Console Prints: 5 8
+
+from fractions import Fraction
+from functools import reduce
+
+def product(fracs):
+    t = reduce(lambda x, y: x * y, fracs)
+    return t.numerator, t.denominator
+
+if __name__ == '__main__':
+    fracs = []
+    for _ in range(int(input())):
+        fracs.append(Fraction(*map(int, input().split())))
+    result = product(fracs)
+    print(*result)
