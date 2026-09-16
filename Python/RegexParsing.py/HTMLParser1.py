@@ -20,8 +20,8 @@
 # ['<html>', '<head>', '</head>']
 
 # Write your code for Problem 1 here:
-mylist = [input() for i in range(int(input()))]
-print(mylist)
+# mylist = [input() for i in range(int(input()))]
+# print(mylist)
 
 # ---------------------------------------------------------
 # Problem 2: Joining the Pieces
@@ -100,3 +100,118 @@ final_attrs = [('data-modal-target', None), ('class', '1')]
 # Write your code for Problem 5 here:
 for name, value in final_attrs:
         print(f"-> {name} > {value}")
+        
+# ==========================================
+# BLOCK 2: Object-Oriented Basics
+# ==========================================
+
+# ---------------------------------------------------------
+# Problem 6: Creating a Basic Class
+# ---------------------------------------------------------
+# To use the HTML parser, we must use classes.
+# Task: Create a class named `MyParser`. 
+# Inside it, write an `__init__` method (the constructor) that takes `self` 
+# and prints "Parser initialized!" when called.
+# Finally, create an instance (object) of this class.
+#
+# MOCK INPUT / EXECUTION:
+# p = MyParser()
+#
+# EXPECTED OUTPUT:
+# Parser initialized!
+
+# Write your code for Problem 6 here:
+class MyParser:
+    def __init__(self):
+        print("Parser initialized")
+p = MyParser()
+
+# ---------------------------------------------------------
+# Problem 7: Adding a Custom Method
+# ---------------------------------------------------------
+# Classes have functions inside them called methods.
+# Task: Create a class called `Greeter`.
+# Add a method called `say_hello(self, name)` that prints "Hello, [name]".
+# Create an instance of Greeter and call `say_hello("Hacker")`.
+#
+# EXPECTED OUTPUT:
+# Hello, Hacker
+
+# Write your code for Problem 7 here:
+class Greeter:
+    def say_hello(self, name):
+        return f"Hello {name}"
+g = Greeter()
+print(g.say_hello("Hacker"))
+
+# ---------------------------------------------------------
+# Problem 8: Inheritance Basics
+# ---------------------------------------------------------
+# Python's HTML parser is a built-in class. We want to inherit its powers.
+# Task: I have provided a base class `BaseParser` below. 
+# Create a new class called `CustomParser` that INHERITS from `BaseParser`.
+# You don't need to add anything inside `CustomParser` yet (just use the `pass` keyword).
+# Create an instance of `CustomParser` and call the `feed_data()` method on it.
+#
+# MOCK INPUT (Variables provided):
+class BaseParser:
+    def feed_data(self):
+        print("Feeding data to the engine...")
+
+# EXPECTED OUTPUT:
+# Feeding data to the engine...
+
+# Write your code for Problem 8 here:
+class CustomParser(BaseParser):
+    pass
+c = CustomParser()
+c.feed_data()
+
+# ---------------------------------------------------------
+# Problem 9: Method Overriding
+# ---------------------------------------------------------
+# When parsing HTML, the base parser has default methods that do nothing. 
+# We have to "override" them to make them do what we want.
+# Task: Inherit from `ParentParser` (provided below) to create `ChildParser`.
+# Override the `handle_tag(self)` method so that instead of printing the parent's message, 
+# it prints "Child is handling the tag!"
+# Create an instance of `ChildParser` and call `handle_tag()`.
+#
+# MOCK INPUT (Variables provided):
+class ParentParser:
+    def handle_tag(self):
+        print("Parent is doing nothing.")
+
+# EXPECTED OUTPUT:
+# Child is handling the tag!
+
+# Write your code for Problem 9 here:
+class ChildParser(ParentParser):
+    def handle_tag(self):
+        print("Child is handling the tag!")
+c = ChildParser()
+c.handle_tag()
+
+# ---------------------------------------------------------
+# Problem 10: Overriding with Arguments
+# ---------------------------------------------------------
+# The actual HTML parser sends arguments to our overridden methods.
+# Task: Create a class `TagPrinter` with a method `handle_starttag(self, tag, attrs)`.
+# When called, it should print "Start : [tag]".
+# (Don't worry about printing the attrs yet).
+# Create an instance and call it with tag="div" and attrs=[('class', 'main')].
+#
+# MOCK INPUT / EXECUTION:
+# tp = TagPrinter()
+# tp.handle_starttag("div", [('class', 'main')])
+#
+# EXPECTED OUTPUT:
+# Start : div
+
+# Write your code for Problem 10 here:
+class TagPrinter:
+    def handle_starttag(self, tag, attrs):
+        return f"Start : {tag}"
+    
+tp = TagPrinter()
+print(tp.handle_starttag("div", [('class', 'main')]))
