@@ -232,7 +232,7 @@ mc.handle_comment("Line 1\nLine 2")
 # Write your code for Problem 8 here:
 class ParserSimulator:
     def handle_data(self, data):
-        if text == "\n":
+        if data == "\n":
             pass
         else:
             print(f">>> Data\n{data}")
@@ -306,3 +306,135 @@ sim2 = ParserSimulator()
 sim2.handle_comment("Test")
 sim2.handle_data("\n")
 sim2.handle_data("Content")
+
+# ==========================================
+# BLOCK 3: Final Assembly
+# ==========================================
+
+# ---------------------------------------------------------
+# Problem 11: The Real Parser Implementation
+# ---------------------------------------------------------
+# Task: Create `MyHTMLParser` inheriting from `HTMLParser`.
+# Override `handle_comment(self, data)` and `handle_data(self, data)`.
+# Paste in your excellent logic from Block 2, but make sure to fix the 
+# `text` vs `data` variable name bug in `handle_data`!
+#
+# (No execution needed, just build the complete class.)
+
+from html.parser import HTMLParser
+
+# Write your code for Problem 11 here:
+class MyHTMLParser(HTMLParser):
+    def handle_data(self, data):
+        if data == "\n":
+            pass
+        else:
+            print(f">>> Data\n{data}")
+                
+    def handle_comment(self, data):
+        if "\n" in data:
+            print(f">>> Multi-line Comment\n{data}")
+        else:
+            print(f">>> Single-line Comment\n{data}")
+
+# ---------------------------------------------------------
+# Problem 12: Testing the Real Parser
+# ---------------------------------------------------------
+# Task: Let's test your parser from Problem 11.
+# Create an instance of `MyHTMLParser`.
+# Feed it this exact string: "<!--[if IE 9]>IE9-specific content\n<![endif]-->"
+#
+# EXPECTED OUTPUT:
+# >>> Multi-line Comment
+# [if IE 9]>IE9-specific content
+# <![endif]
+
+# Write your code for Problem 12 here:
+n = MyHTMLParser()
+n.feed("<!--[if IE 9]>IE9-specific content\n<![endif]-->")
+
+# ---------------------------------------------------------
+# Problem 13: Understanding the Boilerplate
+# ---------------------------------------------------------
+# In Part 1, we joined all inputs with `"".join()`. 
+# But in Part 2, HackerRank does something different to preserve line breaks!
+# They provide this exact boilerplate at the bottom of the challenge:
+# 
+# html = ""       
+# for i in range(int(input())):
+#     html += input().rstrip()
+#     html += '\n'
+#
+# Task: Wrap that exact logic inside a function called `get_html()`.
+# Have the function return the `html` string at the end.
+# (This step just ensures you understand how the input string is built).
+
+# Write your code for Problem 13 here:
+def get_html(N):
+    html = ""
+    for i in range(N):
+        html += input().rstrip()
+        html += '\n'
+    return html
+
+# ---------------------------------------------------------
+# Problem 14: The Final Blueprint
+# ---------------------------------------------------------
+# You now have all the pieces! 
+# Task: Write the execution block. 
+# 1. Instantiate your `MyHTMLParser`.
+# 2. Call your `get_html()` function to get the input.
+# 3. Feed that input to the parser.
+# 4. Call `parser.close()` at the very end (this is good practice to tell 
+#    the parser no more data is coming).
+#
+# MOCK INPUT:
+# 2
+# <div> Welcome to HackerRank</div>
+# <!-- Single comment -->
+#
+# EXPECTED OUTPUT:
+# >>> Data
+#  Welcome to HackerRank
+# >>> Single-line Comment
+#  Single comment 
+
+# Write your code for Problem 14 here:
+m = MyHTMLParser()
+m.feed(get_html(int(input())))
+m.close()
+
+
+
+# ---------------------------------------------------------
+# Problem 15: The Victory Lap
+# ---------------------------------------------------------
+# Let's run the exact sample case from the HackerRank prompt.
+# Task: Just copy your final, complete code (the Class + the execution block).
+# You don't need to write anything new. Put it all together in one clean script 
+# so it is ready to copy/paste directly into HackerRank!
+
+# Write your final complete code for Problem 15 here:
+from html.parser import HTMLParser
+
+class MyHTMLParser(HTMLParser):
+    def handle_data(self, data):
+        if data == "\n":
+            pass
+        else:
+            print(f">>> Data\n{data}")
+            
+    def handle_comment(self, data):
+        if "\n" in data:
+            print(f">>> Multi-line Comment\n{data}")
+        else:
+            print(f">>> Single-line Comment\n{data}")
+
+html = ""       
+for i in range(int(input())):
+    html += input().rstrip()
+    html += '\n'
+    
+parser = MyHTMLParser()
+parser.feed(html)
+parser.close()
