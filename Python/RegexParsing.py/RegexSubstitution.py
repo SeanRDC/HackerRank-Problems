@@ -99,3 +99,107 @@ text5 = "a && && b"
 
 # Write your code for Problem 5 here:
 print(re.sub(r' && ', ' and ', text5))
+
+# ==========================================
+# BLOCK 2: Lookarounds and Overlap Solutions
+# ==========================================
+import re
+
+# ---------------------------------------------------------
+# Problem 6: Positive Lookbehind
+# ---------------------------------------------------------
+# A Positive Lookbehind looks like this: (?<=...)
+# It checks if something is BEFORE your match, but doesn't consume it.
+# Task: Use `re.sub()` to replace `&&` with `and`, but ONLY if preceded by a space.
+# Pattern: r"(?<= )&&"
+# Replacement: "and" (Notice we do NOT put spaces in the replacement anymore!)
+#
+# MOCK INPUT:
+text6 = "a && b"
+#
+# EXPECTED OUTPUT:
+# a and b
+
+# Write your code for Problem 6 here:
+print(re.sub(r'(?<= )&&', 'and', text6))
+
+
+
+# ---------------------------------------------------------
+# Problem 7: Positive Lookahead
+# ---------------------------------------------------------
+# A Positive Lookahead looks like this: (?=...)
+# It checks if something is AFTER your match, but doesn't consume it.
+# Task: Use `re.sub()` to replace `&&` with `and`, but ONLY if followed by a space.
+# Pattern: r"&&(?= )"
+#
+# MOCK INPUT:
+text7 = "a && b"
+#
+# EXPECTED OUTPUT:
+# a and b
+
+# Write your code for Problem 7 here:
+print(re.sub(r'&&(?= )', 'and', text7))
+
+
+
+# ---------------------------------------------------------
+# Problem 8: The Ultimate Overlap Solver
+# ---------------------------------------------------------
+# Now let's combine them! We want a space behind, and a space ahead.
+# Pattern: r"(?<= )&&(?= )"
+# Task: Apply this combined regex pattern to the exact same string from Problem 5 
+# that tripped up the naive approach.
+#
+# MOCK INPUT:
+text8 = "a && && b"
+#
+# EXPECTED OUTPUT:
+# a and and b
+
+# Write your code for Problem 8 here:
+print(re.sub(r'(?<= )&&(?= )', 'and', text8))
+
+
+
+# ---------------------------------------------------------
+# Problem 9: Handling the OR Operator (||)
+# ---------------------------------------------------------
+# We need to do the exact same thing for the `||` operator.
+# Remember from Problem 3 that you must escape the pipes `\|\|`.
+# Task: Combine the lookbehind, the escaped pipes, and the lookahead into one pattern.
+# Use `re.sub()` to replace it with `or`.
+#
+# MOCK INPUT:
+text9 = "a || || b"
+#
+# EXPECTED OUTPUT:
+# a or or b
+
+# Write your code for Problem 9 here:
+print(re.sub(r'(?<= )\|\|(?= )', 'or', text9))
+
+
+
+# ---------------------------------------------------------
+# Problem 10: Sequential Replacements
+# ---------------------------------------------------------
+# In HackerRank, a single line of text might contain BOTH `&&` and `||`.
+# You can just run `re.sub()` twice! First save the result of the `&&` replacement, 
+# then run the `||` replacement on that new string.
+# Task: Write a function `modify_line(line)` that performs BOTH substitutions 
+# (using your lookaround patterns) and returns the final modified string.
+#
+# MOCK INPUT / EXECUTION:
+# print(modify_line("if a > 0 && b < 0 || c == 0:"))
+#
+# EXPECTED OUTPUT:
+# if a > 0 and b < 0 or c == 0:
+
+# Write your code for Problem 10 here:
+def modify_line(line):
+    and_mod = re.sub(r'(?<= )&&(?= )', 'and', line)
+    return re.sub(r'(?<= )\|\|(?= )', 'and', and_mod)
+
+print(modify_line("if a > 0 && b < 0 || c == 0:"))
