@@ -72,12 +72,10 @@ def classify_comment(text):
         if i == "\n":
             print("New-line")
             
-    for string in text:
-        has = bool(re.search(r'[\r\n]', string))
-        if has:
-            print("Multi-line")
-        else:
-            print("Single-line")
+    if '\n' in text:
+        print("Multi-line")
+    else:
+        print("Single-line")
 
 classify_comment("One line")
 classify_comment("Line one\nLine two")
@@ -140,3 +138,171 @@ def print_comment(text):
         
 print_comment("This is hidden")
 print_comment("Hidden\non two lines")
+
+# ==========================================
+# BLOCK 2: Building the Handlers
+# ==========================================
+
+# ---------------------------------------------------------
+# Problem 6: The Data Handler Method
+# ---------------------------------------------------------
+# Task: Create a class `MockData`.
+# Add a method `handle_data(self, data)`.
+# Inside this method, use your logic from Problem 4: 
+# If data is exactly '\n', do nothing. 
+# Otherwise, print ">>> Data" followed by the data on the next line.
+#
+# MOCK INPUT / EXECUTION:
+# md = MockData()
+# md.handle_data("Welcome to HackerRank")
+# md.handle_data("\n")
+# md.handle_data("Enjoy your stay")
+#
+# EXPECTED OUTPUT:
+# >>> Data
+# Welcome to HackerRank
+# >>> Data
+# Enjoy your stay
+
+# Write your code for Problem 6 here:
+class MockData:
+    def handle_data(self, data):
+        if data == "\n":
+            pass
+        else:
+            print(f">>> Data\n{data}")
+            
+md = MockData()
+md.handle_data("Welcome to HackerRank")
+md.handle_data("\n")
+md.handle_data("Enjoy your stay")
+
+# ---------------------------------------------------------
+# Problem 7: The Comment Handler Method
+# ---------------------------------------------------------
+# Task: Create a class `MockComment`.
+# Add a method `handle_comment(self, data)`.
+# Inside this method, use your logic from Problem 5 (try using the `in` keyword!):
+# If '\n' is in the data, print ">>> Multi-line Comment" and the data.
+# Otherwise, print ">>> Single-line Comment" and the data.
+#
+# MOCK INPUT / EXECUTION:
+# mc = MockComment()
+# mc.handle_comment("Just testing")
+# mc.handle_comment("Line 1\nLine 2")
+#
+# EXPECTED OUTPUT:
+# >>> Single-line Comment
+# Just testing
+# >>> Multi-line Comment
+# Line 1
+# Line 2
+
+# Write your code for Problem 7 here:
+class MockComment:
+    def handle_comment(self, data):
+        if "\n" in data:
+            print(f">>> Multi-line Comment\n{data}")
+        else:
+            print(f">>> Single-line Comment\n{data}")
+            
+mc = MockComment()
+mc.handle_comment("Just testing")
+mc.handle_comment("Line 1\nLine 2")
+
+# ---------------------------------------------------------
+# Problem 8: The Combined Simulator
+# ---------------------------------------------------------
+# Task: Create a single class `ParserSimulator`.
+# Put BOTH methods (`handle_data` and `handle_comment`) inside this class.
+# Ensure they work together when called on the same object.
+#
+# MOCK INPUT / EXECUTION:
+# sim = ParserSimulator()
+# sim.handle_comment("Header comment")
+# sim.handle_data("Page Content")
+# sim.handle_data("\n")
+#
+# EXPECTED OUTPUT:
+# >>> Single-line Comment
+# Header comment
+# >>> Data
+# Page Content
+
+# Write your code for Problem 8 here:
+class ParserSimulator:
+    def handle_data(self, data):
+        if text == "\n":
+            pass
+        else:
+            print(f">>> Data\n{data}")
+            
+    def handle_comment(self, data):
+            if "\n" in data:
+                print(f">>> Multi-line Comment\n{data}")
+            else:
+                print(f">>> Single-line Comment\n{data}")
+                
+sim = ParserSimulator()
+sim.handle_comment("Header comment")
+sim.handle_data("Page Content")
+sim.handle_data("\n")
+
+# ---------------------------------------------------------
+# Problem 9: The Shell of the Real Parser
+# ---------------------------------------------------------
+# Task: Let's prep the real parser.
+# 1. Import `HTMLParser` from `html.parser`.
+# 2. Create a class `HackerRankParser` that inherits from `HTMLParser`.
+# 3. Define the two methods `handle_comment(self, data)` and `handle_data(self, data)`.
+# 4. Instead of writing the logic inside them, just use the `pass` keyword for now.
+# (We are just building the blueprint!)
+#
+# MOCK INPUT / EXECUTION:
+# hp = HackerRankParser()
+# print(isinstance(hp, HTMLParser))
+#
+# EXPECTED OUTPUT:
+# True
+
+# Write your code for Problem 9 here:
+from html.parser import HTMLParser
+
+class HackerRankParser(HTMLParser):
+    def handle_comment(self, data):
+        pass
+    
+    def handle_data(self, data):
+        pass
+hp = HackerRankParser()
+print(isinstance(hp, HTMLParser))
+
+# ---------------------------------------------------------
+# Problem 10: Analyzing the Boilerplate
+# ---------------------------------------------------------
+# In HackerRank, they provide a specific way to read the input for Part 2.
+# They read all N lines, add '\n' to each, and combine them into one string `html`.
+# Task: Look at the string `raw_html` below. It simulates what HackerRank generates.
+# Call your `ParserSimulator` (from Problem 8) manually to parse it. 
+# (Call handle_comment on the first part, handle_data on the middle, etc.)
+#
+# MOCK INPUT / EXECUTION (Variables provided):
+raw_html = "<!--Test-->\n<div>Content</div>"
+
+# Call your simulator here manually:
+#sim2 = ParserSimulator()
+#sim2.handle_comment("Test")
+#sim2.handle_data("\n")
+#sim2.handle_data("Content")
+#
+# EXPECTED OUTPUT:
+# >>> Single-line Comment
+# Test
+# >>> Data
+# Content
+
+# Write your code for Problem 10 here:
+sim2 = ParserSimulator()
+sim2.handle_comment("Test")
+sim2.handle_data("\n")
+sim2.handle_data("Content")
