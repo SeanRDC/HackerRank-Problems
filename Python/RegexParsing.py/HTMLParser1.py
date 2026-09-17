@@ -215,3 +215,158 @@ class TagPrinter:
     
 tp = TagPrinter()
 print(tp.handle_starttag("div", [('class', 'main')]))
+
+# ==========================================
+# BLOCK 3: Simulating the Parser Handlers
+# ==========================================
+
+# ---------------------------------------------------------
+# Problem 11: The Start Tag Handler
+# ---------------------------------------------------------
+# Task: Create a class `MockStart`. 
+# Add a method `handle_starttag(self, tag, attrs)`.
+# Inside the method, print "Start : [tag]". 
+# Then, loop through `attrs` and print them in the HackerRank format 
+# (-> name > value). Remember to print DIRECTLY inside the method!
+#
+# MOCK INPUT / EXECUTION:
+# m = MockStart()
+# m.handle_starttag("body", [('data-modal-target', None), ('class', '1')])
+#
+# EXPECTED OUTPUT:
+# Start : body
+# -> data-modal-target > None
+# -> class > 1
+
+# Write your code for Problem 11 here:
+class MockStart:
+    def handle_starttag(self, tag, attrs):
+        print(f"Start : {tag}")
+
+        for name, value in attrs:
+            print(f"-> {name} -> {value}")
+
+m = MockStart()
+m.handle_starttag("body", [('data-modal-target', None), ('class', '1')])
+
+# ---------------------------------------------------------
+# Problem 12: The End Tag Handler
+# ---------------------------------------------------------
+# Task: Create a class `MockEnd`.
+# Add a method `handle_endtag(self, tag)`.
+# Inside the method, simply print "End   : [tag]".
+# (Notice the spaces after 'End' so it aligns with 'Start' and 'Empty')
+#
+# MOCK INPUT / EXECUTION:
+# e = MockEnd()
+# e.handle_endtag("body")
+#
+# EXPECTED OUTPUT:
+# End   : body
+
+# Write your code for Problem 12 here:
+class MockEnd:
+    def handle_endtag(self, tag):
+        print(f"End   : {tag}")
+e = MockEnd()
+e.handle_endtag("body")
+
+# ---------------------------------------------------------
+# Problem 13: The Empty Tag Handler
+# ---------------------------------------------------------
+# HTML has "empty" or "self-closing" tags like <br /> or <img src="x" />.
+# Task: Create a class `MockEmpty`.
+# Add a method `handle_startendtag(self, tag, attrs)`.
+# Inside, print "Empty : [tag]", then loop through attrs just like in Start tags.
+#
+# MOCK INPUT / EXECUTION:
+# emp = MockEmpty()
+# emp.handle_startendtag("br", [])
+# emp.handle_startendtag("img", [('src', 'logo.png')])
+#
+# EXPECTED OUTPUT:
+# Empty : br
+# Empty : img
+# -> src > logo.png
+
+# Write your code for Problem 13 here:
+class MockEmpty:
+    def handle_startendtag(self, tag, attrs):
+        print(f"Empty : {tag}")
+        for name, value in attrs:
+            print(f"-> {name} -> {value}")
+
+emp = MockEmpty()
+emp.handle_startendtag("br", [])
+emp.handle_startendtag("img", [('src', 'logo.png')])
+
+# ---------------------------------------------------------
+# Problem 14: Combining the Handlers
+# ---------------------------------------------------------
+# Task: Create a single class `ParserSimulator` that contains all three 
+# methods you just wrote: `handle_starttag`, `handle_endtag`, and `handle_startendtag`.
+# Create an instance and call them in order to simulate parsing an HTML snippet.
+#
+# MOCK INPUT / EXECUTION:
+# sim = ParserSimulator()
+# sim.handle_starttag("html", [])
+# sim.handle_startendtag("hr", [('class', 'divider')])
+# sim.handle_endtag("html")
+#
+# EXPECTED OUTPUT:
+# Start : html
+# Empty : hr
+# -> class > divider
+# End   : html
+
+# Write your code for Problem 14 here:
+class ParserSimulator:
+    def handle_starttag(self, tag, attrs):
+        print(f"Start : {tag}")
+    
+        for name, value in attrs:
+            if value is None:
+                value = None
+            print(f"-> {name} -> {value}")
+    
+    def handle_endtag(self, tag):
+        print(f"End   : {tag}")
+    
+    def handle_startendtag(self, tag, attrs):
+        print(f"Empty : {tag}")
+        for name, value in attrs:
+            if value is None:
+                value = None
+            print(f"-> {name} -> {value}")
+
+sim = ParserSimulator()
+sim.handle_starttag("html", [])
+sim.handle_startendtag("hr", [('class', 'divider')])
+sim.handle_endtag("html")
+
+# ---------------------------------------------------------
+# Problem 15: Introduction to the Real HTMLParser
+# ---------------------------------------------------------
+# Let's touch the real thing! Python has a built-in library for this.
+# Task: 
+# 1. Import it: `from html.parser import HTMLParser`
+# 2. Create a class `MyRealParser` that inherits from `HTMLParser`.
+# 3. Override ONLY the `handle_starttag(self, tag, attrs)` method. 
+#    Make it print "Found a tag: [tag]".
+# 4. Create an instance and use the built-in `.feed()` method:
+#    parser.feed("<html><head><title>Test</title></head></html>")
+#
+# EXPECTED OUTPUT:
+# Found a tag: html
+# Found a tag: head
+# Found a tag: title
+
+# Write your code for Problem 15 here:
+from html.parser import HTMLParser
+
+class MyRealParser(HTMLParser):
+    def handle_starttag(self, tag, attrs):
+        print(f"Found a tag: {tag}")
+        
+r = MyRealParser()
+r.feed("<html><head><title>Test</title></head></html>")
