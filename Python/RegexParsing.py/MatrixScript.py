@@ -107,4 +107,98 @@ matrix5 = ["Tsi", "h%x", "i #"]
 for i in zip(*matrix5):
     print(''.join(i), end="")
     
+# ==========================================
+# BLOCK 2: Regex Character Classes (\w and \W)
+# ==========================================
+import re
 
+# ---------------------------------------------------------
+# Problem 6: Finding Alphanumerics
+# ---------------------------------------------------------
+# In Regex, `\w` matches any "Word" character (A-Z, a-z, 0-9, and _).
+# (For HackerRank's matrix cases, this perfectly represents alphanumerics).
+# Task: Use `re.findall()` with the pattern r"\w" to find all 
+# alphanumeric characters in the string below.
+#
+# MOCK INPUT:
+text6 = "M@tr1x"
+#
+# EXPECTED OUTPUT:
+# ['M', 't', 'r', '1', 'x']
+
+# Write your code for Problem 6 here:
+print(re.findall(r'\w', text6))
+
+
+
+# ---------------------------------------------------------
+# Problem 7: Finding Non-Alphanumerics (Symbols and Spaces)
+# ---------------------------------------------------------
+# The capital `\W` does the exact opposite: it matches anything that is 
+# NOT alphanumeric (like spaces, #, %, !, etc.).
+# Task: Use `re.findall()` with r"\W" to extract all symbols/spaces from `text7`.
+#
+# MOCK INPUT:
+text7 = "Tsi h%x i #"
+#
+# EXPECTED OUTPUT:
+# [' ', '%', ' ', ' ', '#']
+
+# Write your code for Problem 7 here:
+print(re.findall(r'\W', text7))
+
+
+
+# ---------------------------------------------------------
+# Problem 8: Grouping Symbols Together
+# ---------------------------------------------------------
+# Notice how Problem 7 returned single characters. If we have "$#is%", 
+# we want to target "$#" as one big chunk to replace.
+# Task: Add the `+` quantifier (which means "1 or more"). 
+# Use `re.findall()` with r"\W+" to extract chunks of symbols.
+#
+# MOCK INPUT:
+text8 = "This$#is% Matrix"
+#
+# EXPECTED OUTPUT:
+# ['$#', '% ']
+
+# Write your code for Problem 8 here:
+print(re.findall(r'\W+', text8))
+
+
+
+# ---------------------------------------------------------
+# Problem 9: The Basic Replacement Attempt
+# ---------------------------------------------------------
+# Task: Use `re.sub()` to replace chunks of non-alphanumerics (r"\W+") 
+# with a single space " ". Print the result.
+#
+# MOCK INPUT:
+text9 = "This$#is% Matrix"
+#
+# EXPECTED OUTPUT:
+# This is Matrix
+
+# Write your code for Problem 9 here:
+print(re.sub(r'\W+', ' ', text9))
+
+
+
+# ---------------------------------------------------------
+# Problem 10: The "Between" Trap
+# ---------------------------------------------------------
+# Here is the big trap of this challenge!
+# Neo's rule: ONLY replace symbols that are BETWEEN two alphanumeric characters.
+# Task: Run your exact same `re.sub()` from Problem 9 on `text10`.
+# Look closely at the output. Notice how it incorrectly deleted the symbols 
+# at the very end of the string!
+#
+# MOCK INPUT:
+text10 = "This$#is% Matrix#  %!"
+#
+# EXPECTED OUTPUT (Notice the trailing symbols are gone - this is bad!):
+# This is Matrix 
+
+# Write your code for Problem 10 here:
+print(re.sub(r'\W+', ' ', text10))
