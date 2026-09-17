@@ -315,3 +315,115 @@ for i in zip(*matrix15):
     new_matrix += ''.join(i)
 
 print(re.sub(r'(?<=\w)\W+(?=\w)', ' ', new_matrix))
+
+# ==========================================
+# BLOCK 4: Final Assembly
+# ==========================================
+import re
+
+# ---------------------------------------------------------
+# Problem 16: Fixing the String Builder
+# ---------------------------------------------------------
+# Let's practice the correct way to build a string from a loop.
+# Task: Create an empty string `final_string = ""`. 
+# Loop through `zip(*matrix16)`. Inside the loop, use `+=` to append 
+# `''.join(col)` to `final_string`. Print `final_string` outside the loop.
+#
+# MOCK INPUT:
+matrix16 = ["Tsi", "h%x"]
+#
+# EXPECTED OUTPUT:
+# Ths%ix
+
+# Write your code for Problem 16 here:
+final_string = ""
+for col in zip(*matrix16):
+    final_string += ''.join(col)
+print(final_string)
+
+
+
+# ---------------------------------------------------------
+# Problem 17: The Pythonic One-Liner (Optional but cool)
+# ---------------------------------------------------------
+# Instead of a `for` loop, you can build the whole string in one line using a 
+# list comprehension and `.join()`. It looks like this:
+# "".join(["".join(col) for col in zip(*matrix)])
+# Task: Run that exact one-liner on `matrix16` and print the result.
+#
+# EXPECTED OUTPUT:
+# Ths%ix
+
+# Write your code for Problem 17 here:
+print("".join(["".join(col) for col in zip(*matrix16)]))
+
+
+
+# ---------------------------------------------------------
+# Problem 18: Understanding HackerRank's Boilerplate
+# ---------------------------------------------------------
+# HackerRank gives you this exact setup code to read the matrix.
+# Task: Just read this and make sure you understand how `matrix18` is being built.
+# (You don't need to write any code for this problem, just run it!)
+#
+# MOCK INPUT / EXECUTION:
+first_multiple_input = "7 3".rstrip().split() # Simulating the input
+n = int(first_multiple_input[0])
+m = int(first_multiple_input[1])
+
+matrix18 = []
+mock_inputs = ["Tsi", "h%x", "i #", "sM ", "$a ", "#t%", "ir!"] # Simulating user input
+
+for _ in range(n):
+    matrix_item = mock_inputs[_] 
+    matrix18.append(matrix_item)
+
+print(matrix18)
+
+# EXPECTED OUTPUT:
+# ['Tsi', 'h%x', 'i #', 'sM ', '$a ', '#t%', 'ir!']
+
+
+
+
+# ---------------------------------------------------------
+# Problem 19: Bringing the Logic Together
+# ---------------------------------------------------------
+# Now we combine the matrix with your string builder and regex.
+# Task: 
+# 1. Take `matrix18` from the previous problem.
+# 2. Transpose it and build it into a single string (using the logic from P16 or P17).
+# 3. Run your awesome regex `re.sub(r'(?<=\w)\W+(?=\w)', ' ', your_string)` on it.
+# 4. Print the final decoded script!
+#
+# EXPECTED OUTPUT:
+# This is Matrix#  %!
+
+# Write your code for Problem 19 here:
+print(re.sub(r'(?<=\w)\W+(?=\w)', ' ', "".join(["".join(col) for col in zip(*matrix18)])))
+
+
+
+# ---------------------------------------------------------
+# Problem 20: The Final Victory Lap!
+# ---------------------------------------------------------
+# You are ready for the final HackerRank submission!
+# Task: Below is the exact boilerplate HackerRank provides.
+# You don't need to change their code at all. Just add your two lines of 
+# execution logic (building the string, and printing the regex substitution) 
+# at the very bottom!
+
+import re
+
+# --- HACKERRANK BOILERPLATE START ---
+# first_multiple_input = input().rstrip().split()
+# n = int(first_multiple_input[0])
+# m = int(first_multiple_input[1])
+# matrix = []
+# for _ in range(n):
+#     matrix_item = input()
+#     matrix.append(matrix_item)
+# --- HACKERRANK BOILERPLATE END ---
+
+# Write your final complete code for Problem 20 here 
+# (Assume `matrix` exists and is filled with the data):
