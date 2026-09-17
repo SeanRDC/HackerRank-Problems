@@ -370,3 +370,147 @@ class MyRealParser(HTMLParser):
         
 r = MyRealParser()
 r.feed("<html><head><title>Test</title></head></html>")
+
+# ==========================================
+# BLOCK 4: The Final Assembly
+# ==========================================
+
+# ---------------------------------------------------------
+# Problem 16: The Complete Parser Class
+# ---------------------------------------------------------
+# Task: Create a class `HackerRankParser` that inherits from `HTMLParser`.
+# Override all three handlers: `handle_starttag`, `handle_endtag`, and `handle_startendtag`.
+# Inside each, use the correct print formatting (Start, End, Empty).
+# Loop through `attrs` for start and empty tags using the exact HackerRank 
+# format: -> name > value
+#
+# MOCK INPUT / EXECUTION:
+# (No execution needed here, just build the class. We will use it in the next problems.)
+
+from html.parser import HTMLParser
+
+# Write your code for Problem 16 here:
+class HackerRankParser(HTMLParser):
+    def handle_starttag(self, start_tag, attrs):
+        print(f"Start : {start_tag}")
+        for name, value in attrs:
+            print(f"-> {name} > {value}")
+            
+    def handle_endtag(self, end_tag):
+        print(f"End   : {end_tag}")
+        
+    def handle_startendtag(self, setag, attrs):
+        print(f"Empty : {setag}")
+        for name, value in attrs:
+            print(f"-> {name} > {value}")
+
+# ---------------------------------------------------------
+# Problem 17: Testing the Complete Parser
+# ---------------------------------------------------------
+# Task: Let's make sure your parser from Problem 16 works perfectly.
+# Create an instance of your `HackerRankParser`.
+# Feed it the string: "<div class='main'><br /></div>"
+#
+# EXPECTED OUTPUT:
+# Start : div
+# -> class > main
+# Empty : br
+# End   : div
+
+# Write your code for Problem 17 here:
+hacker = HackerRankParser()
+hacker.feed("<div class='main'><br /></div>")
+
+# ---------------------------------------------------------
+# Problem 18: The Comment Edge Case
+# ---------------------------------------------------------
+# HackerRank states: "Do not detect any HTML tag, attribute or attribute value 
+# inside the HTML comment tags (<!-- Comments -->)."
+# Good news: By default, HTMLParser ignores comments unless you explicitly 
+# override the `handle_comment` method. Since we didn't override it, it should ignore them!
+# Task: Feed the following string to your parser to prove it ignores the hidden tag.
+# String to feed: "<html><!-- <div id='hidden'></div> --></html>"
+#
+# EXPECTED OUTPUT:
+# Start : html
+# End   : html
+
+# Write your code for Problem 18 here:
+hacker.feed("<html><!-- <div id='hidden'></div> --></html>")
+
+# ---------------------------------------------------------
+# Problem 19: The Input Reader Function
+# ---------------------------------------------------------
+# HackerRank gives us the input as N lines. We need to read them and join them.
+# Task: Write a script that reads an integer `N` from the user.
+# Then, use a loop to read `N` lines of input, store them in a list, 
+# and join them together into one giant string with `"".join()`.
+# Finally, print the giant string.
+#
+# MOCK INPUT:
+# 2
+# <html><head>
+# </head></html>
+#
+# EXPECTED OUTPUT:
+# <html><head></head></html>
+
+# Write your code for Problem 19 here:
+def passable():
+    N = int(input())
+    mylist = []
+    for i in range(N):
+        n = input()
+        mylist.append(n)
+    print("".join(mylist))
+
+    # other version
+    print("".join([input() for _ in range(int(input()))]))
+    pass
+# ---------------------------------------------------------
+# Problem 20: The Final Blueprint
+# ---------------------------------------------------------
+# You now have all the pieces! 
+# 1. You have the `HackerRankParser` class (Problem 16).
+# 2. You have the input reading and joining logic (Problem 19).
+#
+# Task: Write the final architecture. You don't need to rewrite the class here. 
+# Just write the execution block (the part that actually runs the code). 
+# Combine the logic from Problem 19 and Problem 17:
+# Read N, read the lines, join them, create the parser instance, and feed the joined string!
+#
+# MOCK INPUT:
+# 2
+# <body data-modal-target class='1'><h1>HackerRank</h1>
+# <br /></body>
+#
+# EXPECTED OUTPUT:
+# Start : body
+# -> data-modal-target > None
+# -> class > 1
+# Start : h1
+# End   : h1
+# Empty : br
+# End   : body
+
+# Write your code for Problem 20 here:
+from html.parser import HTMLParser
+
+class HackerRank(HTMLParser):
+    def handle_starttag(self, start_tag, attrs):
+        print(f"Start : {start_tag}")
+        for name, value in attrs:
+            print(f"-> {name} > {value}")
+            
+    def handle_endtag(self, end_tag):
+        print(f"End   : {end_tag}")
+        
+    def handle_startendtag(self, setag, attrs):
+        print(f"Empty : {setag}")
+        for name, value in attrs:
+            print(f"-> {name} > {value}")
+            
+hacker = HackerRank()
+user_input = "".join([input() for _ in range(int(input()))])
+
+hacker.feed(user_input)
