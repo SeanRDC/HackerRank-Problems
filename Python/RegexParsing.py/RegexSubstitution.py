@@ -200,6 +200,142 @@ print(re.sub(r'(?<= )\|\|(?= )', 'or', text9))
 # Write your code for Problem 10 here:
 def modify_line(line):
     and_mod = re.sub(r'(?<= )&&(?= )', 'and', line)
-    return re.sub(r'(?<= )\|\|(?= )', 'and', and_mod)
+    return re.sub(r'(?<= )\|\|(?= )', 'or', and_mod)
 
 print(modify_line("if a > 0 && b < 0 || c == 0:"))
+
+# ==========================================
+# BLOCK 3: Function Replacements & Final Assembly
+# ==========================================
+import re
+
+# ---------------------------------------------------------
+# Problem 11: The Combined Regex OR
+# ---------------------------------------------------------
+# You can match MULTIPLE patterns at once using the regex OR operator `|` 
+# inside a group `()`. 
+# Pattern: r"(?<= )(&&|\|\|)(?= )" 
+# This means: "A space behind, THEN (either && OR ||), THEN a space ahead".
+# Task: Use `re.findall()` with this pattern to extract all matches from `text11`.
+# Print the result.
+#
+# MOCK INPUT:
+text11 = "if a && b || c:"
+#
+# EXPECTED OUTPUT:
+# ['&&', '||']
+
+# Write your code for Problem 11 here:
+print(re.findall(r"(?<= )(&&|\|\|)(?= )", text11))
+
+
+
+# ---------------------------------------------------------
+# Problem 12: The Replacement Function
+# ---------------------------------------------------------
+# When you pass a function into `re.sub`, it gives that function a "match object".
+# You can get the matched string using `match.group(0)`.
+# Task: Write a function `replace_logic(match)`.
+# Inside it, get the string: `symbol = match.group(0)`
+# If `symbol` is "&&", return "and".
+# If `symbol` is "||", return "or".
+#
+# MOCK INPUT / EXECUTION (Simulating match objects):
+# class MockMatch:
+#     def __init__(self, s): self.s = s
+#     def group(self, n): return self.s
+#
+# print(replace_logic(MockMatch("&&")))
+# print(replace_logic(MockMatch("||")))
+#
+# EXPECTED OUTPUT:
+# and
+# or
+
+# Write your code for Problem 12 here:
+class MockMatch:
+    def __init__(self, s): self.s = s
+    def group(self, n): return self.s
+
+def replace_logic(match):
+    symbol = match.group(0)
+    if symbol == "&&":
+        return "and"
+    if symbol == "||":
+        return "or"
+    
+print(replace_logic(MockMatch("&&")))
+print(replace_logic(MockMatch("||")))
+
+
+# ---------------------------------------------------------
+# Problem 13: Putting the Function in re.sub()
+# ---------------------------------------------------------
+# Now, let's use them together!
+# Task: Use `re.sub()`. 
+# Argument 1: Your combined pattern from Problem 11.
+# Argument 2: Your `replace_logic` function from Problem 12 (do NOT use parenthesis!).
+# Argument 3: `text13`.
+# Print the result.
+#
+# MOCK INPUT:
+text13 = "a && b || c && d"
+#
+# EXPECTED OUTPUT:
+# a and b or c and d
+
+# Write your code for Problem 13 here:
+print(re.sub(r"(?<= )(&&|\|\|)(?= )", replace_logic ,text13))
+
+
+
+# ---------------------------------------------------------
+# Problem 14: The HackerRank Edge Case Test
+# ---------------------------------------------------------
+# HackerRank warns: "Note do not change &&& or ||| or & or |".
+# Good news: Your lookaround pattern naturally solves this! 
+# A `&&&` doesn't have a space on both sides of a `&&`.
+# Task: Run your exact `re.sub()` code from Problem 13 on `text14` to prove 
+# that it completely ignores `&&&` and `&`.
+#
+# MOCK INPUT:
+text14 = "a &&& b & c ||| d && e"
+#
+# EXPECTED OUTPUT:
+# a &&& b & c ||| d and e
+
+# Write your code for Problem 14 here:
+print(re.sub(r"(?<= )(&&|\|\|)(?= )", replace_logic ,text14))
+
+
+
+# ---------------------------------------------------------
+# Problem 15: The Final Blueprint
+# ---------------------------------------------------------
+# You are ready for the final HackerRank submission!
+# Task: 
+# 1. Copy your `replace_logic` function here.
+# 2. Write a loop to read `N` lines (using `int(input())`).
+# 3. Inside the loop, read each line, run your `re.sub()` using the combined 
+#    pattern and the `replace_logic` function, and print the modified line.
+#
+# MOCK INPUT:
+# 2
+# if a + b > 0 && a - b < 0:
+# elif a*b > 10 || a/b < 1:
+#
+# EXPECTED OUTPUT:
+# if a + b > 0 and a - b < 0:
+# elif a*b > 10 or a/b < 1:
+
+# Write your final complete code for Problem 15 here:
+def replace_logic(match):
+    symbol = match.group(0)
+    if symbol == "&&":
+        return "and"
+    if symbol == "||":
+        return "or"
+
+for _ in range(int(input())):
+    n = input()
+    print(re.sub(r"(?<= )(&&|\|\|)(?= )", replace_logic ,n))
