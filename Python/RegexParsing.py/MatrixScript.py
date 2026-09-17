@@ -202,3 +202,116 @@ text10 = "This$#is% Matrix#  %!"
 
 # Write your code for Problem 10 here:
 print(re.sub(r'\W+', ' ', text10))
+
+# ==========================================
+# BLOCK 3: Lookarounds Return!
+# ==========================================
+import re
+
+# ---------------------------------------------------------
+# Problem 11: Lookbehind for Alphanumerics
+# ---------------------------------------------------------
+# We want to match symbols (\W+), but ONLY if there is an alphanumeric (\w) behind them.
+# Task: Use `re.sub()` with a Positive Lookbehind.
+# Pattern: r"(?<=\w)\W+"
+# Replace it with a space " ", and run it on `text11`.
+# (Notice how it ignores the leading "$$" because there is no letter before it!)
+#
+# MOCK INPUT:
+text11 = "$$This$#is"
+#
+# EXPECTED OUTPUT:
+# $$This is
+
+# Write your code for Problem 11 here:
+print(re.sub(r'(?<=\w)\W+', ' ', text11))
+
+
+
+# ---------------------------------------------------------
+# Problem 12: Lookahead for Alphanumerics
+# ---------------------------------------------------------
+# Now we do the opposite. We want to match symbols (\W+), but ONLY if 
+# there is an alphanumeric (\w) ahead of them.
+# Task: Use `re.sub()` with a Positive Lookahead.
+# Pattern: r"\W+(?=\w)"
+# Replace with a space " ", and run it on `text12`.
+# (Notice how it ignores the trailing "$$" because there is no letter after it!)
+#
+# MOCK INPUT:
+text12 = "is% Matrix$$"
+#
+# EXPECTED OUTPUT:
+# is Matrix$$
+
+# Write your code for Problem 12 here:
+print(re.sub(r'\W+(?=\w)', ' ', text12))
+
+
+
+# ---------------------------------------------------------
+# Problem 13: The Ultimate "Between" Solver
+# ---------------------------------------------------------
+# Let's combine them to perfectly satisfy Neo's condition!
+# We want a word character behind, and a word character ahead.
+# Pattern: r"(?<=\w)\W+(?=\w)"
+# Task: Run this combined pattern using `re.sub()` on `text13`.
+# Replace matches with a single space " ".
+#
+# MOCK INPUT:
+text13 = "This$#is% Matrix#  %!"
+#
+# EXPECTED OUTPUT:
+# This is Matrix#  %!
+
+# Write your code for Problem 13 here:
+print(re.sub(r'(?<=\w)\W+(?=\w)', ' ', text13))
+
+
+
+# ---------------------------------------------------------
+# Problem 14: Testing the Edge Cases
+# ---------------------------------------------------------
+# Let's make absolutely sure this regex is bulletproof. 
+# It should ignore leading symbols, replace inner symbols, and ignore trailing symbols.
+# Task: Run your exact `re.sub()` code from Problem 13 on `text14`.
+#
+# MOCK INPUT:
+text14 = "!@# Neo$#is% The&*(One !@#"
+#
+# EXPECTED OUTPUT:
+# !@# Neo is The One !@#
+
+# Write your code for Problem 14 here:
+print(re.sub(r'(?<=\w)\W+(?=\w)', ' ', text14))
+
+
+
+# ---------------------------------------------------------
+# Problem 15: Applying it to the Transposed Matrix
+# ---------------------------------------------------------
+# Let's simulate the end of the script. 
+# 1. We transpose the matrix using your brilliant `zip(*matrix)` trick.
+# 2. We join it into one giant string.
+# 3. We run the final Regex lookaround substitution on that string.
+# Task: Write a script that loops through the transposed matrix, joins the 
+# characters into `final_string`, and then runs your `re.sub()` on `final_string`.
+# Print the fully decoded string!
+#
+# MOCK INPUT (Variables provided):
+matrix15 = [
+    "Tsi",
+    "h%x",
+    "i #",
+    "sM ",
+    "$a ",
+    "#t%",
+    "ir!"
+]
+
+# Write your code for Problem 15 here:
+new_matrix = ""
+for i in zip(*matrix15):
+    new_matrix += ''.join(i)
+
+print(re.sub(r'(?<=\w)\W+(?=\w)', ' ', new_matrix))
