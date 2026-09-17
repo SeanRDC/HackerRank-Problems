@@ -165,3 +165,143 @@ m = MockParser()
 m.handle_starttag("head", [])
 m.handle_endtag("head")
 m.handle_startendtag("br", [('class', 'clear')])
+
+# ==========================================
+# BLOCK 3: Final Assembly
+# ==========================================
+
+# ---------------------------------------------------------
+# Problem 11: The Real Parser Implementation
+# ---------------------------------------------------------
+# Task: Create a class `MyHTMLParser` inheriting from `HTMLParser`.
+# Paste in your 4 methods from Block 2 (`print_elements`, `handle_starttag`, 
+# `handle_startendtag`, and `handle_endtag`).
+#
+# (No execution needed, just build the complete class.)
+
+from html.parser import HTMLParser
+
+# Write your code for Problem 11 here:
+class MyHTMLParser(HTMLParser):
+    def print_elements(self, tag, attrs):
+        print(tag)
+        for name, value in attrs:
+            print(f"-> {name} > {value}")
+            
+    def handle_starttag(self, tag, attrs):
+        self.print_elements(tag, attrs)
+        
+    def handle_startendtag(self, tag, attrs):
+        self.print_elements(tag, attrs)
+            
+    def handle_endtag(self, tag):
+        pass
+
+# ---------------------------------------------------------
+# Problem 12: Testing the Real Parser
+# ---------------------------------------------------------
+# Task: Let's test your real parser!
+# Create an instance of `MyHTMLParser`.
+# Feed it this exact string: "<img src='logo.png' /></a>"
+# (Notice how it has an empty tag and an end tag. Your parser should process 
+# the empty tag and perfectly ignore the end tag!)
+#
+# EXPECTED OUTPUT:
+# img
+# -> src > logo.png
+
+# Write your code for Problem 12 here:
+o = MyHTMLParser()
+o.feed("<img src='logo.png' /></a>")
+
+
+
+# ---------------------------------------------------------
+# Problem 13: The Input Reader Function
+# ---------------------------------------------------------
+# In Part 3, the input format is exactly like Part 1: N lines of HTML.
+# Task: Write the same slick input reader logic you used in Part 1 to read N lines, 
+# join them into one giant string, and save it to a variable `html_string`.
+# Print the `html_string`.
+#
+# MOCK INPUT:
+# 2
+# <head>
+# <title>HTML</title>
+#
+# EXPECTED OUTPUT:
+# <head><title>HTML</title>
+
+# Write your code for Problem 13 here:
+user_input = "".join([input() for _ in range(int(input()))])
+print(user_input)
+
+
+# ---------------------------------------------------------
+# Problem 14: The Final Blueprint
+# ---------------------------------------------------------
+# You now have all the pieces! 
+# Task: Write the execution block. 
+# 1. Instantiate your `MyHTMLParser`.
+# 2. Get the input using your logic from Problem 13.
+# 3. Feed the input to the parser.
+#
+# MOCK INPUT:
+# 2
+# <html>
+# <head></head>
+#
+# EXPECTED OUTPUT:
+# html
+# head
+
+# Write your code for Problem 14 here:
+from html.parser import HTMLParser
+
+class MyHTMLParser(HTMLParser):
+    def print_elements(self, tag, attrs):
+        print(tag)
+        for name, value in attrs:
+            print(f"-> {name} > {value}")
+            
+    def handle_starttag(self, tag, attrs):
+        self.print_elements(tag, attrs)
+        
+    def handle_startendtag(self, tag, attrs):
+        self.print_elements(tag, attrs)
+            
+    def handle_endtag(self, tag):
+        pass
+
+m = MyHTMLParser()
+user_input = "".join([input() for _ in range(int(input()))])
+m.feed(user_input)
+
+# ---------------------------------------------------------
+# Problem 15: The Victory Lap
+# ---------------------------------------------------------
+# Task: Bring it all together in one clean script!
+# Put your `MyHTMLParser` class and your execution block together. 
+# This is the exact code you will copy and paste into HackerRank to pass!
+
+# Write your final complete code for Problem 15 here:
+from html.parser import HTMLParser
+
+class MyHTMLParser(HTMLParser):
+    def print_elements(self, tag, attrs):
+        print(tag)
+        for name, value in attrs:
+            print(f"-> {name} > {value}")
+            
+    def handle_starttag(self, tag, attrs):
+        self.print_elements(tag, attrs)
+        
+    def handle_startendtag(self, tag, attrs):
+        self.print_elements(tag, attrs)
+            
+    def handle_endtag(self, tag):
+        pass
+
+m = MyHTMLParser()
+user_input = "".join([input() for _ in range(int(input()))])
+m.feed(user_input)
