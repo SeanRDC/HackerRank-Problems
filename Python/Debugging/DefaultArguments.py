@@ -1,3 +1,6 @@
+# print_from_stream prints n values from a stream, creating a fresh EvenStream inside
+# the function instead of sharing one mutable default argument across calls.
+
 class EvenStream(object):
     def __init__(self):
         self.current = 0
@@ -16,7 +19,6 @@ class OddStream(object):
         self.current += 2
         return to_return
 
-# This is the one to edit
 def print_from_stream(n, stream=None):
     if stream is None:
         stream = EvenStream()
