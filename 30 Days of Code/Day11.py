@@ -1,3 +1,6 @@
+# Reads a 6x6 grid and slides a 3x3 hourglass shape over every position, tracking and
+# printing the largest hourglass sum.
+
 if __name__ == '__main__':
     arr = []
     for _ in range(6):
@@ -13,5 +16,5 @@ if __name__ == '__main__':
                             arr[i+2][j] + arr[i+2][j+1] + arr[i+2][j+2])
 
             max_sum = max(max_sum, current_sum)
-            
+
     print(max_sum)
