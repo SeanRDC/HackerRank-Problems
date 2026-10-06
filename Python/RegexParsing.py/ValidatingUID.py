@@ -1,3 +1,6 @@
+# Validates each UID with lookaheads: 10 alphanumeric characters, no repeats, at least
+# two uppercase letters, and at least three digits.
+
 import re
 
 for _ in range(int(input())):

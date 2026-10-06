@@ -1,10 +1,10 @@
-import re
-m = re.search(r'\d+','1234')
-print(m.end()) # 4
-print(m.start()) # 0
+# Wraps the substring k in a lookahead so overlapping matches are found, then prints the
+# start and end index of each occurrence in S or (-1, -1).
 
-S = input() # aaadaa
-k = input() # aa
+import re
+
+S = input()
+k = input()
 
 pattern = re.compile(rf'(?=({re.escape(k)}))')
 
@@ -17,6 +17,3 @@ if matches:
         print(f"({start_index}, {end_index})")
 else:
     print("(-1, -1)")
-
-
-

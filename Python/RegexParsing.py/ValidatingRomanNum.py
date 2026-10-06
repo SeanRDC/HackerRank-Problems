@@ -1,4 +1,7 @@
-regex_pattern = r"^M{0,3}(C[MD]|D?C{0,3})(X[LC]|L?X{0,3})(I[VX]|V?I{0,3})$"	# Do not delete 'r'.
+# Matches a valid Roman numeral up to 3999 by handling the thousands, hundreds, tens,
+# and ones as separate groups.
+
+regex_pattern = r"^M{0,3}(C[MD]|D?C{0,3})(X[LC]|L?X{0,3})(I[VX]|V?I{0,3})$"
 
 import re
 print(str(bool(re.match(regex_pattern, input()))))

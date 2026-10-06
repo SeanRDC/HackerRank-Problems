@@ -1,5 +1,8 @@
-regex_integer_in_range = r"^[1-9]\d{5}$"	# Do not delete 'r'.
-regex_alternating_repetitive_digit_pair = r"(\d)(?=\d\1)"	# Do not delete 'r'.
+# A postal code is valid when it lies between 100000 and 999999 and contains fewer than
+# two alternating repetitive digit pairs, which are found with a lookahead.
+
+regex_integer_in_range = r"^[1-9]\d{5}$"
+regex_alternating_repetitive_digit_pair = r"(\d)(?=\d\1)"
 
 
 import re
