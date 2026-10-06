@@ -1,28 +1,7 @@
+# Reads an N x M array and prints the mean along axis 1, the variance along axis 0, and
+# the standard deviation of the whole array.
+
 import numpy
-
-# Mean
-my_array = numpy.array([ [1, 2], [3, 4] ])
-
-print(numpy.mean(my_array, axis = 0)) 
-print(numpy.mean(my_array, axis = 1)) 
-print(numpy.mean(my_array, axis = None))
-print(numpy.mean(my_array))
-
-# Var
-my_array = numpy.array([ [1, 2], [3, 4] ])
-
-print(numpy.var(my_array, axis = 0))  
-print(numpy.var(my_array, axis = 1))        
-print(numpy.var(my_array, axis = None))      
-print(numpy.var(my_array))         
-
-# Std
-my_array = numpy.array([ [1, 2], [3, 4] ])
-
-print(numpy.std(my_array, axis = 0))
-print(numpy.std(my_array, axis = 1))
-print(numpy.std(my_array, axis = None))
-print(numpy.std(my_array))
 
 N, M = map(int, input().split())
 

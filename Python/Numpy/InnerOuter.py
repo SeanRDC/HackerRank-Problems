@@ -1,9 +1,7 @@
-import numpy 
+# Reads two integer arrays and prints their inner product followed by their outer
+# product.
 
-A = numpy.array([0, 1])
-B = numpy.array([3, 4])
-print(numpy.inner(A, B)) # Inner
-print(numpy.outer(A, B)) # Outer
+import numpy 
 
 a = numpy.array(input().split(), dtype=int)
 b = numpy.array(input().split(), dtype=int)

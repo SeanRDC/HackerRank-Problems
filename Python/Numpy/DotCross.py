@@ -1,10 +1,6 @@
+# Reads two N x N integer matrices and prints their matrix product.
+
 import numpy
-
-A = numpy.array([ 1, 2 ])
-B = numpy.array([ 3, 4 ])
-
-print(numpy.dot(A, B)) # Dot
-# print(numpy.cross(A, B)) # Cross
 
 n = int(input())
 a = numpy.array([input().split() for _ in range(n)], dtype=int)
