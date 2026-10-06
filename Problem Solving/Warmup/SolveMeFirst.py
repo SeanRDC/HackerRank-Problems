@@ -1,3 +1,5 @@
+# solveMeFirst returns the sum of the two integers read from input.
+
 def solveMeFirst(a,b):
 	return a + b
 
