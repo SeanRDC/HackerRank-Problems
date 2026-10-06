@@ -1,3 +1,6 @@
+# Reads n and prints 'Weird' or 'Not Weird' depending on whether n is odd or even and
+# which range it falls in.
+
 import math
 import os
 import random

@@ -1,3 +1,6 @@
+# Reads two integers and prints the result of integer division followed by float
+# division.
+
 if __name__ == '__main__':
     a = int(input())
     b = int(input())
