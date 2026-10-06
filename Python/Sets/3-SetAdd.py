@@ -1,3 +1,6 @@
+# Adds every country name to a set so duplicates collapse, then prints how many distinct
+# countries there are.
+
 n = int(input())
 
 empty_set = set()

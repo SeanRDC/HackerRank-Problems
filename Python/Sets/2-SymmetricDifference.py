@@ -1,3 +1,6 @@
+# Collects the values that appear in only one of the two sets and prints them in
+# ascending order, one per line.
+
 M = int(input())
 m = set(map(int, input().split()))
 N = int(input())

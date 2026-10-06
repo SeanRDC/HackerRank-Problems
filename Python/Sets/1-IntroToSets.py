@@ -1,5 +1,7 @@
+# Removes duplicate heights by converting the list to a set, then returns the average of
+# the distinct values.
+
 def average(array):
-    # your code goes here
     set_co = set(array)
     return sum(set_co) / len(set_co)
 
