@@ -1,3 +1,6 @@
+-- Creates the practice database and a CITY table with sample rows, then selects every
+-- column from CITY.
+
 CREATE DATABASE IF NOT EXISTS hackerrank_practice;
 
 DROP TABLE IF EXISTS hackerrank_practice.CITY;
@@ -17,5 +20,4 @@ VALUES
     (3, 'Tokyo', 'JPN', 'Tokyo', 13960000),
     (4, 'Smallville', 'USA', 'Kansas', 45000);
 
--- Your actual solution query!
 SELECT * FROM CITY
