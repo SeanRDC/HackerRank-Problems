@@ -12,88 +12,191 @@ import sys
 # The function accepts INTEGER n as parameter.
 #
 
+# ===================================================================
+# PRACTICE LADDER - 7 small problems that build up to staircase
+# ===================================================================
+# Solve them in order. Each one adds exactly ONE new idea.
+# Write each as its own small function and compare against the
+# sample output before moving on.
+#
+# In the samples below, every output starts in the same column (the
+# one where the first "#" of problem 1 sits). Any gap to the right of
+# that column is REAL leading spaces that your code must print.
+#
+# ---------------------------------------------------------------
+# PROBLEM 1 - Do it n times
+# ---------------------------------------------------------------
+# Given n, print a single "#" on n separate lines.
+# New idea: a `for` loop over range(n). There is no list this time,
+# the loop exists only to repeat something a set number of times.
+#
+#   Input:  3
+#   Output:
+#           #
+#           #
+#           #
+#
+#   Input:  1
+#   Output:
+#           #
+def do_it_n_times(n):
+    for _ in range(n):
+        print('#')
+
+do_it_n_times(3)
+# ---------------------------------------------------------------
+# PROBLEM 2 - Row numbers
+# ---------------------------------------------------------------
+# Given n, print the numbers 1 up to n, one per line.
+# New idea: range() starts at 0 and leaves out its stop value.
+# Find a way to make the loop variable go 1, 2, ..., n.
+#
+#   Input:  4
+#   Output:
+#           1
+#           2
+#           3
+#           4
+#
+#   Input:  1s
+#   Output:
+#           1
+n = 4
+for i in range(1, n + 1):
+    print(i)
+
+# ---------------------------------------------------------------
+# PROBLEM 3 - Many on one line
+# ---------------------------------------------------------------
+# Given n, print n "#" symbols on ONE line, with no loop.
+# New idea: multiplying a string by an integer.
+# Try "ab" * 3 in a terminal first.
+#
+#   Input:  4
+#   Output:
+#           ####
+#
+#   Input:  1
+#   Output:
+#           #
+
+print("#" * 4)
+# ---------------------------------------------------------------
+# PROBLEM 4 - Growing rows
+# ---------------------------------------------------------------
+# Given n, print n lines where row 1 has 1 hash, row 2 has 2 hashes,
+# and so on. No spaces anywhere.
+# New idea: problems 2 and 3 combined. The loop variable decides how
+# long each line is.
+#
+#   Input:  4
+#   Output:
+#           #
+#           ##
+#           ###
+#           ####
+#
+#   Input:  2
+#   Output:
+#           #
+#           ##
+def growing_rows(n):
+    for i in range(1, n+1):
+        print("#" * i)
+
+growing_rows(4)
+growing_rows(2)
+
+# ---------------------------------------------------------------
+# PROBLEM 5 - The other count
+# ---------------------------------------------------------------
+# Given n, print for each row how many SPACES that row of the
+# staircase needs, one number per line. Row 1 needs n - 1 spaces,
+# the last row needs 0.
+# New idea: a formula that uses BOTH n and the row number.
+# Hint: spaces + hashes always equals the same thing on every row.
+#
+#   Input:  4
+#   Output:
+#           3
+#           2
+#           1
+#           0
+#
+#   Input:  2
+#   Output:
+#           1
+#           0
+def the_other_count(n):
+    for i in range(n - 1, -1, -1):
+        print(i)
+the_other_count(4)
+
+# ---------------------------------------------------------------
+# PROBLEM 6 - One padded line
+# ---------------------------------------------------------------
+# Given width and k, print k hashes pushed to the RIGHT so the whole
+# line is exactly `width` characters long.
+# New idea: building two repeated strings and joining them with +.
+# Do not pass them to print() as two arguments: problem 6 of
+# MinMaxSum showed what print() puts between its arguments.
+#
+#   Input:  4, 1
+#   Output:
+#              #
+#   (3 spaces, then 1 hash)
+#
+#   Input:  4, 3
+#   Output:
+#            ###
+#   (1 space, then 3 hashes)
+#
+#   Input:  4, 4
+#   Output:
+#           ####
+#   (0 spaces, then 4 hashes)
+def one_padded_line(width, k):
+    space = width - k
+    line = (" " * space) + ("#" * k)
+    print(line)
+    
+one_padded_line(4, 4)
+        
+# ---------------------------------------------------------------
+# PROBLEM 7 - Staircase (the real thing, solve it below)
+# ---------------------------------------------------------------
+# Given n, print a right-aligned staircase of height n and width n.
+# Every line is exactly n characters: spaces first, then hashes.
+# Problem 4 gives you the hashes, problem 5 gives you the spaces,
+# problem 6 glues them into one line.
+#
+#   Input:  4
+#   Output:
+#              #
+#             ##
+#            ###
+#           ####
+#
+#   Input:  6
+#   Output:
+#                #
+#               ##
+#              ###
+#             ####
+#            #####
+#           ######
+#
+#   Input:  1
+#   Output:
+#           #
+#
+
 def staircase(n):
     # Write your code here
-    #
-    # ---------------------------------------------------------------
-    # THE IDEA
-    # ---------------------------------------------------------------
-    # Don't think of this as "drawing a shape". Think of it as printing
-    # n lines of text, where every line is built from two pieces:
-    #
-    #     [ some spaces ][ some # symbols ]
-    #
-    # The whole problem is working out HOW MANY of each go on each line.
-    #
-    # ---------------------------------------------------------------
-    # STEP 1 - Find the pattern on paper first (do this before coding)
-    # ---------------------------------------------------------------
-    # Fill in this table for n = 4. The first row is done for you:
-    #
-    #     row | spaces | hashes | spaces + hashes
-    #     ----+--------+--------+----------------
-    #      1  |   3    |   1    |       4
-    #      2  |   ?    |   ?    |       ?
-    #      3  |   ?    |   ?    |       ?
-    #      4  |   ?    |   ?    |       ?
-    #
-    # Now answer these:
-    #   - How does the number of hashes relate to the row number?
-    #   - What does the last column always equal?
-    #   - So if you know the hashes, how do you get the spaces
-    #     using only n and the row number?
-    #
-    # Once you can write both counts as a small formula in terms of
-    # n and the row number, the coding part is short.
-    #
-    # ---------------------------------------------------------------
-    # STEP 2 - Loop once per row
-    # ---------------------------------------------------------------
-    # Tools you need: a `for` loop with range().
-    #
-    # Watch out: range(n) starts counting at 0, not 1. Your table above
-    # starts at row 1. You have two ways to deal with that:
-    #   - give range() a start and a stop so it counts 1..n, or
-    #   - keep it starting at 0 and adjust your formulas by one.
-    # Either works. Pick one and be consistent. Also remember the stop
-    # value of range() is NOT included.
-    #
-    # ---------------------------------------------------------------
-    # STEP 3 - Build one line
-    # ---------------------------------------------------------------
-    # Tool you need: string repetition. In Python you can MULTIPLY a
-    # string by an integer. Try this in a terminal and see what happens:
-    #     "ab" * 3
-    # Use that idea twice (once for the spaces, once for the hashes),
-    # then join the two pieces with string concatenation.
-    #
-    # ---------------------------------------------------------------
-    # STEP 4 - Print it
-    # ---------------------------------------------------------------
-    # print() already ends each call with a newline, so one print per
-    # row gives you one line per row. Nothing extra needed.
-    #
-    # ---------------------------------------------------------------
-    # COMMON MISTAKES
-    # ---------------------------------------------------------------
-    #   - Off by one: the first row has 1 hash, not 0. The last row has
-    #     n hashes and 0 spaces. Test your formulas on both of those rows.
-    #   - Spaces on the wrong side: they go BEFORE the hashes. Nothing
-    #     comes after the hashes.
-    #   - Passing the two pieces to print() as separate arguments: print
-    #     puts a space between its arguments, which would shift your stairs.
-    #
-    # To test locally, run the file and type a number such as 6.
-    #
-    # ---------------------------------------------------------------
-    # AFTER IT PASSES (stretch thinking, optional)
-    # ---------------------------------------------------------------
-    #   - Python strings have a built-in method that right-aligns text
-    #     to a given width, which replaces the manual spaces entirely.
-    #     Search "python string right justify" and try a second version.
-    #   - Could you solve it with nested loops and no string
-    #     multiplication? It's longer, but it shows what the `*` is
-    #     doing for you underneath.
+    for k in range(1, n + 1):
+        spaces = ' ' * (n -k)
+        hashes = '#' * k
+        print(spaces + hashes)
 
 if __name__ == '__main__':
     n = int(input().strip())
